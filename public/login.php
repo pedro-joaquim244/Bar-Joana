@@ -4,6 +4,18 @@ require_once __DIR__ . '/../app/config/conexao.php';
 require_once __DIR__ . '/../app/config/auth.php';
 
 $paginaAtual = 'login';
+
+$erro=null;
+if($_SERVER['REQUEST_METHOD']==="POST"){
+  $email= trim($_POST['email']??'');
+  $senha= trim($_POST['senha']??'');
+  if(login($conn, $email, $senha)){
+    header("Location: /index.php");
+    exit;
+  }else{
+    $erro= "Email ou senha invalidos";
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -36,6 +48,11 @@ $paginaAtual = 'login';
         <button type="submit">Entrar</button>
       </form>
     </div>
+
+<?php if (isset($erro)): ?>
+  <p><?= $erro ?></p>
+  <?php endif; ?>
+
 
     <p>Não tem uma conta? <a href="criar-conta.php">Cadastre-se aqui</a>.</p>
   </main>

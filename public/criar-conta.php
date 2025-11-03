@@ -50,46 +50,50 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 </head>
 
 <body>
-  
-<div class="container-foto">
-  <img src="./assets/imgs/Fundo-Cerveja.jpg" alt="">
-  <div class="container-escrita">
-    <h1>Criar conta</h1>
 
-    <form method="POST">
-      <label>Email</label>
-      <input type="email" name="email" placeholder="seuemail@exemplo.com" required>
+  <div class="container-foto">
+    <img src="./assets/imgs/telaloginfundo.png" alt="">
+    <div class="container-escrita">
 
-      <label>Nome Completo</label>
-      <input type="text" name="nome" placeholder="Seu nome completo" required>
 
-      <label>Endereço</label>
-      <input type="text" name="logradouro" placeholder="Rua, avenida..." required>
+      <form method="POST">
+        <h1>Criar conta</h1>
+        <label>Email</label>
+        <input type="email" name="email" placeholder="seuemail@exemplo.com" required>
 
-      <label>Bairro</label>
-      <input type="text" name="bairro" placeholder="Ex.: Centro" required>
+        <label>Nome Completo</label>
+        <input type="text" name="nome" placeholder="Seu nome completo" required>
 
-      <label>Complemento</label>
-      <input type="text" name="complemento" placeholder="Apto, bloco, casa...">
+        <label>Endereço</label>
+        <input type="text" name="logradouro" placeholder="Rua, avenida..." required>
 
-      <label>Número</label>
-      <input type="number" name="numero" placeholder="Ex.: 123" required>
+        <label>Bairro</label>
+        <input type="text" name="bairro" placeholder="Ex.: Centro" required>
 
-      <label>Senha</label>
-      <input type="password" name="senha" placeholder="Crie uma senha" required>
+        <label>Complemento</label>
+        <input type="text" name="complemento" placeholder="Apto, bloco, numero...">
 
-      <button type="submit">Cadastrar</button>
+        
 
-      <?php if ($erro): ?>
-        <p><? $erro; ?></p>
-      <?php endif; ?>
+        <label>Senha</label>
+        <input type="password" name="senha" placeholder="Crie uma senha" required>
 
-      <a href="login.php">Fazer Login</a>
-      <a href="index.php">Página principal</a>
-    </form>
+        <div class="botoes">
+          
+          <button type="submit">Cadastrar</button>
+          
+          <?php if ($erro): ?>
+            <p><? $erro; ?></p>
+            <?php endif; ?>
+            
+            
+            <a href="login.php" class="btn">Fazer Login</a>
+            <a href="index.php" class="btn">Página principal</a>
+          </div>
+      </form>
+    </div>
   </div>
-</div>
-  <?php include "../app/components/footer.php"; ?>
+ 
 </body>
 
 </html>

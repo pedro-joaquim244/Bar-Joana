@@ -1,5 +1,4 @@
-
-body{
+body {
     background-color: rgb(0, 0, 0);
 }
 
@@ -11,24 +10,29 @@ input {
     border-color: #6b0303;
     width: 500px;
 }
-.container-foto{
-  img {
+
+.container-foto {
+    justify-content: center;
+
+    img {
         filter: brightness(95%);
         position: absolute;
-        
+
         z-index: 1;
-        
+
         width: 100%;
-        height: 114%;
+        height: 112%;
     }
+
     z-index: 1;
-    justify-content: left;
+
 }
 
 
-.container-escrita{
-    width: 40%;
+.container-escrita {
+    width: 100%;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -36,18 +40,67 @@ input {
     position: relative;
     display: flex;
     align-items: center;
-    padding-top: 118px;
-    padding-left: 200px;
-    h1{
-        color: #e60808;
-    }
+    padding-top: 18px;
 
-    a {
-        color: #F70000;
-    }
 
-  
+    h1 {
+        color:#c52b2b;
+    }
 }
+/* 
+    a {
+
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgb(255, 0, 0);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: #ff0000;
+        cursor: pointer
+    }
+}
+} */
+
+
+/* Container para alinhar lado a lado */
+.botoes {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  gap: 10px; /* espaçamento entre os botões */
+  flex-wrap: wrap; /* permite quebrar linha se precisar */
+}
+
+/* Estilo comum para ambos */
+.botoes button,
+.botoes .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #c52b2b;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  width: 200px; /* mesmo tamanho */
+  text-align: center;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+/* Efeito hover igual para ambos */
+.botoes button:hover,
+.botoes .btn:hover {
+  background-color: #730606;
+}
+
+
+
 
 .titulo {
     margin-top: 16px;
@@ -61,26 +114,32 @@ input {
 }
 
 form {
+   
     z-index: 3;
     display: flex;
     justify-content: center;
-    align-items:center ;
+    align-items: center;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.67);
+    background-color: rgba(255, 255, 255, 0.933);
     border-radius: 32px;
-    gap: 4px;
+    gap: 6px;
     width: 600px;
-    height: 621px;
-    
-    margin-bottom: 22px;
+    height: 677px;
+
+   
     font-family: "Montserrat";
-    
-    
+
+
 }
 
-button {
+
+
+/* button {
     border-radius: 50PX;
     background-color: #F70000;
     padding: 10px;
     width: 500px;
-}
+    &:hover{
+        background-color: #730606;
+    }
+} */

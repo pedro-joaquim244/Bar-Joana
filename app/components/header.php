@@ -1,4 +1,11 @@
 <?php
+
+if($_SERVER['REQUEST_METHOD']==="POST" && isset ($_POST['logout'])){
+    logout();
+    header("Location: /index.php");
+    exit;
+}
+
 $paginaAtual ??= "";
 $funcao = $_SESSION['funcao'] ?? null;
 ?>
