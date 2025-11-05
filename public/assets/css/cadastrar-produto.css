@@ -45,6 +45,7 @@ main {
     flex-wrap: wrap;
     gap: 24px;
     justify-content: center;
+    align-items: center;
 }
 
 /* CAIXAS DE CONTEÚDO */

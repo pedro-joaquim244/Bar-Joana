@@ -107,6 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         <span class="nome-arquivo" id="nome-arquivo">Nenhum arquivo selecionado</span>
       </div>
     </div>
+    
     <button type="submit">
       Salvar
     </button>
