@@ -59,7 +59,7 @@ form {
     gap: 8px;
     width: 600px;
     height: 330px;
-    text-align: center;
+    text-align: center;}
 
     h1 {
         color: #c52b2b;
@@ -67,7 +67,7 @@ form {
     }
 
     a {
-        color: #ff0303;
+        /* color: #ff0303; */
         text-decoration: none;
         transition: color 0.3s;
 
@@ -110,4 +110,4 @@ form {
             }
         }
     }
-}
+

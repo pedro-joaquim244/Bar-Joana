@@ -45,6 +45,7 @@ input {
 
     h1 {
         color:#c52b2b;
+         font-family: 'poppins' sans-serif;
     }
 }
 /* 
@@ -106,10 +107,10 @@ input {
     margin-top: 16px;
     margin-bottom: 12px;
     z-index: 2;
-
+    
     h1 {
         color: rgb(255, 0, 0);
-        font-family: "Montserrat";
+       
     }
 }
 
@@ -145,3 +146,11 @@ form {
         background-color: #730606;
     }
 } */
+
+
+label{
+font-family: 'poppins' sans-serif;
+
+
+
+}

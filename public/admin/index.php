@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../../app/config/conexao.php';
 require_once __DIR__ . '/../../app/config/auth.php';
 
-$paginaAtual = "inicio";
+$paginaAtual = "index";
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

@@ -13,8 +13,8 @@ $paginaAtual = 'perfil';
   <title>Perfil - Fast Food (Estático)</title>
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="./assets/css/perfil.css">
-  <link rel="stylesheet" href="./assets/components/css/header.css">
-  <link rel="stylesheet" href="./assets/components/css/footer.css">
+  <link rel="stylesheet" href="./assets//css/components/header.css">
+  <link rel="stylesheet" href="./assets/css/components/footer.css">
 </head>
 
 <body>

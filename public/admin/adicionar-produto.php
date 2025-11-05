@@ -3,6 +3,8 @@
 require_once __DIR__ . '/../../app/config/conexao.php';
 require_once __DIR__ . '/../../app/config/auth.php';
 
+$paginaAtual = "adicionar-produto";
+
 if (!estaLogado() || !($_SESSION['funcao'] ?? "")) {
   header('location: /index.php');
 }
@@ -59,32 +61,42 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 <body>
   <?php include '../../app/components/header.php'; ?>
 
+  <h1 class="titulo-principal">Adicionar Produto</h1>
   <main class="conteudo-principal">
-    <h1 class="titulo-principal">Adicionar Produto</h1>
+    <div class="tudinho">
+      <div class="Basicas">
+        <form method="POST" enctype="multipart/form-data" class="form-produto">
+          <div class="campo">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Ex.: Donut de Chocolate" required>
+          </div>
 
-    <form method="POST" enctype="multipart/form-data" class="form-produto">
-      <div class="campo">
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" name="nome" placeholder="Ex.: Donut de Chocolate" required>
-      </div>
+          <div class="grupo-flex">
+            <div class="campo metade">
+              <label for="preco">Preço</label>
+              <input type="number" id="preco" step="0.01" name="preco" placeholder="Ex.: 12.90" required>
+            </div>
 
-      <div class="campo">
-        <label for="descricao">Descrição</label>
-        <textarea id="descricao" name="descricao" placeholder="Fale brevemente sobre o produto" required></textarea>
-      </div>
+            <div class="campo metade">
+              <label for="status">Status</label>
+              <select id="status" name="status" required>
+                <option value="ativo" selected>Ativo</option>
+                <option value="inativo">Inativo</option>
+              </select>
+            </div>
+          </div>
 
-      <div class="grupo-flex">
-        <div class="campo metade">
-          <label for="preco">Preço</label>
-          <input type="number" id="preco" step="0.01" name="preco" placeholder="Ex.: 12.90" required>
-        </div>
+        </form>
+        <div class="descrição">
 
-        <div class="campo metade">
-          <label for="status">Status</label>
-          <select id="status" name="status" required>
-            <option value="ativo" selected>Ativo</option>
-            <option value="inativo">Inativo</option>
-          </select>
+          <form method="POST" enctype="multipart/form-data" class="form-descri">
+            <div class="campo">
+              <label for="descricao">Descrição</label>
+              <textarea id="descricao" name="descricao" placeholder="Fale brevemente sobre o produto"
+                required></textarea>
+            </div>
+          </form>
+
         </div>
       </div>
 
@@ -94,9 +106,10 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         <input type="file" id="imagem" name="imagem" accept="image/*" onchange="mostrarNomeArquivo(this)" required>
         <span class="nome-arquivo" id="nome-arquivo">Nenhum arquivo selecionado</span>
       </div>
-
-      <button type="submit" class="botao-salvar">Salvar</button>
-    </form>
+    </div>
+    <button type="submit">
+      Salvar
+    </button>
 
     <?php if ($erro): ?>
       <p><?= $erro ?></p>

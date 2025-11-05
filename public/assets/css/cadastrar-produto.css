@@ -1,163 +1,189 @@
-/* ========== VARIÁVEIS GERAIS ========== */
-:root {
-    --fundo: #fff8e7;
-    --fundo-card: #ffffff;
-    --primaria: #e63946;
-    --primaria-escura: #b02028;
-    --texto: #222;
-    --texto-suave: #666;
-    --borda: #ddd;
-    --raio: 10px;
-    --sombra: 0 4px 12px rgba(0, 0, 0, 0.08);
-    font-family: "Poppins", "Segoe UI", Roboto, sans-serif;
-}
-
-/* ========== LAYOUT GERAL ========== */
-body {
-    background: var(--fundo);
-    color: var(--texto);
+/* RESET BÁSICO */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-main {
-    max-width: 650px;
-    margin: 60px auto;
-    background: var(--fundo-card);
-    border-radius: var(--raio);
-    box-shadow: var(--sombra);
-    padding: 2.5rem;
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.conteudo-principal {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 38px;
 }
 
-/* ========== TÍTULO ========== */
-main h1 {
-    text-align: center;
+.titulo-principal {
     font-size: 2rem;
-    color: var(--primaria);
-    letter-spacing: 0.5px;
-    border-bottom: 3px solid var(--primaria);
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
+    font-weight: 350;
+    color: #111;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    color: #871010;
+    font-family: "Poppins", sans-serif;
+    font-weight: 3F50;
+    font-style: normal;
+    padding-top: 20px;
 }
 
-/* ========== FORMULÁRIO ========== */
-.form-produto {
+.conteudo-principal p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* GRADE PRINCIPAL */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+}
+
+/* CAIXAS DE CONTEÚDO */
+.Basicas,
+.descrição {
+    background: #fff;
+    border: 2px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 24px;
+    flex: 1;
+    min-width: 420px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* CAMPOS DO FORMULÁRIO */
+.form-produto,
+.form-descri {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 16px;
 }
 
-/* Cada grupo de campo */
-.campo {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-}
-
-/* Rótulo */
 .campo label {
+    display: block;
     font-weight: 600;
+    margin-bottom: 6px;
     font-size: 0.95rem;
+    color: #871010;
 }
 
-/* Campos de entrada */
-.campo input[type="text"],
-.campo input[type="number"],
-.campo input[type="file"],
-.campo textarea,
-.campo select {
-    padding: 0.8rem;
-    border-radius: var(--raio);
-    border: 1px solid var(--borda);
-    font-size: 1rem;
-    outline: none;
-    background-color: #fffdfd;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Foco */
-.campo input:focus,
-.campo textarea:focus,
-.campo select:focus {
-    border-color: var(--primaria);
-    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.15);
-}
-
-/* Textarea */
+.campo input,
+.campo select,
 .campo textarea {
-    resize: vertical;
-    min-height: 100px;
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border 0.2s;
 }
 
-/* Campo de upload com flex */
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    border-color: #b30000;
+}
+
+/* INPUT DE ARQUIVO */
 .campo-upload {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    height: 352.4px;
+    background: #fff;
+    border: 2px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    flex: 1;
+    min-width: 420px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Personalização do input file */
-.campo-upload input[type="file"] {
-    display: none;
+.campo-upload label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+    color: #871010;
 }
 
 .botao-upload {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--primaria);
-    color: #fff;
-    border: none;
-    border-radius: var(--raio);
-    padding: 10px 18px;
+    display: inline-block;
+    padding: 10px 16px;
+    background: #f8f8f8;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: 600;
-    transition: background 0.2s ease, transform 0.1s ease;
+    color: #777;
+    transition: background 0.3s;
 }
 
 .botao-upload:hover {
-    background: var(--primaria-escura);
-    transform: scale(1.02);
+    background: #f2f2f2;
+}
+
+#imagem {
+    display: none;
 }
 
 .nome-arquivo {
+    display: block;
+    margin-top: 10px;
     font-size: 0.9rem;
-    color: var(--texto-suave);
-    font-style: italic;
+    color: #777;
 }
 
-/* ========== BOTÃO SALVAR ========== */
-.botao-salvar {
-    background: var(--primaria);
+/* GRUPOS */
+.grupo-flex {
+    display: flex;
+    gap: 16px;
+}
+
+.metade {
+    flex: 1;
+}
+
+/* BOTÃO SALVAR */
+button[type="submit"] {
+    background-color: hsl(0, 100%, 36%);
     color: #fff;
-    font-weight: 600;
+    font-weight: bold;
     border: none;
-    border-radius: var(--raio);
     padding: 0.9rem;
+    border-radius: var(--radius);
     font-size: 1rem;
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.1s ease;
-    align-self: center;
-    width: 200px;
+    transition: all 0.2s ease;
+    border-radius: 10px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button[type="submit"]:hover {
+    background-color: #871010;
+    transform: translateY(-2px);
+}
+
+/* MENSAGEM DE ERRO */
+p {
+    color: #c00000;
     text-align: center;
+    margin-top: 12px;
 }
 
-.botao-salvar:hover {
-    background: var(--primaria-escura);
-    transform: translateY(-1px);
-}
 
-/* ========== RESPONSIVO ========== */
-@media (max-width: 600px) {
-    main {
-        margin: 30px 15px;
-        padding: 1.5rem;
-    }
 
-    .botao-salvar {
-        width: 100%;
-    }
+.tudinho{
+    display: flex;
+    align-items: center;
+    
+    gap: 8px;
 }

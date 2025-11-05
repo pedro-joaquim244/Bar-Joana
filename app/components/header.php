@@ -1,6 +1,5 @@
 <?php
-
-if($_SERVER['REQUEST_METHOD']==="POST" && isset ($_POST['logout'])){
+if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['logout'])) {
     logout();
     header("Location: /index.php");
     exit;
@@ -9,58 +8,61 @@ if($_SERVER['REQUEST_METHOD']==="POST" && isset ($_POST['logout'])){
 $paginaAtual ??= "";
 $funcao = $_SESSION['funcao'] ?? null;
 ?>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Anton&family=Audiowide&family=Be+Vietnam+Pro:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <header>
+    <div class="logo">
+        <a class="logoFoto" href="/index.php">
+            <img src="/assets/imgs/LogoJoaninha.png" alt="Logo" />
+            <div class="logotxt">
+            <h1>Boteco</h1>
+            <h2>J O A N A</h2>
+        </div>
+        </a>
+        
+    </div>
 
-    <a class="logo" href="/index.php">
-        <img src="/assets/imgs/logo.jpg" alt="Logo" />
-    </a>
     <nav class="menu">
-        <a href="/index.php" class=" link-menu<?= $paginaAtual === "Home" ? "ativo" : "" ?>">Home</a>
-        <a href="/usuario/cardapio.php"
-            class=" link-menu <?= $paginaAtual === "cardapio" ? "ativo" : "" ?>">Cardápio</a>
-        <a href="/usuario/cardapio.php" class=" link-menu <?= $paginaAtual === "Nossa-Hisória" ? "ativo" : "" ?>">Nossa
-            História</a>
-        <?php
-        if ($funcao): ?>
-            <?php
-            if ($funcao === "cliente"): ?>
-                <a href="/usuario/carrinho.php"
-                    class=" link-menu <?= $paginaAtual === "carrinho" ? "ativo" : "" ?>">Carrinho</a>
-                <a href="/usuario/compras.php" class=" link-menu <?= $paginaAtual === "status-pedido" ? "ativo" : "" ?>">Status
-                    do Pedido</a>
-                <a href="/usuario/compras.php" class=" link-menu <?= $paginaAtual === "pedidos" ? "ativo" : "" ?>">Pedidos</a>
+        <!-- Telas comuns -->
+        <a href="/index.php" class="link-menu <?= $paginaAtual === "Home" ? "ativo" : "" ?>">Tela Inicial</a>
+        <a href="/usuario/historia.php" class="link-menu <?= $paginaAtual === "historia" ? "ativo" : "" ?>">Nossa História</a>
+
+        <?php if ($funcao): ?>
+            <?php if ($funcao === "cliente"): ?>
+                <!-- Menus do cliente -->
+                <a href="/usuario/cardapio.php" class="link-menu <?= $paginaAtual === "cardapio" ? "ativo" : "" ?>">Cardápio</a>
+                <a href="/usuario/carrinho.php" class="link-menu <?= $paginaAtual === "carrinho" ? "ativo" : "" ?>">Carrinho</a>
+                <a href="/perfil.php" class="link-menu <?= $paginaAtual === "perfil" ? "ativo" : "" ?>">Perfil</a>
 
             <?php elseif ($funcao === "admin"): ?>
-
-
-                <a href="/admin/vendas.php" class=" link-menu <?= $paginaAtual === "pedidos" ? "ativo" : "" ?>">Pedidos</a>
-                <a href="/admin/adicionar-produto.php"
-                    class=" link-menu <?= $paginaAtual === "adicionar-produto" ? "ativo" : "" ?>">Adicionar Produto</a>
-
-
-
+                <!-- Menus do admin -->
+                <a href="/admin/adicionar-produto.php" class="link-menu <?= $paginaAtual === "adicionar-produto" ? "ativo" : "" ?>">Adicionar Produto</a>
+                <a href="/admin/vendas.php" class="link-menu <?= $paginaAtual === "vendas" ? "ativo" : "" ?>">Vendas</a>
+                <a href="/perfil.php" class="link-menu <?= $paginaAtual === "perfil" ? "ativo" : "" ?>">Perfil</a>
             <?php endif; ?>
-            <a href="/perfil.php" class=" link-menu <?= $paginaAtual === "perfil" ? "ativo" : "" ?>">Perfil</a>
-            <form method="post">
-                <button type="submit" name="logout" class="">
-                    Sair
-                </button>
-            </form>
+
         <?php else: ?>
-            <a href="/login.php" class=" link-menu <?= $paginaAtual === "login" ? "ativo" : "" ?>">Entrar</a>
-            <a href="/criar-conta.php" class=" link-menu <?= $paginaAtual === "criar-conta" ? "ativo" : "" ?>">Cadastrar</a>
+            <!-- Menus de visitante -->
+            <a href="/criar-conta.php" class="link-menu <?= $paginaAtual === "criar-conta" ? "ativo" : "" ?>">Cadastrar</a>
+            <a href="/login.php" class="link-menu <?= $paginaAtual === "login" ? "ativo" : "" ?>">Entrar</a>
         <?php endif; ?>
-
-        <a class="carrinho" href="/index.php">
-            <img src="/assets/imgs/carrinho.png" alt="Logo" />
-        </a>
-        <a class="usuario" href="/index.php">
-            <img src="/assets/imgs/usuario.png" alt="Logo" />
-        </a>
-
-
     </nav>
 
-
+    <nav class="icones">
+        <a class="icone" href="/usuario/carrinho.php">
+            <img src="/assets/imgs/carrinho.png" alt="Carrinho" />
+        </a>
+        <a class="icone" href="/perfil.php">
+            <img src="/assets/imgs/usuario.png" alt="Usuário" />
+        </a>
+        <?php if ($funcao): ?>
+            <form method="post">
+                <button type="submit" name="logout" class="btn-sair">
+                    <img src="/assets/imgs/Sair.png" alt="Sair">
+                </button>
+            </form>
+        <?php endif; ?>
+    </nav>
 </header>

@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             <div class="botoes">
               <button type="submit">Entrar</button>
             </div>
-            <p>Não tem uma conta? <a href="criar-conta.php">Cadastre-se aqui</a>.</p>
+            <p>Não tem uma conta? <a id="idDois" href="criar-conta.php">Cadastre-se aqui</a>.</p>
           </form>
         </div>
         
