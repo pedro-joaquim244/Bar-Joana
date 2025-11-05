@@ -1,0 +1,121 @@
+:root {
+  --vermelho-boteco: #b22222;
+  --bege-claro: #fff8e7;
+  --texto-escuro: #2c2c2c;
+  --cinza-suave: #ddd;
+  --radius: 10px;
+  --sombra: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+body {
+  background-color: var(--bege-claro);
+  color: var(--texto-escuro);
+  margin: 0;
+  padding: 0;
+}
+
+/* Container geral */
+main {
+  max-width: 800px;
+  margin: 60px auto;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--sombra);
+}
+
+/* Título */
+.Titulo {
+  color: #c0392b; /* cor do texto */
+  text-align: center; /* centraliza */
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex; /* deixa o tamanho da linha igual ao texto */
+  padding-bottom: 10px; /* espaço entre o texto e a linha */
+ justify-content: center;
+  border-bottom: 3px solid #e74c3c; /* linha vermelha */
+  /* 🔹 aqui você controla o tamanho da linha */
+}
+/* h1 {
+  text-align: center;
+  color: var(--vermelho-boteco);
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
+   border-bottom: 0.2rem solid #b22222; 
+   padding-bottom: 10px; 
+
+} */
+
+/* Formulário */
+section form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.grupo-campo {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--vermelho-boteco);
+}
+
+input {
+  padding: 0.8rem;
+  border: 1px solid var(--cinza-suave);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--vermelho-boteco);
+  box-shadow: 0 0 0 2px rgba(178, 34, 34, 0.2);
+}
+
+/* Campos lado a lado */
+.linha-dupla {
+  display: flex;
+  gap: 1rem;
+}
+
+.linha-dupla .grupo-campo {
+  flex: 1;
+}
+
+/* Botão */
+button[type="submit"] {
+  background-color: var(--vermelho-boteco);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  padding: 0.9rem;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #8b1a1a;
+  transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  main {
+    margin: 30px 15px;
+    padding: 1.5rem;
+  }
+
+  .linha-dupla {
+    flex-direction: column;
+  }
+}

@@ -5,18 +5,19 @@ require_once __DIR__ . '/../app/config/auth.php';
 
 $paginaAtual = 'login';
 
-$erro=null;
-if($_SERVER['REQUEST_METHOD']==="POST"){
-  $email= trim($_POST['email']??'');
-  $senha= trim($_POST['senha']??'');
-  if(login($conn, $email, $senha)){
+$erro = null;
+if ($_SERVER['REQUEST_METHOD'] === "POST") {
+  $email = trim($_POST['email'] ?? '');
+  $senha = trim($_POST['senha'] ?? '');
+  if (login($conn, $email, $senha)) {
     header("Location: /index.php");
     exit;
-  }else{
-    $erro= "Email ou senha invalidos";
+  } else {
+    $erro = "Email ou senha invalidos";
   }
 }
-?>
+''
+  ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -32,32 +33,38 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
 </head>
 
 <body>
-  <?php include "../app/components/header.php"; ?>
 
-  <main>
-    <h1>Login</h1>
 
-    <div>
-      <form method="POST">
-        <label for="email">Email:</label>
-        <input id="email" type="email" name="email" placeholder="seuemail@exemplo.com" required>
 
-        <label for="senha">Senha:</label>
-        <input id="senha" type="password" name="senha" placeholder="••••••••" required>
+  <div class="container-foto">
+    <div class="container-escrita">
 
-        <button type="submit">Entrar</button>
-      </form>
+
+      <main>
+        <div class="pai">
+          <form method="POST">
+            <h1>Login</h1>
+            <label for="email">Email:</label>
+            <input id="email" type="email" name="email" placeholder="seuemail@exemplo.com" required>
+            
+            <label for="senha">Senha:</label>
+            <input id="senha" type="password" name="senha" placeholder="••••••••" required>
+            <div class="botoes">
+              <button type="submit">Entrar</button>
+            </div>
+            <p>Não tem uma conta? <a href="criar-conta.php">Cadastre-se aqui</a>.</p>
+          </form>
+        </div>
+        
+        <?php if (isset($erro)): ?>
+          <p><?= $erro ?></p>
+        <?php endif; ?>
+
+
+      </main>
     </div>
+  </div>
 
-<?php if (isset($erro)): ?>
-  <p><?= $erro ?></p>
-  <?php endif; ?>
-
-
-    <p>Não tem uma conta? <a href="criar-conta.php">Cadastre-se aqui</a>.</p>
-  </main>
-
-  <?php include "../app/components/footer.php"; ?>
 </body>
 
 </html>

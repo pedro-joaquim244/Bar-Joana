@@ -1,0 +1,105 @@
+:root {
+  --bg: #fafafa;
+  --primary: #ffffff;
+  --primary-dark: #ffffff;
+  --text: #222;
+  --muted: #666;
+  --border: #ddd;
+  --radius: 10px;
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ----------- layout geral ----------- */
+body {
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  
+}
+
+main {
+  max-width: 600px;
+  margin: 60px auto;
+  background: #c62d3a;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+}
+
+/* ----------- formulário ----------- */
+.editar-produto {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.editar-produto label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: rgb(255, 255, 255);
+}
+
+.editar-produto input[type="text"],
+.editar-produto input[type="number"],
+.editar-produto input[type="file"],
+.editar-produto textarea,
+.editar-produto select {
+  padding: 0.8rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.editar-produto input:focus,
+.editar-produto textarea:focus,
+.editar-produto select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.15);
+}
+
+.editar-produto textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ----------- botão ----------- */
+.editar-produto button {
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.9rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.editar-produto button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.editar-produto button:active {
+  transform: translateY(0);
+}
+
+/* ----------- responsivo ----------- */
+@media (max-width: 600px) {
+  main {
+    margin: 30px 15px;
+    padding: 1.5rem;
+  }
+}

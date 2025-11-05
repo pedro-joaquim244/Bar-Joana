@@ -19,9 +19,11 @@ $paginaAtual = 'perfil';
 
 <body>
   <?php include "../app/components/header.php"; ?>
+<div class="Titulo">
 
   <h1>Perfil</h1>
-
+  
+</div>
   <section>
     <form method="POST">
       <label for="nome">Nome</label>
