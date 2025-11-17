@@ -7,6 +7,7 @@ $paginaAtual = "adicionar-produto";
 
 if (!estaLogado() || !($_SESSION['funcao'] ?? "")) {
   header('location: /index.php');
+  exit;
 }
 
 $erro = "";

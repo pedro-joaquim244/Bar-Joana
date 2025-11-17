@@ -1,0 +1,161 @@
+/* Fundo vermelho com curvas e brilho suave */
+.footer {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #b30000, #ff1a1a);
+    color: white;
+    padding: 50px 80px 80px;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+/* camada decorativa (mantida, mas mais sutil) */
+.footer-overlay::before,
+.footer-overlay::after {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    /* menos branco pra não competir com os ícones */
+    transform: rotate(25deg);
+    animation: float 8s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+.footer-overlay::before {
+    top: -60%;
+    left: -50%;
+}
+
+.footer-overlay::after {
+    bottom: -60%;
+    right: -50%;
+}
+
+@keyframes float {
+    from {
+        transform: rotate(20deg) translateY(0);
+    }
+
+    to {
+        transform: rotate(25deg) translateY(20px);
+    }
+}
+
+/* Logo à esquerda fixamente */
+.logo {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+.logoFoto {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.logoFoto img {
+    height: 75px;
+    width: 76px;
+    margin-right: 10px;
+}
+
+.logotxt h1 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logotxt h2 {
+    font-size: 16px;
+    margin: 0;
+    letter-spacing: 4px;
+}
+
+/* Redes sociais à direita */
+.footer-content {
+    position: relative;
+    z-index: 2;
+    margin-left: auto;
+    /* força para a direita */
+}
+
+.social-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* Ícones coloridos e mais visíveis */
+.social img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    filter: none;
+    /* remove o filtro branco */
+    transition: all 0.3s ease;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Hover com destaque */
+.social:hover img {
+    transform: scale(1.15);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+.social img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    filter: brightness(0) invert(1);
+    transition: all 0.3s ease;
+}
+
+/* hover vermelho */
+.social:hover img {
+    filter: none;
+    transform: scale(1.15);
+}
+
+/* Nome das redes aparece no hover */
+.social {
+    position: relative;
+    text-align: center;
+}
+
+.social span {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    color: #fff;
+    font-size: 13px;
+    transition: opacity 0.3s ease, bottom 0.3s ease;
+}
+
+.social:hover span {
+    opacity: 1;
+    bottom: -35px;
+}
+
+/* Texto final centralizado */
+.footer-copy {
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    color: #ffeaea;
+    margin-top: 30px;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+}

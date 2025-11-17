@@ -1,121 +1,139 @@
-:root {
-  --vermelho-boteco: #b22222;
-  --bege-claro: #fff8e7;
-  --texto-escuro: #2c2c2c;
-  --cinza-suave: #ddd;
-  --radius: 10px;
-  --sombra: 0 4px 10px rgba(0, 0, 0, 0.1);
-  font-family: "Poppins", "Segoe UI", sans-serif;
-}
+/* === CONTAINER GERAL === */
 
-body {
-  background-color: var(--bege-claro);
-  color: var(--texto-escuro);
-  margin: 0;
-  padding: 0;
-}
-
-/* Container geral */
-main {
-  max-width: 800px;
-  margin: 60px auto;
-  background: #fff;
-  padding: 2.5rem;
-  border-radius: var(--radius);
-  box-shadow: var(--sombra);
-}
-
-/* Título */
-.Titulo {
-  color: #c0392b; /* cor do texto */
-  text-align: center; /* centraliza */
-  font-size: 2rem;
-  font-weight: bold;
-  display: flex; /* deixa o tamanho da linha igual ao texto */
-  padding-bottom: 10px; /* espaço entre o texto e a linha */
- justify-content: center;
-  border-bottom: 3px solid #e74c3c; /* linha vermelha */
-  /* 🔹 aqui você controla o tamanho da linha */
-}
-/* h1 {
-  text-align: center;
-  color: var(--vermelho-boteco);
-  margin-bottom: 2rem;
-  font-size: 2rem;
-  letter-spacing: 1px;
-   border-bottom: 0.2rem solid #b22222; 
-   padding-bottom: 10px; 
-
-} */
-
-/* Formulário */
-section form {
+.titulo {
   display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
 }
 
-.grupo-campo {
+section {
   display: flex;
-  flex-direction: column;
-}
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0 5rem;
+  width: 100%;
 
-label {
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: var(--vermelho-boteco);
-}
+  .perfil-wrapper {
+    display: flex;
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    max-width: 850px;
+    width: 90%;
 
-input {
-  padding: 0.8rem;
-  border: 1px solid var(--cinza-suave);
-  border-radius: var(--radius);
-  font-size: 1rem;
-  transition: all 0.2s ease;
-}
+    /* === LATERAL VERMELHA === */
+    .perfil-sidebar {
+      width: 35%;
+      background-color: #b30000;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1rem;
 
-input:focus {
-  outline: none;
-  border-color: var(--vermelho-boteco);
-  box-shadow: 0 0 0 2px rgba(178, 34, 34, 0.2);
-}
+      .avatar {
+        width: 120px;
+        height: 120px;
+        background-color: #fff;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #b30000;
+        font-size: 3rem;
+        font-weight: bold;
+        border: 4px solid #ffcc80;
+      }
 
-/* Campos lado a lado */
-.linha-dupla {
-  display: flex;
-  gap: 1rem;
-}
+      h2 {
+        font-size: 1.2rem;
+        text-align: center;
+        color: #fff7ec;
+        margin-top: 0.5rem;
+        font-weight: 600;
+      }
+    }
 
-.linha-dupla .grupo-campo {
-  flex: 1;
-}
+    /* === CONTEÚDO PERFIL === */
+    .perfil-content {
+      width: 65%;
+      padding: 3rem;
+      background-color: #fffaf2;
 
-/* Botão */
-button[type="submit"] {
-  background-color: var(--vermelho-boteco);
-  color: #fff;
-  font-weight: bold;
-  border: none;
-  padding: 0.9rem;
-  border-radius: var(--radius);
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
+      h1 {
+        color: #b30000;
+        font-family: "Bree Serif", serif;
+        margin-bottom: 2rem;
+        border-bottom: 3px solid #ffcc80;
+        display: inline-block;
+        padding-bottom: 0.3rem;
+        font-size: 1.5rem;
+      }
 
-button[type="submit"]:hover {
-  background-color: #8b1a1a;
-  transform: translateY(-2px);
-}
+      /* === FORMULÁRIO === */
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
 
-/* Responsividade */
-@media (max-width: 600px) {
-  main {
-    margin: 30px 15px;
-    padding: 1.5rem;
-  }
+        label {
+          font-weight: bold;
+          color: #b30000;
+          font-family: "Bree Serif", serif;
+          font-size: 0.95rem;
+        }
 
-  .linha-dupla {
-    flex-direction: column;
+        .campo {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .grupo {
+          display: flex;
+          gap: 12px;
+        }
+
+        input {
+          width: 100%;
+          padding: 10px 12px;
+          border: 1px solid #e0b48c;
+          border-radius: 10px;
+          background-color: #fffdf9;
+          font-size: 1rem;
+          transition: 0.3s ease;
+
+          &:focus {
+            outline: none;
+            border-color: #b30000;
+            box-shadow: 0 0 6px rgba(179, 0, 0, 0.25);
+          }
+        }
+
+        /* === BOTÃO === */
+        button {
+          align-self: center;
+          background-color: #b30000;
+          color: #fff;
+          border: none;
+          padding: 14px 45px;
+          border-radius: 25px;
+          font-size: 1.1rem;
+          font-weight: bold;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          margin-top: 1rem;
+
+          &:hover {
+            background-color: #8f0000;
+            transform: scale(1.03);
+          }
+        }
+      }
+    }
   }
 }

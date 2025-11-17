@@ -1,51 +1,137 @@
-<!-- /public/perfil.php (DEMO ESTÁTICA) -->
+<!-- /public/perfil.php -->
 <?php
 require_once __DIR__ . '/../app/config/conexao.php';
 require_once __DIR__ . '/../app/config/auth.php';
 
-$paginaAtual = 'perfil';
+if (!estaLogado()) {
+  header('Location: /index.php');
+  exit;
+}
+
+$id = (int) $_SESSION['usuario_id'];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $nome = trim($_POST['nome'] ?? '');
+  $email = trim($_POST['email'] ?? '');
+  $bairro = trim($_POST['bairro'] ?? '');
+  $logradouro = trim($_POST['logradouro'] ?? '');
+  $numero = trim($_POST['numero'] ?? '');
+  $complemento = trim($_POST['complemento'] ?? '');
+
+  if ($nome && $email && $bairro && $logradouro && $numero) {
+    $stmt = $conn->prepare("UPDATE usuarios SET nome=?, email=?, bairro=?, logradouro=?, numero=?, complemento=? WHERE id=?");
+    $stmt->bind_param("ssssssi", $nome, $email, $bairro, $logradouro, $numero, $complemento, $id);
+    if ($stmt->execute()) {
+      $_SESSION['usuario']['nome'] = $nome;
+      $_SESSION['usuario']['email'] = $email;
+      header('Location: index.php');
+      exit;
+    }
+    $erro = 'Erro ao atualizar.';
+  } else {
+    $erro = 'Preencha os campos obrigatórios.';
+  }
+}
+
+$stmt = $conn->prepare("SELECT * FROM usuarios WHERE id=?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$usuario = $stmt->get_result()->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
-  <title>Perfil - Fast Food (Estático)</title>
+  <title>Perfil - Fast Food</title>
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="./assets/css/perfil.css">
-  <link rel="stylesheet" href="./assets//css/components/header.css">
+  <link rel="stylesheet" href="./assets/css/components/header.css">
   <link rel="stylesheet" href="./assets/css/components/footer.css">
 </head>
 
 <body>
   <?php include "../app/components/header.php"; ?>
-<div class="Titulo">
 
-  <h1>Perfil</h1>
-  
-</div>
+  <div class="titulo">
+    <h1>Perfil</h1>
+  </div>
+
   <section>
-    <form method="POST">
-      <label for="nome">Nome</label>
-      <input id="nome" type="text" name="nome" value="Matheus Nobrega" required>
+    <div class="perfil-wrapper">
+      <div class="perfil-sidebar">
+        <div class="avatar">
+          <?php
+          $iniciais = strtoupper(substr($usuario['nome'], 0, 1) . substr(strrchr($usuario['nome'], ' '), 1, 1));
+          echo htmlspecialchars($iniciais);
+          ?>
+        </div>
+        <h2>Bem-vindo, <?php echo htmlspecialchars($usuario['nome']); ?>!</h2>
+      </div>
 
-      <label for="email">Email</label>
-      <input id="email" type="email" name="email" value="matheus@gmail.com" required>
+      <div class="perfil-content">
+        <h1>Informações Pessoais</h1>
 
-      <label for="bairro">Bairro</label>
-      <input id="bairro" type="text" name="bairro" value="Centro" required>
+        <?php if (!empty($erro)): ?>
+          <p style="color: red;"><?php echo $erro; ?></p>
+        <?php endif; ?>
 
-      <label for="logradouro">Logradouro</label>
-      <input id="logradouro" type="text" name="logradouro" value="Rua dos Deuses" required>
+        <form method="POST">
+          <div class="grupo">
 
-      <label for="numero">Número</label>
-      <input id="numero" type="text" name="numero" value="100" required>
+            <div class="campo">
+              <label for="nome">Nome</label>
+              <input id="nome" type="text" name="nome" value="<?php echo htmlspecialchars($usuario['nome']); ?>" required>
+  
+            </div>
+  
+            <div class="campo">
+              <label for="email">Email</label>
+              <input id="email" type="email" name="email" value="<?php echo htmlspecialchars($usuario['email']); ?>"
+                required>
+  
+            </div>
+          </div>
 
-      <label for="complemento">Complemento</label>
-      <input id="complemento" type="text" name="complemento" value="Apto, bloco, casa...">
+          <div class="grupo">
 
-      <button type="submit">Atualizar</button>
-    </form>
+            <div class="campo">
+              <label for="bairro">Bairro</label>
+              <input id="bairro" type="text" name="bairro"
+                value="<?php echo htmlspecialchars($usuario['bairro'] ?? ''); ?>" required>
+  
+            </div>
+  
+            <div class="campo">
+              <label for="logradouro">Logradouro</label>
+              <input id="logradouro" type="text" name="logradouro"
+                value="<?php echo htmlspecialchars($usuario['logradouro'] ?? ''); ?>" required>
+  
+            </div>
+          </div>
+
+          <div class="grupo">
+
+            <div class="campo">
+              <label for="numero">Número</label>
+              <input id="numero" type="text" name="numero"
+                value="<?php echo htmlspecialchars($usuario['numero'] ?? ''); ?>" required>
+  
+            </div>
+  
+  
+            <div class="campo">
+              <label for="complemento">Complemento</label>
+              <input id="complemento" type="text" name="complemento"
+                value="<?php echo htmlspecialchars($usuario['complemento'] ?? ''); ?>">
+  
+            </div>
+          </div>
+
+          <button type="submit">Atualizar</button>
+        </form>
+      </div>
+    </div>
   </section>
 
   <?php include "../app/components/footer.php"; ?>

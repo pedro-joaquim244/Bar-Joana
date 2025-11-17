@@ -27,20 +27,19 @@ $funcao = $_SESSION['funcao'] ?? null;
     <nav class="menu">
         <!-- Telas comuns -->
         <a href="/index.php" class="link-menu <?= $paginaAtual === "Home" ? "ativo" : "" ?>">Tela Inicial</a>
-        <a href="/usuario/historia.php" class="link-menu <?= $paginaAtual === "historia" ? "ativo" : "" ?>">Nossa História</a>
+        <a href="/historia.php" class="link-menu <?= $paginaAtual === "historia" ? "ativo" : "" ?>">Nossa História</a>
 
         <?php if ($funcao): ?>
             <?php if ($funcao === "cliente"): ?>
                 <!-- Menus do cliente -->
                 <a href="/usuario/cardapio.php" class="link-menu <?= $paginaAtual === "cardapio" ? "ativo" : "" ?>">Cardápio</a>
                 <a href="/usuario/carrinho.php" class="link-menu <?= $paginaAtual === "carrinho" ? "ativo" : "" ?>">Carrinho</a>
-                <a href="/perfil.php" class="link-menu <?= $paginaAtual === "perfil" ? "ativo" : "" ?>">Perfil</a>
+               
 
             <?php elseif ($funcao === "admin"): ?>
                 <!-- Menus do admin -->
                 <a href="/admin/adicionar-produto.php" class="link-menu <?= $paginaAtual === "adicionar-produto" ? "ativo" : "" ?>">Adicionar Produto</a>
                 <a href="/admin/vendas.php" class="link-menu <?= $paginaAtual === "vendas" ? "ativo" : "" ?>">Vendas</a>
-                <a href="/perfil.php" class="link-menu <?= $paginaAtual === "perfil" ? "ativo" : "" ?>">Perfil</a>
             <?php endif; ?>
 
         <?php else: ?>

@@ -4,6 +4,18 @@ require_once __DIR__ . '/../../app/config/conexao.php';
 require_once __DIR__ . '/../../app/config/auth.php';
 
 $paginaAtual = "index";
+
+if (!estaLogado() || !($_SESSION['funcao'] ?? "")) {
+  header('location: /index.php');
+  exit;
+}
+
+$sql = "SELECT id, nome, descricao, preco, imagem, status from produtos";
+
+$result = $conn->query($sql);
+$temProduto = $result && $result->num_rows > 0;
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -27,18 +39,22 @@ $paginaAtual = "index";
 
 
     <div class="produtos">
-      <!-- Produto fake 1 -->
+      <?php if(!$temProduto):?>
+        <p>Não ha produts cadastrados</p>
+        <?php else: ?>
+      <?php while($produto = $result->fetch_assoc()) : ?>
       <div class="produto">
-        <img width="200" src="../assets/imgs/produtos/fake-donut.jpg" alt="Donut de Chocolate">
-        <h3>Donut de Chocolate</h3>
-        <p>Massa macia com cobertura de chocolate meio amargo.</p>
-        <p>R$ 12,90</p>
-        <p>Status: Ativo</p>
+        <img width="200" src="../assets/imgs/produtos/<?=$produto['imagem']?>" alt="Donut de Chocolate">
+        <h3><?=$produto['nome']?></h3>
+        <p><?=$produto['descricao']?></p>
+        <p><?=$produto['preco']?></p>
+        <p><?=$produto['status']?></p>
 
-        <a href="editar-produto.php?id=1">Editar</a>
+        <a href="editar-produto.php?id=<?=$produto['id']?>">Editar</a>
         <a href="#" aria-disabled="true">Remover</a>
       </div>
-
+    <?php endwhile; ?>
+    <?php endif; ?>
     </div>
   </main>
 
