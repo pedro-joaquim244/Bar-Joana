@@ -59,7 +59,7 @@ $paginaAtual = "historia";
 
             <aside class="visual" aria-hidden="false">
                 <a class="image-card" href="#" title="Foto fachada Boteco Joana">
-                    <img src="boteco.jpg" alt="Fachada do Boteco Joana — parede vermelha e mesa externa">
+                    <img src="./assets/imgs/BarLocal.jpg" alt="Fachada do Boteco Joana — parede vermelha e mesa externa">
                 </a>
             </aside>
 

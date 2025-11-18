@@ -2,7 +2,7 @@
   --bg: #0f1113;
   --panel: #121316;
   --muted: #bfc3c6;
-  --accent: #f3c02b;
+  --accent: #ff0000;
   --card: #1b1d20;
   --max-width: 1100px;
 }
@@ -39,6 +39,9 @@ html, body {
   display: flex;
   gap: 28px;
   width: 100%;
+  &:hover{
+    cursor: default;
+  }
 }
 
 .content {
@@ -80,6 +83,9 @@ h1 {
   line-height: 1.12;
   color: #fff;
   letter-spacing: -0.2px;
+  &:hover{
+    cursor: default;
+  }
 }
 
 p.lead {
@@ -93,6 +99,9 @@ p.lead {
   color: var(--muted);
   font-size: 14px;
   margin-top: 8px;
+  &:hover{
+    cursor: default;
+  }
 }
 
 .image-card {
@@ -115,7 +124,7 @@ p.lead {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  vertical-align: middle;
+  /* vertical-align: middle; */
 }
 
 .bullets {
@@ -132,6 +141,9 @@ p.lead {
   border-radius: 999px;
   font-size: 13px;
   border: 1px solid rgba(255, 255, 255, 0.03);
+  &:hover{
+    cursor: default;
+  }
 }
 
 .actions {
@@ -153,13 +165,25 @@ p.lead {
 .btn-primary {
   background: var(--accent);
   color: #111;
-  box-shadow: 0 6px 18px rgba(243, 192, 43, 0.16);
+  box-shadow: 0 6px 18px rgba(215, 74, 71, 0.16);
+
+  &:hover{
+    transition: 0.19s;
+    background-color: #490c0c;
+   color:#e6e7e8;
+  }
 }
 
 .btn-ghost {
   background: transparent;
   color: var(--muted);
   border: 1px solid rgba(255, 255, 255, 0.04);
+
+  &:hover{
+    transition: 0.19s;
+    background-color: #bfc3c6;
+    color: #0b0c0d;
+  }
 }
 
 @media (max-width: 920px) {
