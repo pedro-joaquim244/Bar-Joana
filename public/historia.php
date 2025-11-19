@@ -146,7 +146,7 @@ $paginaAtual = "historia";
         <div class="chefe">
             <img src="../assets/imgs/AnaChefe.jpg" alt="">
             <h2>Ana Clara</h2>
-            <p>Chefa</p>
+            <p>Chefe</p>
         </div>
     </div>
 

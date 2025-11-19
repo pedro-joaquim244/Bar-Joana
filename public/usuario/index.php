@@ -83,7 +83,7 @@ $paginaAtual = "Home";
 
         <aside class="visual" aria-hidden="false">
             <a class="image-card" href="#">
-                <img src="../assets/imgs/BarJoana.jpg" alt="Fachada do Boteco Joana">
+                <img src="../assets/imgs/BarLocal.jpg" alt="Fachada do Boteco Joana">
             </a>
         </aside>
 
