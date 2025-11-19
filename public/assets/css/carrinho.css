@@ -1,0 +1,198 @@
+/* ================================
+   ESTILOS GERAIS DO CARRINHO
+================================ */
+main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    font-family: "Poppins", sans-serif;
+}
+
+/* ================================
+   LISTA DE PRODUTOS
+================================ */
+.produtos {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.produto {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.produto:hover {
+    transform: scale(1.01);
+}
+
+.produto img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.produto h3 {
+    font-size: 1.3rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.produto h4 {
+    margin: 5px 0 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #b30000;
+}
+
+/* ================================
+   BOTÕES DE QUANTIDADE
+================================ */
+.btn-quantidade {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 8px;
+    background: #b30000;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.2s;
+}
+
+.btn-quantidade:hover {
+    background: #900;
+}
+
+.btn-quantidade:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.produto p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    width: 25px;
+    text-align: center;
+}
+
+/* ================================
+   BOTÃO REMOVER
+================================ */
+.btn-remover {
+    margin-left: auto;
+    padding: 8px 14px;
+    background: #555;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-remover:hover {
+    background: #333;
+}
+
+.btn-remover:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ================================
+   TOTAL DO CARRINHO
+================================ */
+.total-carrinho {
+    flex: 1;
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    height: fit-content;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.total-carrinho h2 {
+    font-size: 1.6rem;
+    color: #b30000;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.total-carrinho form h3 {
+    margin-bottom: 10px;
+}
+
+.total-carrinho select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.total-carrinho input[type="submit"] {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: #b30000;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.total-carrinho input[type="submit"]:hover {
+    background: #900;
+}
+
+.total-carrinho input:disabled,
+.total-carrinho select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ================================
+   RESPONSIVIDADE
+================================ */
+@media (max-width: 900px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .produto {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .btn-remover {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .total-carrinho {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .produto img {
+        width: 90px;
+        height: 90px;
+    }
+}

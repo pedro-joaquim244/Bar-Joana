@@ -11,7 +11,7 @@ $funcao = $_SESSION['funcao'] ?? null;
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Anton&family=Audiowide&family=Be+Vietnam+Pro:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-<<link rel="stylesheet" href="/assets/css/components/header.css">
+<link rel="stylesheet" href="/assets/css/components/header.css">
 
 <header>
     <div class="logo">
@@ -27,7 +27,7 @@ $funcao = $_SESSION['funcao'] ?? null;
 
     <nav class="menu">
         <!-- Telas comuns -->
-        <a href="/index.php" class="link-menu <?= $paginaAtual === "Home" ? "ativo" : "" ?>">Tela Inicial</a>
+        <a href="/index.php" class="link-menu <?= $paginaAtual === "Home" ? "ativo" : "" ?>">Home</a>
         <a href="/historia.php" class="link-menu <?= $paginaAtual === "historia" ? "ativo" : "" ?>">Nossa História</a>
 
         <?php if ($funcao): ?>
