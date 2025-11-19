@@ -12,28 +12,37 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   $senha = $_POST['senha'];
   $bairro = trim($_POST['bairro'] ?? '');
   $logradouro = trim($_POST['logradouro'] ?? '');
-  $numero = trim($_POST['numero'] ?? '');
   $complemento = trim($_POST['complemento'] ?? '');
-  if ($nome === '' || $email === '' || $senha === '' || $bairro === '' || $logradouro === '' || $numero === '' || $complemento === '') {
+
+  if (
+    $nome === '' || $email === '' || $senha === '' || $bairro === '' ||
+    $logradouro === '' || $complemento === ''
+  ) {
     $erro = "Preencha todos os campos.";
   } else {
+
     $senha_hash = password_hash($senha, PASSWORD_BCRYPT);
-    $sql = "INSERT INTO usuarios (nome, email, senha, bairro, logradouro, numero, complemento, funcao)
-    VALUE(?,?,?,?,?,?,?, 'cliente')";
+    $funcao = "cliente";
+
+    $sql = "INSERT INTO usuarios (nome, email, senha, bairro, logradouro, complemento, funcao)
+                VALUES (?,?,?,?,?,?,?)";
+
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssss", $nome, $email, $senha_hash, $bairro, $logradouro, $numero, $complemento);
+    $stmt->bind_param("sssssss", $nome, $email, $senha_hash, $bairro, $logradouro, $complemento, $funcao);
+
     if ($stmt->execute()) {
       header("Location: /index.php");
       exit;
     } else {
-      if ($conn->$error === 1062) {
-        $erro = "Este email jáestá em uso.";
+      if ($conn->errno === 1062) {
+        $erro = "Este email já está em uso.";
       } else {
         $erro = "Erro ao cadastrar.";
       }
     }
   }
 }
+
 
 ?>
 <!DOCTYPE html>
@@ -73,27 +82,27 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         <label>Complemento</label>
         <input type="text" name="complemento" placeholder="Apto, bloco, numero...">
 
-        
+
 
         <label>Senha</label>
         <input type="password" name="senha" placeholder="Crie uma senha" required>
 
         <div class="botoes">
-          
+
           <button type="submit">Cadastrar</button>
-          
+
           <?php if ($erro): ?>
             <p><? $erro; ?></p>
-            <?php endif; ?>
-            
-            
-            <a href="login.php" class="btn">Fazer Login</a>
-            <a href="index.php" class="btn">Página principal</a>
-          </div>
+          <?php endif; ?>
+
+
+          <a href="login.php" class="btn">Fazer Login</a>
+          <a href="index.php" class="btn">Página principal</a>
+        </div>
       </form>
     </div>
   </div>
- 
+
 </body>
 
 </html>

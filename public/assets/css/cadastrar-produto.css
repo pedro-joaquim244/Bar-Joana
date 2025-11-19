@@ -1,4 +1,4 @@
-/* RESET BÁSICO */
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +7,7 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    background-color: #ffffff;
+    background: #fff;
     color: #333;
 }
 
@@ -23,34 +23,16 @@ body {
 .titulo-principal {
     font-size: 2rem;
     font-weight: 350;
-    color: #111;
-    margin-bottom: 8px;
-    display: flex;
-    justify-content: center;
     color: #871010;
-    font-family: "Poppins", sans-serif;
-    font-weight: 3F50;
-    font-style: normal;
-    padding-top: 20px;
-}
-
-.conteudo-principal p {
-    color: #666;
-    margin-bottom: 20px;
-}
-
-/* GRADE PRINCIPAL */
-main {
     display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
     justify-content: center;
-    align-items: center;
+    padding-top: 20px;
+    margin-bottom: 8px;
 }
 
-/* CAIXAS DE CONTEÚDO */
+/* CARDS */
 .Basicas,
-.descrição {
+.descricao {
     background: #fff;
     border: 2px solid #e5e5e5;
     border-radius: 12px;
@@ -58,18 +40,25 @@ main {
     flex: 1;
     min-width: 420px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-}
-
-/* CAMPOS DO FORMULÁRIO */
-.form-produto,
-.form-descri {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
+.adicionar-produto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CAMPOS */
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
 .campo label {
-    display: block;
     font-weight: 600;
     margin-bottom: 6px;
     font-size: 0.95rem;
@@ -94,9 +83,10 @@ main {
     border-color: #b30000;
 }
 
-/* INPUT DE ARQUIVO */
+/* CAMPO UPLOAD */
 .campo-upload {
-    height: 352.4px;
+    display: flex;
+    flex-direction: column;
     background: #fff;
     border: 2px solid #e5e5e5;
     border-radius: 12px;
@@ -114,6 +104,10 @@ main {
     color: #871010;
 }
 
+#imagem {
+    display: none;
+}
+
 .botao-upload {
     display: inline-block;
     padding: 10px 16px;
@@ -129,10 +123,6 @@ main {
     background: #f2f2f2;
 }
 
-#imagem {
-    display: none;
-}
-
 .nome-arquivo {
     display: block;
     margin-top: 10px;
@@ -140,7 +130,25 @@ main {
     color: #777;
 }
 
-/* GRUPOS */
+#preview {
+    max-width: 100%;
+    /* não ultrapassa a largura do contêiner */
+    max-height: 250px;
+    /* limite de altura para não estourar o layout */
+    width: auto;
+    /* mantém proporção */
+    height: auto;
+    /* mantém proporção */
+    margin-top: 14px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    display: none;
+    object-fit: contain;
+    /* garante que a imagem se ajuste sem distorção */
+}
+
+
+/* FLEX GROUP */
 .grupo-flex {
     display: flex;
     gap: 16px;
@@ -150,22 +158,22 @@ main {
     flex: 1;
 }
 
-/* BOTÃO SALVAR */
+/* BOTÃO */
 button[type="submit"] {
     background-color: hsl(0, 100%, 36%);
     color: #fff;
     font-weight: bold;
     border: none;
     padding: 0.9rem;
-    border-radius: var(--radius);
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.2s ease;
     border-radius: 10px;
     width: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.2s ease;
+    margin-top: 12px;
 }
 
 button[type="submit"]:hover {
@@ -173,18 +181,9 @@ button[type="submit"]:hover {
     transform: translateY(-2px);
 }
 
-/* MENSAGEM DE ERRO */
-p {
+/* ERROS */
+.erro {
     color: #c00000;
     text-align: center;
     margin-top: 12px;
-}
-
-
-
-.tudinho{
-    display: flex;
-    align-items: center;
-    
-    gap: 8px;
 }

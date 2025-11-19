@@ -15,3 +15,115 @@ button {
 .ativo{
   color: rgb(0, 0, 0);
 }
+
+h1 {
+  text-align: center;
+  margin: 40px 0 20px;
+  font-size: 38px;
+  font-weight: 700;
+  color: #333;
+}
+
+.produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 20px 40px;
+}
+
+.produto {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+  text-align: center;
+  transition: .3s;
+}
+
+.produto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+
+.produto img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.produto h3 {
+  font-size: 22px;
+  margin-bottom: 5px;
+  color: #222;
+}
+
+.produto p {
+  font-size: 14px;
+  color: #666;
+  height: 40px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.produto h4 {
+  font-size: 20px;
+  color: #e63946;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Formulário do botão de adicionar */
+.produto form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.produto label {
+  font-size: 14px;
+  color: #444;
+}
+
+.produto input[type="number"] {
+  width: 80px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.produto button {
+  background: #1d3557;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: .2s;
+}
+
+.produto button:hover {
+  background: #0f2139;
+}
+
+/* Botão de login */
+.botao-login-para-adicionar {
+  display: block;
+  background: #457b9d;
+  padding: 10px 16px;
+  border-radius: 6px;
+  color: white;
+  font-size: 15px;
+  text-decoration: none;
+  transition: .2s;
+  margin-top: 10px;
+}
+
+.botao-login-para-adicionar:hover {
+  background: #2f5870;
+}

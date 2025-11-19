@@ -10,7 +10,9 @@ $funcao = $_SESSION['funcao'] ?? null;
 ?>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Anton&family=Audiowide&family=Be+Vietnam+Pro:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Anton&family=Audiowide&family=Be+Vietnam+Pro:wght@400;700&family=Poppins:wght@300;500;700&display=swap"
+    rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/components/header.css">
 
 <header>
@@ -18,11 +20,11 @@ $funcao = $_SESSION['funcao'] ?? null;
         <a class="logoFoto" href="/index.php">
             <img src="/assets/imgs/LogoJoaninha.png" alt="Logo" />
             <div class="logotxt">
-            <h1>Boteco</h1>
-            <h2>J O A N A</h2>
-        </div>
+                <h1>Boteco</h1>
+                <h2>J O A N A</h2>
+            </div>
         </a>
-        
+
     </div>
 
     <nav class="menu">
@@ -35,11 +37,12 @@ $funcao = $_SESSION['funcao'] ?? null;
                 <!-- Menus do cliente -->
                 <a href="/usuario/cardapio.php" class="link-menu <?= $paginaAtual === "cardapio" ? "ativo" : "" ?>">Cardápio</a>
                 <a href="/usuario/carrinho.php" class="link-menu <?= $paginaAtual === "carrinho" ? "ativo" : "" ?>">Carrinho</a>
-               
+
 
             <?php elseif ($funcao === "admin"): ?>
                 <!-- Menus do admin -->
-                <a href="/admin/adicionar-produto.php" class="link-menu <?= $paginaAtual === "adicionar-produto" ? "ativo" : "" ?>">Adicionar Produto</a>
+                <a href="/admin/adicionar-produto.php"
+                    class="link-menu <?= $paginaAtual === "adicionar-produto" ? "ativo" : "" ?>">Adicionar Produto</a>
                 <a href="/admin/vendas.php" class="link-menu <?= $paginaAtual === "vendas" ? "ativo" : "" ?>">Vendas</a>
             <?php endif; ?>
 
@@ -51,13 +54,18 @@ $funcao = $_SESSION['funcao'] ?? null;
     </nav>
 
     <nav class="icones">
-        <a class="icone" href="/usuario/carrinho.php">
-            <img src="/assets/imgs/carrinho.png" alt="Carrinho" />
-        </a>
-        <a class="icone" href="/perfil.php">
-            <img src="/assets/imgs/usuario.png" alt="Usuário" />
-        </a>
         <?php if ($funcao): ?>
+            <!-- Ícones só aparecem para usuários logados -->
+            <?php if ($funcao === "cliente"): ?>
+                <a class="icone" href="/usuario/carrinho.php">
+                    <img src="/assets/imgs/carrinho.png" alt="Carrinho" />
+                </a>
+            <?php endif; ?>
+
+            <a class="icone" href="/perfil.php">
+                <img src="/assets/imgs/usuario.png" alt="Usuário" />
+            </a>
+
             <form method="post">
                 <button type="submit" name="logout" class="btn-sair">
                     <img src="/assets/imgs/Sair.png" alt="Sair">
@@ -65,4 +73,5 @@ $funcao = $_SESSION['funcao'] ?? null;
             </form>
         <?php endif; ?>
     </nav>
+
 </header>

@@ -1,0 +1,71 @@
+main {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.vendas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.venda {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 260px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.venda h2 {
+  margin: 5px 0;
+  font-size: 20px;
+}
+
+.venda p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.venda form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.venda select,
+.venda input[type="submit"] {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.venda input[type="submit"] {
+  cursor: pointer;
+  background: #313131;
+  color: white;
+  transition: .2s;
+}
+
+.venda input[type="submit"]:hover {
+  background: #000;
+}
+
+.venda a.detalhes {
+  display: block;
+  margin-top: 15px;
+  text-decoration: none;
+  background: #007bff;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 5px;
+  transition: .2s;
+}
+
+.venda a.detalhes:hover {
+  background: #0056b3;
+}

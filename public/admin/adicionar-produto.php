@@ -1,48 +1,48 @@
-<!-- /public/admin/adicionar-produto.php -->
 <?php
 require_once __DIR__ . '/../../app/config/conexao.php';
 require_once __DIR__ . '/../../app/config/auth.php';
 
-$paginaAtual = "adicionar-produto";
-
-if (!estaLogado() || !($_SESSION['funcao'] ?? "")) {
-  header('location: /index.php');
+// Só admin
+if (!estaLogado() || (($_SESSION['funcao'] ?? 'cliente') !== 'admin')) {
+  header('Location: ../login.php');
   exit;
 }
 
-$erro = "";
+$erro = '';
 
-if ($_SERVER['REQUEST_METHOD'] === "POST") {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $nome = trim($_POST['nome'] ?? '');
   $descricao = trim($_POST['descricao'] ?? '');
   $preco = $_POST['preco'] ?? '';
   $status = $_POST['status'] ?? 'ativo';
-  $img = $_FILES['imagem'] ?? null;
 
-  if ($nome === '' || $descricao === '' || $preco === '' || !$img) {
-    $erro = "Preencha todos os campos";
-  } else if (($img['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_OK) {
-    $erro = "Falha ao enviar a imagem";
+  if ($nome === '' || $descricao === '' || $preco === '' || empty($_FILES['imagem'])) {
+    $erro = 'Preencha todos os campos e selecione uma imagem.';
   } else {
     $uploadDir = __DIR__ . '/../assets/imgs/produtos';
-    $ext = strtolower(pathinfo($img['name'] ?? '', PATHINFO_EXTENSION));
 
-    $arquivo = uniqid('img_', true) . ($ext ? '.' . $ext : '');
-    $destino = $uploadDir . DIRECTORY_SEPARATOR . $arquivo;
-
-    if (!move_uploaded_file($img['tmp_name'], $destino)) {
-      $erro = "Não foi possível salvar a imagem";
+    if (($_FILES['imagem']['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_OK) {
+      $erro = 'Falha no upload da imagem.';
     } else {
-      $sql = "INSERT INTO produtos (nome, descricao, preco, imagem, status) VALUES (?, ?, ?, ?, ?)";
-      $stmt = $conn->prepare($sql);
-      $stmt->bind_param("ssdss", $nome, $descricao, $preco, $arquivo, $status);
+      $orig = $_FILES['imagem']['name'] ?? '';
+      $ext = strtolower(pathinfo($orig, PATHINFO_EXTENSION));
+      $final = uniqid('img_', true) . ($ext ? '.' . $ext : '');
+      $destino = $uploadDir . DIRECTORY_SEPARATOR . $final;
 
-      if ($stmt->execute()) {
-        header('location: /index.php');
-        exit;
+      if (!is_uploaded_file($_FILES['imagem']['tmp_name']) || !move_uploaded_file($_FILES['imagem']['tmp_name'], $destino)) {
+        $erro = 'Não foi possível salvar a imagem.';
+      } else {
+        $sql = "INSERT INTO produtos (nome, descricao, preco, imagem, status) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ssdss", $nome, $descricao, $preco, $final, $status);
+
+        if ($stmt->execute()) {
+          header('Location: index.php');
+          exit;
+        } else {
+          $erro = 'Erro ao cadastrar o produto.';
+        }
       }
-
-      $erro = "Erro interno";
     }
   }
 }
@@ -62,63 +62,77 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 <body>
   <?php include '../../app/components/header.php'; ?>
 
-  <h1 class="titulo-principal">Adicionar Produto</h1>
-  <main class="conteudo-principal">
-    <div class="tudinho">
-      <div class="Basicas">
-        <form method="POST" enctype="multipart/form-data" class="form-produto">
-          <div class="campo">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" placeholder="Ex.: Donut de Chocolate" required>
-          </div>
-
-          <div class="grupo-flex">
-            <div class="campo metade">
-              <label for="preco">Preço</label>
-              <input type="number" id="preco" step="0.01" name="preco" placeholder="Ex.: 12.90" required>
-            </div>
-
-            <div class="campo metade">
-              <label for="status">Status</label>
-              <select id="status" name="status" required>
-                <option value="ativo" selected>Ativo</option>
-                <option value="inativo">Inativo</option>
-              </select>
-            </div>
-          </div>
-
-        </form>
-        <div class="descrição">
-
-          <form method="POST" enctype="multipart/form-data" class="form-descri">
-            <div class="campo">
-              <label for="descricao">Descrição</label>
-              <textarea id="descricao" name="descricao" placeholder="Fale brevemente sobre o produto"
-                required></textarea>
-            </div>
-          </form>
-
-        </div>
-      </div>
-
-      <div class="campo campo-upload">
-        <label for="imagem">Imagem</label>
-        <label for="imagem" class="botao-upload">Selecionar imagem</label>
-        <input type="file" id="imagem" name="imagem" accept="image/*" onchange="mostrarNomeArquivo(this)" required>
-        <span class="nome-arquivo" id="nome-arquivo">Nenhum arquivo selecionado</span>
-      </div>
-    </div>
-    
-    <button type="submit">
-      Salvar
-    </button>
+  <div class="conteudo-principal">
+    <h1 class="titulo-principal">Adicionar Produto</h1>
 
     <?php if ($erro): ?>
       <p><?= $erro ?></p>
     <?php endif; ?>
-  </main>
+
+    <form method="POST" enctype="multipart/form-data" class="adicionar-produto">
+      <div class="grupo-flex">
+        <div class="Basicas form-produto metade">
+          <div class="campo">
+            <label>Nome</label>
+            <input type="text" name="nome" required>
+          </div>
+
+          <div class="campo">
+            <label>Preço</label>
+            <input type="number" step="0.01" name="preco" required>
+          </div>
+
+          <div class="campo">
+            <label>Status</label>
+            <select name="status" required>
+              <option value="ativo" selected>Ativo</option>
+              <option value="inativo">Inativo</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label>Descrição</label>
+            <textarea name="descricao" required></textarea>
+          </div>
+        </div>
+
+        <div class="campo-upload metade">
+          <label>Imagem</label>
+          <input type="file" name="imagem" id="imagem" accept="image/*" required onchange="previewImagem(this)">
+          <label class="botao-upload" for="imagem">Selecionar arquivo</label>
+          <span class="nome-arquivo">Nenhum arquivo selecionado</span>
+          <img id="preview" src="" alt="">
+        </div>
+
+      </div>
+
+
+
+      <button type="submit">Salvar</button>
+    </form>
+  </div>
 
   <?php include '../../app/components/footer.php'; ?>
+
+  <script>
+    function previewImagem(input) {
+      const arquivoNome = document.querySelector('.nome-arquivo');
+      const preview = document.getElementById('preview');
+
+      if (input.files && input.files[0]) {
+        arquivoNome.textContent = input.files[0].name;
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          preview.src = e.target.result;
+          preview.style.display = 'block';
+        }
+        reader.readAsDataURL(input.files[0]);
+      } else {
+        arquivoNome.textContent = 'Nenhum arquivo selecionado';
+        preview.style.display = 'none';
+      }
+    }
+  </script>
+
 </body>
 
 </html>

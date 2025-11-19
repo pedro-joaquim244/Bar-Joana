@@ -23,45 +23,56 @@ $paginaAtual = "vendas";
 <body>
   <?php include '../../app/components/header.php'; ?>
 
-  <main>
-    <h1>Gerenciar Vendas</h1>
+<main>
+  <h1>Gerenciar Vendas</h1>
 
-    <div class="vendas">
+  <div class="vendas">
 
-      <!-- Venda fake 1 -->
-      <div class="venda">
-        <h2>Pedido</h2>
-        <h2>N° 12345</h2>
+    <?php if (empty($pedidos)): ?>
+      <p>Não há vendas registradas.</p>
+    <?php else: ?>
 
-        <p>19/10/2025</p>
-        <p>16:32</p>
+      <?php foreach ($pedidos as $pedido): ?>
+        <div class="venda">
 
-        <p><strong>Cliente:</strong> Matheus Nóbrega</p>
+          <h2>Pedido</h2>
+          <h2>N° <?= $pedido['id']; ?></h2>
 
-        <p><strong>TOTAL:</strong></p>
-        <p>R$ 43,30</p>
+          <p><?= date('d/m/Y', strtotime($pedido['created_at'])); ?></p>
+          <p><?= date('H:i', strtotime($pedido['created_at'])); ?></p>
 
-        <p><strong>STATUS:</strong> Entregue</p>
+          <p><strong>Cliente:</strong> <?= $pedido['nome']; ?></p>
 
-        <!-- Formulário apenas visual (desativado) -->
-        <form action="#" method="POST">
-          <input type="hidden" name="pedido_id" value="12345">
-          <label for="status-12345">Alterar Status:</label>
-          <select id="status-12345" name="status" disabled>
-            <option selected>Entregue</option>
-            <option>Pendente</option>
-            <option>Em andamento</option>
-            <option>Saiu para entrega</option>
-            <option>Cancelado</option>
-          </select>
-          <input type="submit" value="Atualizar" disabled>
-        </form>
+          <p><strong>TOTAL:</strong></p>
+          <p>R$ <?= number_format($pedido['total'], 2, ',', '.'); ?></p>
 
-        <a href="detalhes-venda.php?id=12345">Ver Detalhes</a>
-      </div>
+          <p><strong>STATUS:</strong> <?= ucfirst($pedido['status']); ?></p>
 
-    </div>
-  </main>
+          <!-- Formulário funcional -->
+          <form action="vendas.php" method="POST">
+            <input type="hidden" name="pedido_id" value="<?= $pedido['id']; ?>">
+
+            <label for="status-<?= $pedido['id']; ?>">Alterar Status:</label>
+            <select id="status-<?= $pedido['id']; ?>" name="status" required>
+              <?php foreach ($statuses as $status): ?>
+                <option value="<?= $status; ?>" <?= $status === $pedido['status'] ? 'selected' : ''; ?>>
+                  <?= ucfirst($status); ?>
+                </option>
+              <?php endforeach; ?>
+            </select>
+
+            <input type="submit" value="Atualizar">
+          </form>
+
+          <a class="detalhes" href="detalhes-venda.php?id=<?= $pedido['id']; ?>">Ver Detalhes</a>
+        </div>
+      <?php endforeach; ?>
+
+    <?php endif; ?>
+
+  </div>
+</main>
+
 
   <?php include '../../app/components/footer.php'; ?>
 </body>

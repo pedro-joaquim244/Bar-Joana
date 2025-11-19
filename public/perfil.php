@@ -15,12 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $email = trim($_POST['email'] ?? '');
   $bairro = trim($_POST['bairro'] ?? '');
   $logradouro = trim($_POST['logradouro'] ?? '');
-  $numero = trim($_POST['numero'] ?? '');
   $complemento = trim($_POST['complemento'] ?? '');
 
-  if ($nome && $email && $bairro && $logradouro && $numero) {
-    $stmt = $conn->prepare("UPDATE usuarios SET nome=?, email=?, bairro=?, logradouro=?, numero=?, complemento=? WHERE id=?");
-    $stmt->bind_param("ssssssi", $nome, $email, $bairro, $logradouro, $numero, $complemento, $id);
+  if ($nome && $email && $bairro && $logradouro ) {
+    $stmt = $conn->prepare("UPDATE usuarios SET nome=?, email=?, bairro=?, logradouro=?, complemento=? WHERE id=?");
+    $stmt->bind_param("sssssi", $nome, $email, $bairro, $logradouro, $complemento, $id);
     if ($stmt->execute()) {
       $_SESSION['usuario']['nome'] = $nome;
       $_SESSION['usuario']['email'] = $email;
@@ -112,14 +111,6 @@ $usuario = $stmt->get_result()->fetch_assoc();
 
           <div class="grupo">
 
-            <div class="campo">
-              <label for="numero">Número</label>
-              <input id="numero" type="text" name="numero"
-                value="<?php echo htmlspecialchars($usuario['numero'] ?? ''); ?>" required>
-  
-            </div>
-  
-  
             <div class="campo">
               <label for="complemento">Complemento</label>
               <input id="complemento" type="text" name="complemento"
