@@ -229,6 +229,7 @@
       grid-template-columns: 1fr 1fr 1fr 1fr;
       gap: 10px;
       margin: 0 auto;
+    
 
     }
 
@@ -237,6 +238,8 @@
       width: 170px;
       text-align: center;
       font-family: 'Poppins', sans-serif;
+      align-items: center;
+      margin: 0 auto;
     }
 
     .membro img {
@@ -300,7 +303,7 @@
       display: flex;
       justify-content: center;
       gap: 60px;
-
+      padding-bottom: 20px;
       h2 {
         color: #490c0c;
         font-family: 'poppins';

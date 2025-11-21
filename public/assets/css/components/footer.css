@@ -1,5 +1,6 @@
 /* Fundo vermelho com curvas e brilho suave */
 .footer {
+    
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -10,7 +11,6 @@
     overflow: hidden;
     flex-wrap: wrap;
 }
-
 /* camada decorativa (mantida, mas mais sutil) */
 .footer-overlay::before,
 .footer-overlay::after {
@@ -144,3 +144,46 @@
     bottom: 10px;
     left: 0;
 }
+
+.footer h3 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.footer h3 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    text-align: center;
+    white-space: nowrap;
+    font-family: 'poppins';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

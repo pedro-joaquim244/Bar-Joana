@@ -67,6 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
       <form method="POST">
         <h1>Criar conta</h1>
+        <div class="linha"></div>
         <label>Email</label>
         <input type="email" name="email" placeholder="seuemail@exemplo.com" required>
 

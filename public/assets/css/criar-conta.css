@@ -1,156 +1,144 @@
 body {
     background-color: rgb(0, 0, 0);
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* centraliza vertical e horizontal */
+    height: 100vh;
+    overflow: hidden;
 }
 
-
+/* Inputs */
 input {
-    background-color: rgb(255, 255, 255);
+    background-color: #fff;
     border-radius: 50px;
     padding: 12px;
-    border-color: #6b0303;
+    border: 2px solid #6b0303;
     width: 500px;
 }
 
+/* Container da imagem de fundo */
 .container-foto {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
     justify-content: center;
-
-    img {
-        filter: brightness(95%);
-        position: absolute;
-
-        z-index: 1;
-
-        width: 100%;
-        height: 100%;
-    }
-
-    z-index: 1;
-
+    align-items: center;
 }
 
+.container-foto img {
+    filter: brightness(95%);
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
+/* Container do conteúdo */
 .container-escrita {
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+
     z-index: 2;
     position: relative;
-    display: flex;
-    align-items: center;
     padding-top: 18px;
-
-
-    h1 {
-        color:#c52b2b;
-         font-family: 'poppins' sans-serif;
-    }
 }
-/* 
-    a {
 
-    display: inline-block;
-    padding: 10px 20px;
-    background: rgb(255, 0, 0);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: 0.3s;
-
-    &:hover {
-        background-color: #ff0000;
-        cursor: pointer
-    }
+.container-escrita h1 {
+    color: #c52b2b;
+    font-family: 'Poppins', sans-serif;
 }
-} */
 
-
-/* Container para alinhar lado a lado */
+/* Área dos botões */
 .botoes {
-  display: flex;
-  justify-content: center;
-  margin-top: 12px;
-  gap: 10px; /* espaçamento entre os botões */
-  flex-wrap: wrap; /* permite quebrar linha se precisar */
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-/* Estilo comum para ambos */
 .botoes button,
 .botoes .btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #c52b2b;
-  color: white;
-  text-decoration: none;
-  border: none;
-  border-radius: 50px;
-  font-weight: bold;
-  width: 200px; /* mesmo tamanho */
-  text-align: center;
-  transition: 0.3s;
-  cursor: pointer;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #c52b2b;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    width: 200px;
+    text-align: center;
+    transition: 0.3s;
+    cursor: pointer;
 }
 
-/* Efeito hover igual para ambos */
 .botoes button:hover,
 .botoes .btn:hover {
-  background-color: #730606;
-}
-
-
-
-
-.titulo {
-    margin-top: 16px;
-    margin-bottom: 12px;
-    z-index: 2;
-    
-    h1 {
-        color: rgb(255, 0, 0);
-       
-    }
+    background-color: #730606;
 }
 
 form {
-   
     z-index: 3;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.933);
+
+    background-color: rgba(255, 255, 255, 0.95);
     border-radius: 32px;
     gap: 6px;
+
     width: 600px;
-    height: 661px;
+    height: 683px;
 
-   
-    font-family: "Montserrat";
- a{
-    color: #6b0303;
- }
-
+    font-family: "Montserrat", sans-serif;
 }
 
+form a {
+    color: #6b0303;
+}
 
+label {
+    font-family: 'Poppins', sans-serif;
+}
 
-/* button {
-    border-radius: 50PX;
-    background-color: #F70000;
-    padding: 10px;
-    width: 500px;
-    &:hover{
-        background-color: #730606;
+.linha {
+    width: 80%;
+    height: 2px;
+    background-color: #c52b2b;
+    margin-bottom: 15px;
+    border-radius: 20px;
+}
+
+    h1 {
+        color: #c52b2b;
+        margin-bottom: 12px;
     }
-} */
 
+    a {
+        /* color: #ff0303; */
+        text-decoration: none;
+        transition: color 0.3s;
 
-label{
-font-family: 'poppins' sans-serif;
+        &:hover {
+            color: rgb(111, 11, 11);
+        }
+    }
 
-
-
+    form h1 {
+    color: #c52b2b;
+    margin-top: -5px;
+    margin-bottom: 5px;
+    font-size: 32px;
+    font-weight: 700;
 }

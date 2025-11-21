@@ -72,12 +72,14 @@ $paginaAtual = "Home";
 
             <p class="lead">
                 O Boteco Joana nasceu da união de Pedro Joaquim (Joca) e Ana: um lugar pequeno, sincero e cheio de vida.
-                A cozinha sempre foi de coração — temperos caseiros, porções generosas e uma cerveja que nunca decepciona.
+         SSS       A cozinha sempre foi de coração — temperos caseiros, porções generosas e uma cerveja que nunca decepciona.
                 Aqui, a resenha é garantida e cada cliente acaba virando amigo.
             </p>
 
             <div class="actions">
-                <button class="btn btn-primary">Ver mais</button>
+               <div class="actions">
+                 <a href="../historia.php" class="btn btn-primary">Ver mais</a>
+                 </div>
             </div>
         </div>
 

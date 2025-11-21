@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   }
 }
 ''
-  ?>
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -44,21 +44,46 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         <div class="pai">
           <form method="POST">
             <h1>Login</h1>
+            <div class="linha"></div>
+
+
             <label for="email">Email:</label>
             <input id="email" type="email" name="email" placeholder="seuemail@exemplo.com" required>
-            
+
             <label for="senha">Senha:</label>
             <input id="senha" type="password" name="senha" placeholder="••••••••" required>
+
             <div class="botoes">
               <button type="submit">Entrar</button>
             </div>
+
             <p>Não tem uma conta? <a id="idDois" href="criar-conta.php">Cadastre-se aqui</a>.</p>
+
+
+            <?php if (!empty($erro)): ?>
+              <p class="erro-login"><?= $erro ?></p>
+            <?php endif; ?>
           </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
-        
-        <?php if (isset($erro)): ?>
-          <p><?= $erro ?></p>
-        <?php endif; ?>
+
+
+
+
 
 
       </main>
