@@ -1,55 +1,55 @@
-
 /* Área do carrossel */
 #carrosel-home {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
+  width: 100%;
+  display: flex;
+  justify-content: center;
+padding-top: 42px;
 }
 
 /* Swiper ajustado */
 .swiper {
-    width: 900px;           
-    max-width: 95%;         
-    height: 460px;        
-    border-radius: 15px;
-    overflow: hidden;
-    margin: auto;
-    position: relative;
+  width: 900px;
+  max-width: 95%;
+  height: 460px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: auto;
+  position: relative;
 }
 
 /* Slide */
 .swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #222;
 }
 
 /* As imagens ajustam 100% sem distorcer */
 .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;  
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Botões de navegação */
 .swiper-button-next,
 .swiper-button-prev {
-    color: white;
-    text-shadow: 0 0 10px #000;
+  color: white;
+  text-shadow: 0 0 10px #000;
 }
 
 /* Pontinhos do swiper */
 .swiper-pagination-bullet {
-    background: white;
-    opacity: 0.7;
-    }
+  background: white;
+  opacity: 0.7;
+}
 
 .swiper-pagination-bullet-active {
-    background: #ff0000;  /* vermelho do tema */
-    opacity: 1;
+  background: #ff0000;
+  /* vermelho do tema */
+  opacity: 1;
 }
 
 .carrossel {
@@ -231,6 +231,7 @@ p.lead {
   .panel {
     flex-direction: column;
   }
+
   .visual {
     order: -1;
     max-width: 100%;
@@ -245,66 +246,96 @@ p.lead {
 
 
 .drinks {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    padding: 40px 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 40px 0;
 }
 
 .drink {
-    position: relative;
-    width: 250px;
-    height: 350px;
-    overflow: hidden;
-    border-radius: 15px;
-    cursor: pointer;
+  position: relative;
+  width: 250px;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 15px;
+  cursor: pointer;
 }
 
 .drink img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: scale(1.2); /* começa mais aproximada */
-    transition: all 0.5s ease;
-    filter: brightness(0.6);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.2);
+  /* começa mais aproximada */
+  transition: all 0.5s ease;
+  filter: brightness(0.6);
 }
 
 .drink h1,
 .drink p {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #fff;
-    opacity: 0;
-    transition: all 0.5s ease;
-    text-align: center;
-    width: 90%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  opacity: 0;
+  transition: all 0.5s ease;
+  text-align: center;
+  width: 90%;
 }
 
 .drink h1 {
-    top: 35%;
-    font-size: 24px;
+  top: 35%;
+  font-size: 24px;
 }
 
 .drink p {
-    top: 55%;
-    font-size: 15px;
+  top: 55%;
+  font-size: 15px;
 }
 
 /* HOVER */
 .drink:hover img {
-    transform: scale(1); /* imagem fica inteira */
-    filter: brightness(0.9);
+  transform: scale(1);
+  /* imagem fica inteira */
+  filter: brightness(0.9);
 }
 
 .drink:hover h1 {
-    opacity: 1;
-    top: 30%;
+  opacity: 1;
+  top: 30%;
 }
 
 .drink:hover p {
-    opacity: 1;
-    top: 52%;
+  opacity: 1;
+  top: 52%;
 }
 
+
+.titulo {
+  color: #ff0000;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 4px;
+ h2{
+  font-size: 32px;
+  font-family: 'roboto';
+  font-weight: 600;
+  
+ }
+ } 
+
+ .linha {
+    width: 80%;
+    height: 2px;
+    background-color: #ff0000;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    
+}

@@ -99,6 +99,12 @@ $paginaAtual = "Home";
 
   <script src="../assets/javascript/inicio.js"></script>
 
+
+  <div class="titulo">
+    <h2>DESTAQUES</h2>
+  </div>
+
+<div class="linha"></div>
   <!-- MAIN -->
   <main id="carrosel-home">
 

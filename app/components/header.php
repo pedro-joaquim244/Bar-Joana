@@ -36,8 +36,7 @@ $funcao = $_SESSION['funcao'] ?? null;
             <?php if ($funcao === "cliente"): ?>
                 <!-- Menus do cliente -->
                 <a href="/usuario/cardapio.php" class="link-menu <?= $paginaAtual === "cardapio" ? "ativo" : "" ?>">Cardápio</a>
-                <a href="/usuario/carrinho.php" class="link-menu <?= $paginaAtual === "carrinho" ? "ativo" : "" ?>">Carrinho</a>
-
+                
 
             <?php elseif ($funcao === "admin"): ?>
                 <!-- Menus do admin -->

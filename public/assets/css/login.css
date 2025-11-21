@@ -130,3 +130,12 @@ form {
         }
     }
 
+
+
+    #idDois{
+        color: #ff0808;
+
+        &:hover{
+        color: #6b0303;
+        }
+    }
