@@ -86,6 +86,7 @@ main {
     font-weight: 600;
     width: 25px;
     text-align: center;
+    display: contents;
 }
 
 /* ================================
@@ -94,7 +95,7 @@ main {
 .btn-remover {
     margin-left: auto;
     padding: 8px 14px;
-    background: #555;
+    background: #ff0000;
     color: white;
     border: none;
     border-radius: 8px;
@@ -103,7 +104,7 @@ main {
 }
 
 .btn-remover:hover {
-    background: #333;
+    background: #ee0000;
 }
 
 .btn-remover:disabled {
@@ -157,7 +158,7 @@ main {
 }
 
 .total-carrinho input[type="submit"]:hover {
-    background: #900;
+    background: rgb(117, 1, 1);
 }
 
 .total-carrinho input:disabled,
@@ -195,4 +196,35 @@ main {
         width: 90px;
         height: 90px;
     }
+}
+
+.lixeira{
+    img{
+       background: red;
+       height: 38px;
+       width: 40px;
+    }
+}
+
+.produto button{
+    background-color: #b30000;
+    height: 38px;
+    width: 40px;
+    align-items: center;
+    display:flex;
+    justify-content: center;
+}
+
+.produto button:hover{
+    background-color: #530909;
+}
+
+#imagemLixeira{
+    height: 20px;
+     width: 20px;
+     margin: 0px;
+     align-items: center;
+     display: flex;
+     justify-content: center;
+     margin: 0 auto;
 }

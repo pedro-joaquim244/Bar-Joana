@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../../app/config/conexao.php';
 require_once __DIR__ . '/../../app/config/auth.php';
-
+$paginaAtual = "adicionar-produto";
 // Só admin
 if (!estaLogado() || (($_SESSION['funcao'] ?? 'cliente') !== 'admin')) {
   header('Location: ../login.php');
@@ -61,7 +61,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-  <?php include '../../app/components/header.php'; ?>
+  
+  
+  
+
+  <?php include '../../app/components/header.php'; 
+  
+  ?>
 
   <div class="conteudo-principal">
     <h1 class="titulo-principal">Adicionar Produto</h1>

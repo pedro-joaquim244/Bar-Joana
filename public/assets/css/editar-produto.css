@@ -77,7 +77,6 @@ h1 {
 /* ----------- botão ----------- */
 .editar-produto button {
   background: var(--primary);
-  color: #fff;
   font-weight: 600;
   border: none;
   border-radius: var(--radius);
@@ -85,6 +84,8 @@ h1 {
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.1s ease;
+
+  
 }
 
 .editar-produto button:hover {

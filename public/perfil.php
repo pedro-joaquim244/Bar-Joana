@@ -3,6 +3,8 @@
 require_once __DIR__ . '/../app/config/conexao.php';
 require_once __DIR__ . '/../app/config/auth.php';
 
+$paginaAtual = "perfil";
+
 if (!estaLogado()) {
   header('Location: /index.php');
   exit;
@@ -57,6 +59,7 @@ $usuario = $stmt->get_result()->fetch_assoc();
     <h1>Perfil</h1>
   </div>
 
+  <div class="linha"></div>
   <section>
     <div class="perfil-wrapper">
       <div class="perfil-sidebar">

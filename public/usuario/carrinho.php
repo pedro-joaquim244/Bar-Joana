@@ -151,7 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['metodo_pagamento']) &
             <input type="hidden" name="produto_id" value="<?= (int)$item['produto_id'] ?>">
             <input type="hidden" name="remover" value="1">
             <button type="submit">
-              <img class="lixeira" src="../assets/imagens/iconelixeira.png" alt="Remover">
+              <img id="imagemLixeira" class="lixeira" src="../assets/imgs/iconelixeira.png" alt="Remover">
             </button>
           </form>
         </div>

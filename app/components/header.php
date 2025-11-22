@@ -36,7 +36,7 @@ $funcao = $_SESSION['funcao'] ?? null;
             <?php if ($funcao === "cliente"): ?>
                 <!-- Menus do cliente -->
                 <a href="/usuario/cardapio.php" class="link-menu <?= $paginaAtual === "cardapio" ? "ativo" : "" ?>">Cardápio</a>
-                
+
 
             <?php elseif ($funcao === "admin"): ?>
                 <!-- Menus do admin -->
@@ -56,14 +56,15 @@ $funcao = $_SESSION['funcao'] ?? null;
         <?php if ($funcao): ?>
             <!-- Ícones só aparecem para usuários logados -->
             <?php if ($funcao === "cliente"): ?>
-                <a class="icone" href="/usuario/carrinho.php">
-                    <img src="/assets/imgs/carrinho.png" alt="Carrinho" />
-                </a>
+                <a class="icone <?= ($paginaAtual === 'carrinho') ? 'ativo' : '' ?>" href="/usuario/carrinho.php">
+                <img src="/assets/imgs/carrinho.png" alt="Carrinho">
+            </a>
             <?php endif; ?>
 
-            <a class="icone" href="/perfil.php">
-                <img src="/assets/imgs/usuario.png" alt="Usuário" />
+            <a class="icone <?= ($paginaAtual === 'perfil') ? 'ativo' : '' ?>" href="/perfil.php">
+                <img src="/assets/imgs/usuario.png" alt="Usuário">
             </a>
+
 
             <form method="post">
                 <button type="submit" name="logout" class="btn-sair">

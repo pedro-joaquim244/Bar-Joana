@@ -62,12 +62,12 @@ if ($result && $result->num_rows > 0) {
 
 <body>
   <?php
-  $paginaAtual = "inicio";
+  $paginaAtual = "Home";
   include '../../app/components/header.php';
   ?>
   <div class="container">
     <h1>Produtos</h1>
-
+ <div class="Linha"></div>
     <div class="produtos">
       <?php if (empty($produtos)): ?>
         <p>Não há produtos cadastrados.</p>

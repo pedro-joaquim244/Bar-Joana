@@ -104,7 +104,12 @@ nav {
 
 .icone {
     &:hover {
-        background-color: #871010;
+        background-color: #8a0f0f;
         transform: translateY(-2px);
     }
+}
+
+.icone.ativo {
+    background-color: #7b0d0d;;
+    border-radius: 10px;
 }

@@ -5,6 +5,10 @@
   align-items: center;
   justify-content: center;
   margin-top: 24px;
+  h1{
+    color: #b30000;
+    font-family: 'poppins ';
+  }
 }
 
 section {
@@ -136,4 +140,19 @@ section {
       }
     }
   }
+}
+
+
+
+.linha {
+    width: 45%;
+    height: 2px;
+    background-color: #c52b2b;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
 }
