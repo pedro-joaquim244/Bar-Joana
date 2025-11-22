@@ -17,6 +17,7 @@ $paginaAtual = "Home";
   <link rel="stylesheet" href="../assets/css/home-usuario.css">
   <link rel="stylesheet" href="../assets/css/components/header.css">
   <link rel="stylesheet" href="../assets/css/components/footer.css">
+  <link rel="icon" type="image/png" href="../assets/imgs/LogoJoaninha.png">
 
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -33,65 +34,66 @@ $paginaAtual = "Home";
 
   <div class="carrossel">
 
-    <div class="slide active">
-      <img src="../assets/imgs/churrasco.jpg" alt="">
-      <h1>Aqui o churrasco estala e a resenha rola solta!</h1>
-    </div>
-
-    <div class="slide">
-      <img src="../assets/imgs/frios.jpg" alt="">
-      <h1>Boteco é festa, história e mesa cheia</h1>
-    </div>
-
-    <div class="slide">
-      <img src="../assets/imgs/batata.jpg" alt="">
-      <h1>O ponto certo pra comer bem e dar boas risadas</h1>
-    </div>
-
-    <div class="slide">
-      <img src="../assets/imgs/peixe.jpg" alt="">
-      <h1>Sabor que abraça, cerveja que aproxima</h1>
-    </div>
-
-    <div class="slide">
-      <img src="../assets/imgs/salgados.jpg" alt="">
-      <h1>Seu boteco favorito está aqui — chega mais!</h1>
-    </div>
-
+  <div class="slide active" data-text="Aqui o churrasco estala e a resenha rola solta!">
+    <img src="../assets/imgs/churrasco.jpg" alt="">
+    <h1></h1>
   </div>
 
+  <div class="slide" data-text="Boteco é festa, história e mesa cheia">
+    <img src="../assets/imgs/frios.jpg" alt="">
+    <h1></h1>
+  </div>
+
+  <div class="slide" data-text="O ponto certo pra comer bem e dar boas risadas">
+    <img src="../assets/imgs/batata.jpg" alt="">
+    <h1></h1>
+  </div>
+
+  <div class="slide" data-text="Sabor que abraça, cerveja que aproxima">
+    <img src="../assets/imgs/peixe.jpg" alt="">
+    <h1></h1>
+  </div>
+
+  <div class="slide" data-text="Seu boteco favorito está aqui — chega mais!">
+    <img src="../assets/imgs/salgados.jpg" alt="">
+    <h1></h1>
+  </div>
+
+</div>
 
 
-<main class="container">
+
+
+  <main class="container">
 
     <section class="panel" aria-labelledby="nossa-historia">
-        <div class="content">
-            <div class="kicker">Nossa História</div>
+      <div class="content">
+        <div class="kicker">Nossa História</div>
 
-            <h1 id="nossa-historia">Uma história de tradição e barulho — o Boteco Joana</h1>
+        <h1 id="nossa-historia">Uma história de tradição e barulho — o Boteco Joana</h1>
 
-            <p class="lead">
-                O Boteco Joana nasceu da união de Pedro Joaquim (Joca) e Ana: um lugar pequeno, sincero e cheio de vida.
-         SSS       A cozinha sempre foi de coração — temperos caseiros, porções generosas e uma cerveja que nunca decepciona.
-                Aqui, a resenha é garantida e cada cliente acaba virando amigo.
-            </p>
+        <p class="lead">
+          O Boteco Joana nasceu da união de Pedro Joaquim (Joca) e Ana: um lugar pequeno, sincero e cheio de vida.
+          SSS A cozinha sempre foi de coração — temperos caseiros, porções generosas e uma cerveja que nunca decepciona.
+          Aqui, a resenha é garantida e cada cliente acaba virando amigo.
+        </p>
 
-            <div class="actions">
-               <div class="actions">
-                 <a href="../historia.php" class="btn btn-primary">Ver mais</a>
-                 </div>
-            </div>
+        <div class="actions">
+          <div class="actions">
+            <a href="../historia.php" class="btn btn-primary">Ver mais</a>
+          </div>
         </div>
+      </div>
 
-        <aside class="visual" aria-hidden="false">
-            <a class="image-card" href="#">
-                <img src="../assets/imgs/BarLocal.jpg" alt="Fachada do Boteco Joana">
-            </a>
-        </aside>
+      <aside class="visual" aria-hidden="false">
+        <a class="image-card" href="#">
+          <img src="../assets/imgs/BarLocal.jpg" alt="Fachada do Boteco Joana">
+        </a>
+      </aside>
 
     </section>
 
-</main>
+  </main>
 
 
 
@@ -104,7 +106,7 @@ $paginaAtual = "Home";
     <h2>DESTAQUES</h2>
   </div>
 
-<div class="linha"></div>
+  <div class="linha"></div>
   <!-- MAIN -->
   <main id="carrosel-home">
 
@@ -139,7 +141,7 @@ $paginaAtual = "Home";
 
   </main>
 
- 
+
 
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -169,7 +171,7 @@ $paginaAtual = "Home";
       <p>É na dose que a conversa esquenta.</p>
     </div>
   </div>
- <!-- FOOTER -->
+  <!-- FOOTER -->
   <?php include '../../app/components/footer.php'; ?>
 
 

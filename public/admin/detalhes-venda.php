@@ -16,6 +16,7 @@ $paginaAtual = 'vendas';
   <link rel="stylesheet" href="../assets/css/detalhes-venda.css">
   <link rel="stylesheet" href="../assets/css/components/header.css">
   <link rel="stylesheet" href="../assets/css/components/footer.css">
+  <link rel="icon" type="image/png" href="../assets/imgs/LogoJoaninha.png">
   <title>Detalhes da Venda #1- Fast Food</title>
 </head>
 

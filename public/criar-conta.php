@@ -55,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   <link rel="stylesheet" href="./assets/css/criar-conta.css">
   <link rel="stylesheet" href="./assets/css/header.css">
   <link rel="stylesheet" href="./assets/css/footer.css">
+  <link rel="icon" type="image/png" href="../assets/imgs/LogoJoaninha.png">
   <title>Criar conta - Fast Food</title>
 </head>
 

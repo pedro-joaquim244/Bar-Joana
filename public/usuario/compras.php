@@ -33,6 +33,7 @@ $pedidos = ($result && $result->num_rows > 0) ? $result->fetch_all(MYSQLI_ASSOC)
   <link rel="stylesheet" href="../assets/css/compras.css">
   <link rel="stylesheet" href="../assets/css/componentes/header.css">
   <link rel="stylesheet" href="../assets/css/componentes/footer.css">
+  <link rel="icon" type="image/png" href="../assets/imgs/LogoJoaninha.png">
   <title>Minhas Compras - Fast Food</title>
 </head>
 

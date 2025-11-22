@@ -86,6 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../assets/css/editar-produto.css">
     <link rel="stylesheet" href="../assets/css/components/header.css">
     <link rel="stylesheet" href="../assets/css/components/footer.css">
+    <link rel="icon" type="image/png" href="../assets/imgs/LogoJoaninha.png">
     <title>Editar Produto - Fast Food</title>
 </head>
 

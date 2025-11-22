@@ -47,6 +47,7 @@ $usuario = $stmt->get_result()->fetch_assoc();
   <link rel="stylesheet" href="./assets/css/perfil.css">
   <link rel="stylesheet" href="./assets/css/components/header.css">
   <link rel="stylesheet" href="./assets/css/components/footer.css">
+  <link rel="icon" type="image/png" href="../assets/imgs/LogoJoaninha.png">
 </head>
 
 <body>

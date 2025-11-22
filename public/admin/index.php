@@ -56,6 +56,7 @@ if ($result && $result->num_rows > 0) {
   <link rel="stylesheet" href="../assets/css/home-admin.css">
   <link rel="stylesheet" href="../assets/css/components/header.css">
   <link rel="stylesheet" href="../assets/css/components/footer.css">
+  <link rel="icon" type="image/png" href="../assets/imgs/LogoJoaninha.png">
   <title>Painel Admin - Fast Food</title>
 </head>
 

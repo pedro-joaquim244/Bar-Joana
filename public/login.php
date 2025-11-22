@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   <link rel="stylesheet" href="./assets/css/login.css">
   <link rel="stylesheet" href="./assets/css/components/header.css">
   <link rel="stylesheet" href="./assets/css/components/footer.css">
+  <link rel="icon" type="image/png" href="../assets/imgs/LogoJoaninha.png">
   <title>Login - Fast Food</title>
 </head>
 

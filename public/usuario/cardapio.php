@@ -46,6 +46,7 @@ $produtos = $result && $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) 
   <link rel="stylesheet" href="../assets/css/home-usuario.css">
   <link rel="stylesheet" href="../assets/css/components/header.css">
   <link rel="stylesheet" href="../assets/css/components/footer.css">
+  <link rel="icon" type="image/png" href="../assets/imgs/LogoJoaninha.png">
   <title>Cardapio - Fast Food</title>
 </head>
 

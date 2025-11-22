@@ -15,6 +15,7 @@ $paginaAtual = 'compras';
   <link rel="stylesheet" href="../assets/css/detalhes-pedido.css">
   <link rel="stylesheet" href="../assets/css/components/header.css">
   <link rel="stylesheet" href="../assets/css/components/footer.css">
+<link rel="icon" type="image/png" href="../assets/imgs/LogoJoaninha.png">
   <title>Detalhes do Pedido Nº 12345 - Fast Food</title>
 </head>
 

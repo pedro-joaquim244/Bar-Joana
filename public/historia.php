@@ -17,6 +17,7 @@ $paginaAtual = "historia";
     <link rel="stylesheet" href="./assets/css/historia.css">
     <link rel="stylesheet" href="./assets/css/components/header.css">
     <link rel="stylesheet" href="./assets/css/components/footer.css">
+    <link rel="icon" type="image/png" href="../assets/imgs/LogoJoaninha.png">
 </head>
 
 <body>
