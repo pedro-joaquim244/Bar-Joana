@@ -52,10 +52,7 @@ $paginaAtual = "historia";
                     <span class="chip">Ambiente familiar</span>
                 </div>
 
-                <div class="actions">
-                    <button class="btn btn-primary">Ver Cardápio</button>
-                    <button class="btn btn-ghost">Reservar Mesa</button>
-                </div>
+               
             </div>
 
             <aside class="visual" aria-hidden="false">

@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remover'], $_POST['pr
 $metodosPermitidos = ['credito', 'debito', 'dinheiro', 'pix'];
 
 // Itens do carrinho
-$usuario_id = (int)$_SESSION['usuario_id'];
+$usuario_id = (int) $_SESSION['usuario_id'];
 $sql = "SELECT c.quantidade, p.id AS produto_id, p.nome, p.preco, p.imagem
         FROM carrinho c
         JOIN produtos p ON c.produto_id = p.id
@@ -32,7 +32,7 @@ $total = 0.0;
 $items = [];
 while ($row = $result->fetch_assoc()) {
   $items[] = $row;
-  $total += ((float)$row['preco']) * ((int)$row['quantidade']);
+  $total += ((float) $row['preco']) * ((int) $row['quantidade']);
 }
 $temItens = !empty($items);
 
@@ -42,8 +42,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['acao'], $_POST['produ
   $quantidade = (int) $_POST['quantidade'];
   $acao = $_POST['acao'];
 
-  if ($acao === 'aumentar') $quantidade++;
-  if ($acao === 'diminuir' && $quantidade > 1) $quantidade--;
+  if ($acao === 'aumentar')
+    $quantidade++;
+  if ($acao === 'diminuir' && $quantidade > 1)
+    $quantidade--;
 
   $stmt = $conn->prepare("UPDATE carrinho SET quantidade = ? WHERE usuario_id = ? AND produto_id = ?");
   $stmt->bind_param("iii", $quantidade, $usuario_id, $produto_id);
@@ -80,9 +82,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['metodo_pagamento']) &
             INSERT INTO itens_pedido (pedido_id, produto_id, quantidade, preco)
             VALUES (?, ?, ?, ?)
           ");
-          $pid   = (int)$i['produto_id'];
-          $qtd   = (int)$i['quantidade'];
-          $preco = (float)$i['preco'];
+          $pid = (int) $i['produto_id'];
+          $qtd = (int) $i['quantidade'];
+          $preco = (float) $i['preco'];
           $stmtI->bind_param("iiid", $pedido_id, $pid, $qtd, $preco);
           $stmtI->execute();
         }
@@ -128,27 +130,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['metodo_pagamento']) &
         <div class="produto">
           <img src="../assets/imgs/produtos/<?= $item['imagem']; ?>" alt="<?= $item['nome']; ?>">
           <h3><?= $item['nome'] ?></h3>
-          <h4>R$ <?= number_format((float)$item['preco'], 2, ',', '.') ?></h4>
+          <h4>R$ <?= number_format((float) $item['preco'], 2, ',', '.') ?></h4>
 
           <form action="carrinho.php" method="POST" style="display:inline;">
-            <input type="hidden" name="produto_id" value="<?= (int)$item['produto_id'] ?>">
-            <input type="hidden" name="quantidade" value="<?= (int)$item['quantidade'] ?>">
+            <input type="hidden" name="produto_id" value="<?= (int) $item['produto_id'] ?>">
+            <input type="hidden" name="quantidade" value="<?= (int) $item['quantidade'] ?>">
             <input type="hidden" name="acao" value="diminuir">
             <button type="submit" class="btn-quantidade">-</button>
           </form>
 
-          <p><?= (int)$item['quantidade'] ?></p>
+          <p><?= (int) $item['quantidade'] ?></p>
 
           <form action="carrinho.php" method="POST" style="display:inline;">
-            <input type="hidden" name="produto_id" value="<?= (int)$item['produto_id'] ?>">
-            <input type="hidden" name="quantidade" value="<?= (int)$item['quantidade'] ?>">
+            <input type="hidden" name="produto_id" value="<?= (int) $item['produto_id'] ?>">
+            <input type="hidden" name="quantidade" value="<?= (int) $item['quantidade'] ?>">
             <input type="hidden" name="acao" value="aumentar">
             <button type="submit" class="btn-quantidade">+</button>
           </form>
 
           <!-- Remover: posta para a MESMA página; o topo delega pra action -->
           <form action="" method="POST">
-            <input type="hidden" name="produto_id" value="<?= (int)$item['produto_id'] ?>">
+            <input type="hidden" name="produto_id" value="<?= (int) $item['produto_id'] ?>">
             <input type="hidden" name="remover" value="1">
             <button type="submit">
               <img id="imagemLixeira" class="lixeira" src="../assets/imgs/iconelixeira.png" alt="Remover">
@@ -183,8 +185,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['metodo_pagamento']) &
       </div>
 
     <?php else: ?>
+      <div class="carrinho-vazio">
+        <img src="../assets/imgs/carrinho-vazio.png" alt="Carrinho vazio">
+        <h2>Seu carrinho está vazio</h2>
+        <p>Que tal explorar nossos produtos incríveis?</p>
+        <a href="produtos.php">Ver produtos</a>
+      </div>
 
-      <p>Seu carrinho está vazio.</p>
 
     <?php endif; ?>
   </div>

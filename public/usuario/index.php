@@ -171,6 +171,50 @@ $paginaAtual = "Home";
       <p>É na dose que a conversa esquenta.</p>
     </div>
   </div>
+
+ <script src="../assets/javascript/comentarios.js"></script>
+
+<div class="review-section">
+    <h2 class="review-title">O que a galera anda falando 😄</h2>
+
+    <div class="review-carousel">
+
+        <button class="arrow prev">&#10094;</button>
+
+        <div class="review-wrapper">
+
+            <div class="review active">
+                <p>"Comida maravilhosa, atendimento perfeito! Melhor boteco disparado."</p>
+                <h3>— Ana Paula ⭐⭐⭐⭐⭐</h3>
+            </div>
+
+            <div class="review">
+                <p>"Ambiente divertido, porções bem servidas e música boa. Voltarei sempre!"</p>
+                <h3>— Gustavo Lima ⭐⭐⭐⭐⭐</h3>
+            </div>
+
+            <div class="review">
+                <p>"Experiência incrível! As bebidas chegaram rápido e estavam perfeitas."</p>
+                <h3>— Julia Andrade ⭐⭐⭐⭐⭐</h3>
+            </div>
+
+            <div class="review">
+                <p>"O melhor lugar da cidade pra relaxar! Tudo impecável."</p>
+                <h3>— Ricardo Torres ⭐⭐⭐⭐⭐</h3>
+            </div>
+
+        </div>
+
+        <button class="arrow next">&#10095;</button>
+
+    </div>
+
+    <div class="dots"></div>
+  
+</div>
+
+
+
   <!-- FOOTER -->
   <?php include '../../app/components/footer.php'; ?>
 

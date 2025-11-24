@@ -13,7 +13,7 @@ $usuario_id = (int)($_SESSION['usuario_id'] ?? 0);
 $sql = "SELECT *
         FROM pedidos
         WHERE usuario_id = ?
-        ORDER BY created_at DESC";
+        ORDER BY criado_em DESC";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $usuario_id);
 $stmt->execute();
@@ -31,8 +31,8 @@ $pedidos = ($result && $result->num_rows > 0) ? $result->fetch_all(MYSQLI_ASSOC)
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="../assets/css/reset.css">
   <link rel="stylesheet" href="../assets/css/compras.css">
-  <link rel="stylesheet" href="../assets/css/componentes/header.css">
-  <link rel="stylesheet" href="../assets/css/componentes/footer.css">
+  <link rel="stylesheet" href="../assets/css/components/header.css">
+  <link rel="stylesheet" href="../assets/css/components/footer.css">
   <link rel="icon" type="image/png" href="../assets/imgs/LogoJoaninha.png">
   <title>Minhas Compras - Fast Food</title>
 </head>
@@ -53,8 +53,8 @@ $pedidos = ($result && $result->num_rows > 0) ? $result->fetch_all(MYSQLI_ASSOC)
         <?php foreach ($pedidos as $pedido): ?>
           <?php
           $id        = (int)$pedido['id'];
-          $data      = date('d/m/Y', strtotime($pedido['created_at']));
-          $hora      = date('H:i', strtotime($pedido['created_at']));
+          $data      = date('d/m/Y', strtotime($pedido['criado_em']));
+          $hora      = date('H:i', strtotime($pedido['criado_em']));
           $total     = isset($pedido['total']) && is_numeric($pedido['total']) ? (float)$pedido['total'] : 0.0;
           $status    = isset($pedido['status']) ? (string)$pedido['status'] : '—'; // sem formatação
           $metodo    = $pedido['metodo_pagamento'] ?? null; // ENUM ou NULL

@@ -228,3 +228,84 @@ main {
      justify-content: center;
      margin: 0 auto;
 }
+
+
+
+
+
+
+
+/* Estilo geral do container */
+.container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Mensagem de carrinho vazio */
+.container p {
+  text-align: center;
+  font-size: 1.3rem;
+  color: #666;
+  margin-top: 40px;
+}
+
+/* Caixa estilizada para carrinho vazio */
+.carrinho-vazio {
+  background: #fff;
+  border-radius: 14px;
+  padding: 50px 30px;
+  text-align: center;
+  border: 1px solid #e2e2e2;
+  box-shadow: 0 5px 14px rgba(0,0,0,0.07);
+  margin-top: 40px;
+}
+
+/* Ícone/ilustração */
+.carrinho-vazio img {
+  width: 150px;
+  opacity: 0.85;
+  margin-bottom: 20px;
+}
+
+/* Texto principal */
+.carrinho-vazio h2 {
+  font-size: 1.8rem;
+  color: #b30000;
+  margin-bottom: 10px;
+}
+
+/* Texto secundário */
+.carrinho-vazio p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+/* Botão opcional (caso queira colocar) */
+.carrinho-vazio a {
+  display: inline-block;
+  padding: 12px 22px;
+  background: #b30000;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+
+.carrinho-vazio a:hover {
+  background: #8b0000;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .carrinho-vazio {
+    padding: 35px 20px;
+  }
+
+  .carrinho-vazio img {
+    width: 120px;
+  }
+}

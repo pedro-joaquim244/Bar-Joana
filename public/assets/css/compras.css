@@ -1,0 +1,95 @@
+/* Container geral */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Lista de pedidos */
+.lista-pedidos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Card do pedido */
+.pedido {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 25px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: 0.2s ease;
+}
+
+.pedido:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.pedido h3 {
+  margin: 0 0 5px;
+  font-size: 20px;
+  color: #b30000;
+}
+
+.pedido span {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 15px;
+}
+
+.pedido strong {
+  color: #222;
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/* Botão */
+.btn-detalhes {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 18px;
+  background: #b30000;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.btn-detalhes:hover {
+  background: #8a0000;
+}
+
+/* Texto quando não há pedidos */
+.container p {
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .pedido {
+    padding: 15px 18px;
+  }
+
+  .pedido h3 {
+    font-size: 18px;
+  }
+
+  .btn-detalhes {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,71 +1,145 @@
-main {
-  padding: 40px 20px;
-  text-align: center;
+/* ======= ESTILO GERAL ======= */
+body {
+  background: #f5f5f5;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
 }
 
+/* Título principal */
+main > h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 40px 0 20px;
+  font-weight: 700;
+  color: #b30000;
+}
+
+/* Container das vendas */
 .vendas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-  margin-top: 40px;
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  padding: 0 20px;
 }
 
+/* ======= CARD DE VENDA ======= */
 .venda {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  width: 260px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.15);
-  text-align: center;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-left: 6px solid #b30000;
 }
 
-.venda h2 {
-  margin: 5px 0;
-  font-size: 20px;
+.venda:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
 }
 
+/* Cabeçalhos do card */
+.venda h2:first-of-type {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.venda h2:nth-of-type(2) {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #b30000;
+}
+
+/* Textos do card */
 .venda p {
   margin: 4px 0;
-  font-size: 14px;
+  font-size: 0.95rem;
 }
 
+.venda p strong {
+  color: #333;
+}
+
+/* Valor total */
+.venda p:nth-of-type(5) {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #008000;
+  margin-bottom: 12px;
+}
+
+/* ======= FORMULÁRIO ======= */
 .venda form {
-  margin-top: 10px;
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.venda select,
-.venda input[type="submit"] {
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+.venda form label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.venda select {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #888;
+  outline: none;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+.venda select:focus {
+  border-color: #b30000;
 }
 
 .venda input[type="submit"] {
-  cursor: pointer;
-  background: #313131;
+  background: #b30000;
+  border: none;
   color: white;
-  transition: .2s;
+  padding: 10px 0;
+  margin-top: 5px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: 600;
 }
 
 .venda input[type="submit"]:hover {
+  background: #ff1a1a;
+}
+
+/* ======= LINK DETALHES ======= */
+.venda .detalhes {
+  margin-top: 15px;
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 14px;
+  background: #333;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.venda .detalhes:hover {
   background: #000;
 }
 
-.venda a.detalhes {
-  display: block;
-  margin-top: 15px;
-  text-decoration: none;
-  background: #007bff;
-  color: white;
-  padding: 8px 10px;
-  border-radius: 5px;
-  transition: .2s;
-}
+/* ======= RESPONSIVIDADE ======= */
+@media (max-width: 480px) {
+  main > h1 {
+    font-size: 1.8rem;
+  }
 
-.venda a.detalhes:hover {
-  background: #0056b3;
+  .venda {
+    padding: 20px;
+  }
 }

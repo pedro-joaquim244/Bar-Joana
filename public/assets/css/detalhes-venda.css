@@ -1,0 +1,170 @@
+/* ===== BASE ===== */
+body {
+  background: #f4f4f8;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.container {
+  max-width: 1050px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* ===== TÍTULOS ===== */
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #b30000;
+  letter-spacing: -1px;
+}
+
+h2 {
+  color: #333;
+  margin: 10px 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+h3 {
+  color: #444;
+  margin: 25px 0 10px;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* TEXTOS */
+p {
+  font-size: 1rem;
+  color: #555;
+  margin: 6px 0;
+}
+
+strong {
+  color: #222;
+  font-weight: 700;
+}
+
+/* ===== CARD GERAL DO PEDIDO ===== */
+.card-pedido {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 25px 28px;
+  margin-bottom: 25px;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+  transition: 0.25s ease;
+}
+
+.card-pedido:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.09);
+}
+
+/* ===== ÁREA DE ERRO ===== */
+.aviso-erro {
+  background: #ffe5e5;
+  padding: 35px;
+  border-radius: 16px;
+  text-align: center;
+  border-left: 6px solid #d10000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.aviso-erro p {
+  color: #8b0000;
+  font-size: 1.15rem;
+}
+
+.aviso-erro a {
+  color: #b30000;
+  font-weight: 600;
+}
+
+/* ===== SEÇÃO DE INFORMAÇÕES DO PEDIDO ===== */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.info-card {
+  background: linear-gradient(to bottom right, #ffffff, #fafafa);
+  padding: 18px 20px;
+  border-radius: 14px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.04);
+}
+
+.info-card strong {
+  font-size: 1.05rem;
+}
+
+/* ===== ENDEREÇO ===== */
+.endereco {
+  margin-top: 15px;
+  padding: 20px;
+  background: #fdfdfd;
+  border-radius: 15px;
+  border: 1px solid #e5e5e5;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.05);
+}
+
+.endereco p {
+  margin: 4px 0;
+}
+
+/* ===== ITENS DO PEDIDO ===== */
+.itens-pedido {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.item-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid #e7e7e7;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  transition: 0.2s ease;
+}
+
+.item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+}
+
+.item-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+}
+
+.item-card h3 {
+  margin: 0;
+  color: #b30000;
+  font-size: 1.2rem;
+}
+
+.item-card p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 700px) {
+  h1 { font-size: 2rem; }
+
+  .card-pedido {
+    padding: 18px;
+  }
+
+  .item-card img {
+    width: 100%;
+  }
+}
