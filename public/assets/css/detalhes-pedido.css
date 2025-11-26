@@ -1,67 +1,72 @@
-/* Área principal */
-main {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
-  font-family: Arial, sans-serif;
+body {
+    background: #f2f2f7;
+    font-family: "Inter", Arial, sans-serif;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
 }
 
-/* Card do pedido */
-section {
-  background: #fff;
-  border-radius: 14px;
-  padding: 25px 30px;
-  border: 1px solid #e3e3e3;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+/* Card principal */
+.card {
+    width: 900px;
+    background: #fff;
+    padding: 40px 50px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
-/* Títulos */
-section h2 {
-  margin: 0 0 15px;
-  font-size: 24px;
-  color: #b30000;
+/* Título */
+h2 {
+    font-size: 32px;
+    color: #cc0000;
+    margin-bottom: 10px;
 }
 
-section h3 {
-  margin: 25px 0 10px;
-  font-size: 20px;
-  color: #333;
+/* Endereço */
+.endereco {
+    font-size: 15px;
+    margin-bottom: 30px;
+    color: #444;
 }
 
-/* Parágrafos gerais */
-section p {
-  color: #444;
-  font-size: 15.5px;
-  line-height: 1.5;
-  margin-bottom: 8px;
+/* Subtítulos */
+h3 {
+    font-size: 24px;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    color: #222;
 }
 
-/* Itens */
-section div {
-  background: #f7f7f7;
-  padding: 12px 15px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
-  font-size: 15px;
+/* Cada item do pedido */
+.item {
+    background: #fafafa;
+    border: 2px solid #efefef;
+    padding: 16px 22px;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: #555;
 }
 
-/* Destaques */
-section strong {
-  color: #111;
-}
-
-/* Responsivo */
-@media (max-width: 600px) {
-  section {
+/* Box do resumo */
+.resumo-box {
+    margin-top: 20px;
+    background: #fff4f4;
+    border-left: 5px solid #cc0000;
     padding: 18px 20px;
-  }
+    border-radius: 12px;
+    font-size: 17px;
+    color: #444;
+}
 
-  section h2 {
-    font-size: 22px;
-  }
-
-  section h3 {
-    font-size: 18px;
-  }
+/* Valor total */
+.valor-total {
+    margin-top: 20px;
+    background: #ffecec;
+    border-left: 5px solid #cc0000;
+    padding: 20px 25px;
+    border-radius: 14px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #bb0000;
 }
