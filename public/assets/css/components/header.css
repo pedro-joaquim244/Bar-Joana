@@ -5,7 +5,7 @@
 }
 
 header {
-    background-color: hsl(0, 100%, 36%);
+       background-color: hsl(0, 100%, 36%);
     padding: 16px 30px;
     display: flex;
     justify-content: space-between;
@@ -13,33 +13,47 @@ header {
 }
 
 /* LOGO */
-.logoFoto img {
-    height: 75px;
-    width: 67px;
-    padding-right: 4px;
-}
-
+/* CONTAINER DA LOGO */
 .logo {
     display: flex;
     align-items: center;
-    gap: 6px;
-    
 }
 
-.logo h1 {
-    font-family: "Fredoka", sans-serif;
-    font-weight: 600;
-    font-size: 30px;
-    color: white;
+/* LINK QUE ENVOLVE LOGO + TEXTO */
+.logoFoto {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
 }
 
-.logo h2 {
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    font-size: 20px;
-    letter-spacing: 3px;
-    color: white;
+/* IMAGEM DA JOANINHA */
+.logoFoto img {
+    width: 55px;
+    height: auto;
 }
+
+/* TEXTOS */
+.logotxt h1 {
+    font-size: 34px;
+    font-weight: 900;
+    margin: 0;
+    color: #ffffff;
+    line-height: 1.1;
+    text-transform: none;
+}
+
+
+
+.logotxt h2 {
+    font-size: 18px;
+    letter-spacing: 8px;
+    margin: 0;
+    margin-top: 4px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
 
 /* NAV MENU */
 .menu {
@@ -135,4 +149,11 @@ header {
 .icones button img {
     width: 32px;
     height: 32px;
+}
+
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

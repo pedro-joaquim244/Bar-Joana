@@ -55,7 +55,7 @@ $paginaAtual = "Home";
   </div>
 
   <div class="slide" data-text="Seu boteco favorito está aqui — chega mais!">
-    <img src="../assets/imgs/salgados.jpg" alt="">
+    <img src="../assets/imgs/calabresa.jpg" alt="">
     <h1></h1>
   </div>
 

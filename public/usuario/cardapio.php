@@ -43,7 +43,7 @@ $produtos = $result && $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="../assets/css/reset.css">
-  <link rel="stylesheet" href="../assets/css/home-usuario.css">
+  <link rel="stylesheet" href="../assets/css/cardapio.css">
   <link rel="stylesheet" href="../assets/css/components/header.css">
   <link rel="stylesheet" href="../assets/css/components/footer.css">
   <link rel="icon" type="image/png" href="../assets/imgs/LogoJoaninha.png">
@@ -56,7 +56,8 @@ $produtos = $result && $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) 
   include '../../app/components/header.php';
   ?>
 
-  <h1>Cardapio</h1>
+  <h1>Cardápio</h1>
+  <div class="Linha"></div>
   <div class="produtos">
     <?php if (empty($produtos)): ?>
       <p>Não há produtos cadastrados.</p>

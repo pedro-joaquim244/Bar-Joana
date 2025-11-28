@@ -189,7 +189,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['metodo_pagamento']) &
         <img src="../assets/imgs/carrinho-vazio.png" alt="Carrinho vazio">
         <h2>Seu carrinho está vazio</h2>
         <p>Que tal explorar nossos produtos incríveis?</p>
-        <a href="produtos.php">Ver produtos</a>
+        <a href="cardapio.php">Ver produtos</a>
       </div>
 
 

@@ -1,6 +1,15 @@
 /* ------------------------------ */
 /* Layout geral                   */
 /* ------------------------------ */
+
+
+    * {
+      box-sizing: border-box;
+      margin: 0px;
+      padding: 0px;
+    }
+
+
 body {
   font-family: 'poppins', sans-serif;
   background: #f5f5f5;
