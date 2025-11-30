@@ -39,6 +39,7 @@ $stmt->bind_param("i", $id);
 $stmt->execute();
 $usuario = $stmt->get_result()->fetch_assoc();
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -55,11 +56,11 @@ $usuario = $stmt->get_result()->fetch_assoc();
 <body>
   <?php include "../app/components/header.php"; ?>
 
-  <div class="titulo">
-    <h1>Perfil</h1>
-  </div>
+  
+<h1 id="titulo" class="titulo">Perfil</h1>
+  <div class="Linha"></div>
 
-  <div class="linha"></div>
+  
   <section>
     <div class="perfil-wrapper">
       <div class="perfil-sidebar">

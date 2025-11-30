@@ -1,3 +1,4 @@
+const track = document.querySelector(".review-track");
 const reviews = document.querySelectorAll(".review");
 const prev = document.querySelector(".prev");
 const next = document.querySelector(".next");
@@ -5,7 +6,7 @@ const dotsContainer = document.querySelector(".dots");
 
 let index = 0;
 
-// Criar bolinhas dinamicamente
+// Criar bolinhas
 reviews.forEach((_, i) => {
     const dot = document.createElement("div");
     dot.classList.add("dot");
@@ -17,30 +18,42 @@ reviews.forEach((_, i) => {
 const dots = document.querySelectorAll(".dot");
 
 function updateCarousel() {
-    reviews.forEach(r => r.classList.remove("active"));
-    dots.forEach(d => d.classList.remove("active"));
+    track.style.transform = `translateX(-${index * 100}%)`;
 
-    reviews[index].classList.add("active");
+    dots.forEach(dot => dot.classList.remove("active"));
     dots[index].classList.add("active");
 }
 
 function goTo(i) {
     index = i;
+    resetAutoPlay();
     updateCarousel();
 }
 
 next.addEventListener("click", () => {
     index = (index + 1) % reviews.length;
+    resetAutoPlay();
     updateCarousel();
 });
 
 prev.addEventListener("click", () => {
     index = (index - 1 + reviews.length) % reviews.length;
+    resetAutoPlay();
     updateCarousel();
 });
 
-// Auto-play
-setInterval(() => {
+// AUTO PLAY
+let auto = setInterval(() => {
     index = (index + 1) % reviews.length;
     updateCarousel();
-}, 5000);
+}, 4000);
+
+function resetAutoPlay() {
+    clearInterval(auto);
+    auto = setInterval(() => {
+        index = (index + 1) % reviews.length;
+        updateCarousel();
+    }, 4000);
+}
+
+updateCarousel();

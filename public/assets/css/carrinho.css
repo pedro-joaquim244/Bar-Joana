@@ -86,30 +86,34 @@ main {
     font-weight: 600;
     width: 25px;
     text-align: center;
-    display: contents;
+    display: block;
 }
 
 /* ================================
    BOTÃO REMOVER
 ================================ */
-.btn-remover {
-    margin-left: auto;
-    padding: 8px 14px;
-    background: #ff0000;
-    color: white;
+.btn-remover,
+.produto button {
+    background-color: #b30000;
+    height: 38px;
+    width: 40px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.btn-remover:hover {
-    background: #ee0000;
+.produto button:hover {
+    background-color: #530909;
 }
 
-.btn-remover:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+#imagemLixeira {
+    height: 20px;
+    width: 20px;
+    display: block;
+    margin: 0 auto;
 }
 
 /* ================================
@@ -129,10 +133,6 @@ main {
     color: #b30000;
     text-align: center;
     margin-bottom: 20px;
-}
-
-.total-carrinho form h3 {
-    margin-bottom: 10px;
 }
 
 .total-carrinho select {
@@ -161,14 +161,80 @@ main {
     background: rgb(117, 1, 1);
 }
 
-.total-carrinho input:disabled,
-.total-carrinho select:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+/* ================================
+      CARRINHO VAZIO
+================================ */
+.carrinho-vazio {
+    background: #fff;
+    border-radius: 14px;
+    padding: 50px 30px;
+    text-align: center;
+    border: 1px solid #e2e2e2;
+    box-shadow: 0 5px 14px rgba(0,0,0,0.07);
+    margin-top: 40px;
+}
+
+.carrinho-vazio img {
+    width: 150px;
+    opacity: 0.85;
+    margin-bottom: 20px;
+}
+
+.carrinho-vazio h2 {
+    font-size: 1.8rem;
+    color: #b30000;
+    margin-bottom: 10px;
+}
+
+.carrinho-vazio p {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 25px;
+}
+
+.carrinho-vazio a {
+    display: inline-block;
+    padding: 12px 22px;
+    background: #b30000;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: 0.2s;
+}
+
+.carrinho-vazio a:hover {
+    background: #8b0000;
 }
 
 /* ================================
-   RESPONSIVIDADE
+   FLEX - INFO E BOTÕES
+================================ */
+.info-produto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    min-width: 150px;
+}
+
+.botoes {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    margin: 0 auto;
+    p{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+/* ================================
+   RESPONSIVO
 ================================ */
 @media (max-width: 900px) {
     main {
@@ -182,8 +248,8 @@ main {
     }
 
     .btn-remover {
-        margin-left: 0;
         width: 100%;
+        margin-left: 0;
     }
 
     .total-carrinho {
@@ -196,116 +262,4 @@ main {
         width: 90px;
         height: 90px;
     }
-}
-
-.lixeira{
-    img{
-       background: red;
-       height: 38px;
-       width: 40px;
-    }
-}
-
-.produto button{
-    background-color: #b30000;
-    height: 38px;
-    width: 40px;
-    align-items: center;
-    display:flex;
-    justify-content: center;
-}
-
-.produto button:hover{
-    background-color: #530909;
-}
-
-#imagemLixeira{
-    height: 20px;
-     width: 20px;
-     margin: 0px;
-     align-items: center;
-     display: flex;
-     justify-content: center;
-     margin: 0 auto;
-}
-
-
-
-
-
-
-
-/* Estilo geral do container */
-.container {
-  max-width: 900px;
-  margin: 50px auto;
-  padding: 0 20px;
-  font-family: Arial, sans-serif;
-}
-
-/* Mensagem de carrinho vazio */
-.container p {
-  text-align: center;
-  font-size: 1.3rem;
-  color: #666;
-  margin-top: 40px;
-}
-
-/* Caixa estilizada para carrinho vazio */
-.carrinho-vazio {
-  background: #fff;
-  border-radius: 14px;
-  padding: 50px 30px;
-  text-align: center;
-  border: 1px solid #e2e2e2;
-  box-shadow: 0 5px 14px rgba(0,0,0,0.07);
-  margin-top: 40px;
-}
-
-/* Ícone/ilustração */
-.carrinho-vazio img {
-  width: 150px;
-  opacity: 0.85;
-  margin-bottom: 20px;
-}
-
-/* Texto principal */
-.carrinho-vazio h2 {
-  font-size: 1.8rem;
-  color: #b30000;
-  margin-bottom: 10px;
-}
-
-/* Texto secundário */
-.carrinho-vazio p {
-  font-size: 1.1rem;
-  color: #444;
-  margin-bottom: 25px;
-}
-
-/* Botão opcional (caso queira colocar) */
-.carrinho-vazio a {
-  display: inline-block;
-  padding: 12px 22px;
-  background: #b30000;
-  color: #fff;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: 0.2s;
-}
-
-.carrinho-vazio a:hover {
-  background: #8b0000;
-}
-
-/* Responsivo */
-@media (max-width: 600px) {
-  .carrinho-vazio {
-    padding: 35px 20px;
-  }
-
-  .carrinho-vazio img {
-    width: 120px;
-  }
 }

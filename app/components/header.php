@@ -36,6 +36,9 @@ $funcao = $_SESSION['funcao'] ?? null;
             <?php if ($funcao === "cliente"): ?>
                 <!-- Menus do cliente -->
                 <a href="/usuario/cardapio.php" class="link-menu <?= $paginaAtual === "cardapio" ? "ativo" : "" ?>">Cardápio</a>
+                  <a class="icone <?= ($paginaAtual === 'compras') ? 'ativo' : '' ?>" href="/usuario/compras.php">
+               Minhas Compras
+            </a>
 
 
             <?php elseif ($funcao === "admin"): ?>
@@ -65,7 +68,7 @@ $funcao = $_SESSION['funcao'] ?? null;
                 <img src="/assets/imgs/usuario.png" alt="Usuário">
             </a>
 
-
+            
             <form method="post">
                 <button type="submit" name="logout" class="btn-sair">
                     <img src="/assets/imgs/Sair.png" alt="Sair">

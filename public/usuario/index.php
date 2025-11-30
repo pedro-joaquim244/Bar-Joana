@@ -70,7 +70,7 @@ $paginaAtual = "Home";
       <div class="content">
         <div class="kicker">Nossa História</div>
 
-        <h1 id="nossa-historia">Uma história de tradição e barulho — o Boteco Joana</h1>
+        <h1 id="nossa-historia">Uma história de tradição e barulho —   Boteco Joana</h1>
 
         <p class="lead">
           O Boteco Joana nasceu da união de Pedro Joaquim (Joca) e Ana: um lugar pequeno, sincero e cheio de vida.
@@ -172,7 +172,7 @@ $paginaAtual = "Home";
     </div>
   </div>
 
- <script src="../assets/javascript/comentarios.js"></script>
+ 
 
 <div class="review-section">
     <h2 class="review-title">O que a galera anda falando 😄</h2>
@@ -182,27 +182,29 @@ $paginaAtual = "Home";
         <button class="arrow prev">&#10094;</button>
 
         <div class="review-wrapper">
+            <div class="review-track">
 
-            <div class="review active">
-                <p>"Comida maravilhosa, atendimento perfeito! Melhor boteco disparado."</p>
-                <h3>— Ana Paula ⭐⭐⭐⭐⭐</h3>
+                <div class="review">
+                    <p>"Comida maravilhosa, atendimento perfeito! Melhor boteco disparado."</p>
+                    <h3>— Ana Paula ⭐⭐⭐⭐⭐</h3>
+                </div>
+
+                <div class="review">
+                    <p>"Ambiente divertido, porções bem servidas e música boa. Voltarei sempre!"</p>
+                    <h3>— Gustavo Lima ⭐⭐⭐⭐⭐</h3>
+                </div>
+
+                <div class="review">
+                    <p>"Experiência incrível! As bebidas chegaram rápido e estavam perfeitas."</p>
+                    <h3>— Julia Andrade ⭐⭐⭐⭐⭐</h3>
+                </div>
+
+                <div class="review">
+                    <p>"O melhor lugar da cidade pra relaxar! Tudo impecável."</p>
+                    <h3>— Ricardo Torres ⭐⭐⭐⭐⭐</h3>
+                </div>
+
             </div>
-
-            <div class="review">
-                <p>"Ambiente divertido, porções bem servidas e música boa. Voltarei sempre!"</p>
-                <h3>— Gustavo Lima ⭐⭐⭐⭐⭐</h3>
-            </div>
-
-            <div class="review">
-                <p>"Experiência incrível! As bebidas chegaram rápido e estavam perfeitas."</p>
-                <h3>— Julia Andrade ⭐⭐⭐⭐⭐</h3>
-            </div>
-
-            <div class="review">
-                <p>"O melhor lugar da cidade pra relaxar! Tudo impecável."</p>
-                <h3>— Ricardo Torres ⭐⭐⭐⭐⭐</h3>
-            </div>
-
         </div>
 
         <button class="arrow next">&#10095;</button>
@@ -210,9 +212,10 @@ $paginaAtual = "Home";
     </div>
 
     <div class="dots"></div>
-  
 </div>
 
+
+<script src="../assets/javascript/comentarios.js"></script>
 
 
   <!-- FOOTER -->

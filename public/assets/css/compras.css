@@ -9,7 +9,7 @@
 .container h1 {
   text-align: center;
   margin-bottom: 30px;
-  color: #333;
+  color: hsl(0, 100%, 36%);
 }
 
 /* Lista de pedidos */
