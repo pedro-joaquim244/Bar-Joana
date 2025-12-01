@@ -53,13 +53,13 @@ strong {
   padding: 25px 28px;
   margin-bottom: 25px;
   border: 1px solid #e6e6e6;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
   transition: 0.25s ease;
 }
 
 .card-pedido:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.09);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.09);
 }
 
 /* ===== ÁREA DE ERRO ===== */
@@ -69,7 +69,7 @@ strong {
   border-radius: 16px;
   text-align: center;
   border-left: 6px solid #d10000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .aviso-erro p {
@@ -95,7 +95,7 @@ strong {
   padding: 18px 20px;
   border-radius: 14px;
   border: 1px solid #e5e5e5;
-  box-shadow: 0 5px 12px rgba(0,0,0,0.04);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.04);
 }
 
 .info-card strong {
@@ -109,7 +109,7 @@ strong {
   background: #fdfdfd;
   border-radius: 15px;
   border: 1px solid #e5e5e5;
-  box-shadow: inset 0 0 8px rgba(0,0,0,0.05);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
 }
 
 .endereco p {
@@ -126,16 +126,16 @@ strong {
 
 .item-card {
   background: #ffffff;
-  border-radius: 16px;
-  padding: 20px;
-  border: 1px solid #e7e7e7;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-  transition: 0.2s ease;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-left: 6px solid #b30000;
 }
 
 .item-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
 }
 
 .item-card img {
@@ -158,7 +158,9 @@ strong {
 
 /* ===== RESPONSIVO ===== */
 @media (max-width: 700px) {
-  h1 { font-size: 2rem; }
+  h1 {
+    font-size: 2rem;
+  }
 
   .card-pedido {
     padding: 18px;

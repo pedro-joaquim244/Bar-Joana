@@ -132,8 +132,7 @@ $paginaAtual = "Home";
       </div>
 
       <!-- Botões -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
+      
 
       <!-- Paginação -->
       <div class="swiper-pagination"></div>
@@ -172,42 +171,6 @@ $paginaAtual = "Home";
     </div>
   </div>
 
- 
-
-<div class="review-section">
-    <h2 class="review-title">O que a galera anda falando 😄</h2>
-
-    <div class="review-carousel">
-
-        <button class="arrow prev">&#10094;</button>
-
-        <div class="review-wrapper">
-            <div class="review-track">
-
-                <div class="review">
-                    <p>"Comida maravilhosa, atendimento perfeito! Melhor boteco disparado."</p>
-                    <h3>— Ana Paula ⭐⭐⭐⭐⭐</h3>
-                </div>
-
-                <div class="review">
-                    <p>"Ambiente divertido, porções bem servidas e música boa. Voltarei sempre!"</p>
-                    <h3>— Gustavo Lima ⭐⭐⭐⭐⭐</h3>
-                </div>
-
-                <div class="review">
-                    <p>"Experiência incrível! As bebidas chegaram rápido e estavam perfeitas."</p>
-                    <h3>— Julia Andrade ⭐⭐⭐⭐⭐</h3>
-                </div>
-
-                <div class="review">
-                    <p>"O melhor lugar da cidade pra relaxar! Tudo impecável."</p>
-                    <h3>— Ricardo Torres ⭐⭐⭐⭐⭐</h3>
-                </div>
-
-            </div>
-        </div>
-
-        <button class="arrow next">&#10095;</button>
 
     </div>
 

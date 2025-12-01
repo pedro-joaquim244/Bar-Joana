@@ -15,7 +15,11 @@
   </div>
 
   <!-- Horarios e localidade ao centro -->
-  <h3>Local: Esquina da Rua Principal · Horário: aberto todos os dias das 11h até as 00:30</h3>
+   <div class="horario">
+     <h2>· Local: Esquina da Rua Principal</h2>
+       <h2>· Horário: aberto todos os dias das 11h até as 00:30</h2>
+
+   </div>
 
   <!-- Ícones sociais à direita -->
   <div class="footer-content">

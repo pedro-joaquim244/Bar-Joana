@@ -48,7 +48,6 @@ $paginaAtual = "historia";
                 <div class="bullets" aria-hidden="true">
                     <span class="chip">Torresmo campeão</span>
                     <span class="chip">Chopp gelado</span>
-                    <span class="chip">Sobremesas artesanais</span>
                     <span class="chip">Ambiente familiar</span>
                 </div>
 

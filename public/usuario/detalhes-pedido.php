@@ -17,7 +17,7 @@ if (!$pedido_id) {
 $usuario_id = usuarioId();
 
 /** Carrega o pedido + endereço do usuário */
-$sql = "SELECT p.*, u.bairro, u.logradouro, u.numero, u.complemento
+$sql = "SELECT p.*, u.bairro, u.logradouro, u.complemento
         FROM pedidos p
         JOIN usuarios u ON p.usuario_id = u.id
         WHERE p.id = ? AND p.usuario_id = ?";
@@ -47,14 +47,14 @@ $itens = $result_itens->num_rows > 0 ? $result_itens->fetch_all(MYSQLI_ASSOC) : 
 /** Totais */
 $totalItens = 0.0;
 foreach ($itens as $it) {
-  $qtd   = (int)$it['quantidade'];
-  $preco = (float)$it['preco_unit'];
+  $qtd = (int) $it['quantidade'];
+  $preco = (float) $it['preco_unit'];
   $totalItens += $qtd * $preco;
 }
 
 /** Usa o total salvo no pedido ou a soma */
 $valorTotalPago = (isset($pedido['total']) && is_numeric($pedido['total']))
-  ? (float)$pedido['total']
+  ? (float) $pedido['total']
   : $totalItens;
 
 $metodoPagamento = $pedido['metodo_pagamento'] ?? '';
@@ -65,7 +65,7 @@ $metodoPagamento = $pedido['metodo_pagamento'] ?? '';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalhes do Pedido Nº <?= (int)$pedido['id'] ?> - Fast Food</title>
+  <title>Detalhes do Pedido Nº <?= (int) $pedido['id'] ?> - Fast Food</title>
 
   <!-- CSS externo -->
   <link rel="stylesheet" href="../assets/css/reset.css">
@@ -76,13 +76,17 @@ $metodoPagamento = $pedido['metodo_pagamento'] ?? '';
 </head>
 
 <body>
+  <?php
+  $paginaAtual = 'compras';
+  include "../../app/components/header.php";
+  ?>
   <div class="card">
 
-    <h2>Pedido Nº <?= (int)$pedido['id'] ?></h2>
+    <h2>Pedido Nº <?= (int) $pedido['id'] ?></h2>
 
     <p class="endereco">
       Endereço:
-      <?= $pedido['logradouro'] . ', ' . $pedido['numero'] ?>
+      <?= $pedido['logradouro'] ?>
       <?php if (!empty($pedido['complemento'])): ?>
         — <?= $pedido['complemento'] ?>
       <?php endif; ?>
@@ -95,14 +99,14 @@ $metodoPagamento = $pedido['metodo_pagamento'] ?? '';
       <?php if (!empty($itens)): ?>
         <?php foreach ($itens as $item): ?>
           <?php
-          $q = (int)$item['quantidade'];
-          $pu = (float)$item['preco_unit'];
+          $q = (int) $item['quantidade'];
+          $pu = (float) $item['preco_unit'];
           $sub = $q * $pu;
           ?>
           <div class="item">
-            <?= $item['nome'] ?> — 
-            Qtd: <?= $q ?> — 
-            Preço unit.: R$ <?= number_format($pu, 2, ',', '.') ?> — 
+            <?= $item['nome'] ?> —
+            Qtd: <?= $q ?> —
+            Preço unit.: R$ <?= number_format($pu, 2, ',', '.') ?> —
             Subtotal: R$ <?= number_format($sub, 2, ',', '.') ?>
           </div>
         <?php endforeach; ?>
@@ -122,6 +126,11 @@ $metodoPagamento = $pedido['metodo_pagamento'] ?? '';
     </div>
 
   </div>
+
+  <?php
+  $paginaAtual = 'compras';
+  include "../../app/components/footer.php";
+  ?>
 </body>
 
 </html>

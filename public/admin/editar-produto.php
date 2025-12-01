@@ -1,8 +1,6 @@
-<!-- /public/admin/editar-produto.php -->
 <?php
 require_once __DIR__ . '/../../app/config/conexao.php';
 require_once __DIR__ . '/../../app/config/auth.php';
-
 
 if (!estaLogado() || (($_SESSION['funcao'] ?? 'cliente') !== 'admin')) {
     header('Location: /index.php');
@@ -31,9 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descricao = trim($_POST['descricao'] ?? '');
     $preco = $_POST['preco'] ?? '';
     $status = $_POST['status'] ?? 'inativo';
+    $categoria = $_POST['categoria'] ?? '';
 
-    if ($nome === '' || $descricao === '' || $preco === '') {
-        $erro = 'Preencha nome, descrição e preço.';
+    if ($nome === '' || $descricao === '' || $preco === '' || $categoria === '') {
+        $erro = 'Preencha nome, descrição, preço e categoria.';
     } else {
         $uploadDir = __DIR__ . '/../assets/imgs/produtos/';
         $novoArquivo = null;
@@ -50,10 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (!$erro) {
             $sql = "UPDATE produtos
-              SET nome=?, descricao=?, preco=?, status=?, imagem=COALESCE(?, imagem)
-              WHERE id=?";
+                    SET nome=?, descricao=?, preco=?, status=?, categoria=?, imagem=COALESCE(?, imagem)
+                    WHERE id=?";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("ssdssi", $nome, $descricao, $preco, $status, $novoArquivo, $id);
+            $stmt->bind_param("ssdssss", $nome, $descricao, $preco, $status, $categoria, $novoArquivo, $id);
 
             if ($stmt->execute()) {
                 // Se atualizou com nova imagem, apaga a antiga
@@ -113,15 +112,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <label>Status:</label>
             <select name="status" required>
-                <option value="ativo"   <?= $produto['status'] === 'ativo' ? 'selected' : '' ?>>Ativo</option>
+                <option value="ativo" <?= $produto['status'] === 'ativo' ? 'selected' : '' ?>>Ativo</option>
                 <option value="inativo" <?= $produto['status'] === 'inativo' ? 'selected' : '' ?>>Inativo</option>
+            </select>
+
+            <label>Categoria:</label>
+            <select name="categoria" required>
+                <option value="Alimentos" <?= $produto['categoria'] === 'Alimentos' ? 'selected' : '' ?>>Alimentos</option>
+                <option value="Bebidas" <?= $produto['categoria'] === 'Bebidas' ? 'selected' : '' ?>>Bebidas</option>
+                <option value="Sobremesas" <?= $produto['categoria'] === 'Sobremesas' ? 'selected' : '' ?>>Sobremesas
+                </option>
             </select>
 
             <label>Imagem atual:</label>
             <div style="margin-bottom:8px;">
                 <img src="/assets/imgs/produtos/<?= htmlspecialchars($produto['imagem']) ?>"
-                     alt="<?= htmlspecialchars($produto['nome']) ?>"
-                     style="max-width:150px;">
+                    alt="<?= htmlspecialchars($produto['nome']) ?>" style="max-width:150px;">
             </div>
 
             <label>Nova imagem (opcional):</label>

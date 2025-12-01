@@ -1,13 +1,13 @@
 body {
     background: #f2f2f7;
     font-family: "POPPINS";
-    padding: 40px 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 }
 
 /* Card principal */
 .card {
+    margin: 24px auto;
     width: 900px;
     background: #fff;
     padding: 40px 50px;

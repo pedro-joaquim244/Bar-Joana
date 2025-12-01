@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $descricao = trim($_POST['descricao'] ?? '');
   $preco = $_POST['preco'] ?? '';
   $status = $_POST['status'] ?? 'ativo';
+  $categoria = $_POST['categoria'] ?? '';
 
   if ($nome === '' || $descricao === '' || $preco === '' || empty($_FILES['imagem'])) {
     $erro = 'Preencha todos os campos e selecione uma imagem.';
@@ -32,9 +33,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       if (!is_uploaded_file($_FILES['imagem']['tmp_name']) || !move_uploaded_file($_FILES['imagem']['tmp_name'], $destino)) {
         $erro = 'Não foi possível salvar a imagem.';
       } else {
-        $sql = "INSERT INTO produtos (nome, descricao, preco, imagem, status) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO produtos (nome, descricao, preco, imagem, status, categoria) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssdss", $nome, $descricao, $preco, $final, $status);
+        $stmt->bind_param("ssdsss", $nome, $descricao, $preco, $final, $status, $categoria);
 
         if ($stmt->execute()) {
           header('Location: index.php');
@@ -56,18 +57,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <link rel="stylesheet" href="../assets/css/cadastrar-produto.css">
   <link rel="stylesheet" href="../assets/css/components/header.css">
   <link rel="stylesheet" href="../assets/css/components/footer.css">
-  <link rel="icon" type="image/png" href="../assets/imgs/LogoJoaninha.png"> 
+  <link rel="icon" type="image/png" href="../assets/imgs/LogoJoaninha.png">
   <title>Adicionar Produto - Fastfood</title>
 </head>
 
 <body>
-  
-  
-  
 
-  <?php include '../../app/components/header.php'; 
-  
-  ?>
+  <?php include '../../app/components/header.php'; ?>
 
   <div class="conteudo-principal">
     <h1 class="titulo-principal">Adicionar Produto</h1>
@@ -97,6 +93,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <option value="inativo">Inativo</option>
             </select>
           </div>
+
+          <div class="campo">
+            <label>Categoria</label>
+            <select name="categoria" required>
+              <option value="Petiscos">Petiscos</option>
+              <option value="Carne e Porções">Carne e Porções</option>
+              <option value="Comida e Raiz">Comida Raiz</option>
+              <option value="Sanduíches">Sanduíches e Lanches de boteco</option>
+              <option value="Opções diferentes/Gourmet">Opções diferentes/Gourmet</option>
+              <option value="Bebidas Clássicas">Bebidas Clássicas</option>
+              <option value="Drinks Simples">Drinks Simples</option>
+              <option value="Drinks Modernos">Drinks Modernos</option>
+              <option value="Destilados">Destilados</option>
+              <option value="Bebidas Raiz">Bebidas Raiz</option>
+              <option value="Coquetéis Clássicos">Coquetéis Clássicos</option>
+              <option value="Bebidas sem Álcool">Bebidas sem Álcool</option>
+              <option value="Drinks sem Álcool">Drinks sem Álcool</option>
+            </select>
+          </div>
+
           <div class="campo">
             <label>Descrição</label>
             <textarea name="descricao" required></textarea>
@@ -113,9 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       </div>
 
-
-
-      <button type="submit">Salvar</button>
+      <button id="botaoSalvar" type="submit">Salvar</button>
     </form>
   </div>
 

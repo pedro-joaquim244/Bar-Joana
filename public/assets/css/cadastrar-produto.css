@@ -21,9 +21,9 @@ body {
 }
 
 .titulo-principal {
-    
+
     font-weight: 600;
-    color:hsl(0, 100%, 36%);
+    color: hsl(0, 100%, 36%);
     display: flex;
     justify-content: center;
     padding-top: 20px;
@@ -33,19 +33,17 @@ body {
 /* CARDS */
 .Basicas,
 .descricao {
-    background: #fff;
-    border: 2px solid #e5e5e5;
-    border-radius: 12px;
-    padding: 24px;
-    flex: 1;
+
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-left: 6px solid #b30000;
     min-width: 420px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
 }
 
-.adicionar-produto{
+.adicionar-produto {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -85,16 +83,13 @@ body {
 
 /* CAMPO UPLOAD */
 .campo-upload {
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    border: 2px solid #e5e5e5;
-    border-radius: 12px;
-    padding: 24px;
-    text-align: center;
-    flex: 1;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-left: 6px solid #b30000;
     min-width: 420px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
 .campo-upload label {
@@ -159,7 +154,8 @@ body {
 }
 
 /* BOTÃO */
-button[type="submit"] {
+#botaoSalvar {
+
     background-color: hsl(0, 100%, 36%);
     color: #fff;
     font-weight: bold;
@@ -168,12 +164,12 @@ button[type="submit"] {
     font-size: 1rem;
     cursor: pointer;
     border-radius: 10px;
-    width: 100px;
+    width: 144px;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 0.2s ease;
-    margin-top: 12px;
+    margin-top: 32px;
 }
 
 button[type="submit"]:hover {
@@ -192,7 +188,7 @@ button[type="submit"]:hover {
     width: 85%;
     height: 4px;
     background-color: hsl(0, 100%, 36%);
-    
+
     margin: 0 auto;
     border-radius: 20px;
     margin-bottom: 42px;
