@@ -71,6 +71,7 @@ section {
       width: 65%;
       padding: 3rem;
       background-color: #fffaf2;
+    
 
       h1 {
         color: #b30000;
@@ -149,15 +150,15 @@ section {
 
 
 .Linha {
-    width: 45%;
-    height: 2px;
-    background-color: #c52b2b;
-   
-   
+    width: 50%;
+    height: 4px;
+    background-color:hsl(0, 100%, 36%);
     margin: 0 auto;
     border-radius: 20px;
 }
 
 #titulo{
-  color: #a00000;
+  color: hsl(0, 100%, 36%);
+  margin-top: 42px;
+  margin-bottom: 0;
 }

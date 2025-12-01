@@ -70,7 +70,7 @@ if ($result && $result->num_rows > 0) {
 
   <main>
     <h1>Gerenciar Vendas</h1>
-
+     <div class="linha"></div>
     <div class="vendas">
 
       <?php if (empty($pedidos)): ?>

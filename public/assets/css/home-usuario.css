@@ -204,8 +204,8 @@ p.lead {
 }
 
 .btn {
-  background: var(--accent);
-  color: #111;
+  background: hsl(0, 100%, 36%);
+  color: white;
   padding: 10px 16px;
   border-radius: 8px;
   font-weight: 600;
@@ -334,7 +334,7 @@ p.lead {
 
 /* TÍTULO — CORRIGIDO */
 .titulo {
-  color: #ff0000;
+  color: hsl(0, 100%, 36%);
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -352,7 +352,7 @@ p.lead {
 
 .linha {
   width: 80%;
-  height: 2px;
+  height: 4px;
   background-color: #ff0000;
   margin-bottom: 15px;
   border-radius: 20px;

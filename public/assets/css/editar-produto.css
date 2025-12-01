@@ -1,6 +1,6 @@
 :root {
   --bg: #fafafa;
-  --primary: #ffffff;
+  --primary: #d80e0e;
   --primary-dark: #ffffff;
   --text: #222;
   --muted: #666;
@@ -22,9 +22,9 @@ body {
 main {
   max-width: 600px;
   margin: 60px auto;
-  background: #c62d3a;
+  background: hsl(0, 0%, 100%);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   padding: 2.5rem;
 }
 
@@ -46,7 +46,7 @@ h1 {
 .editar-produto label {
   font-weight: 600;
   font-size: 0.95rem;
-  color: rgb(255, 255, 255);
+  color: rgb(185, 13, 13);
 }
 
 .editar-produto input[type="text"],
@@ -60,6 +60,8 @@ h1 {
   font-size: 1rem;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: #ddd;
+  color: black; 
 }
 
 .editar-produto input:focus,

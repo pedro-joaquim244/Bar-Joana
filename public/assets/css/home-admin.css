@@ -25,10 +25,12 @@ body {
 
 h1 {
   font-size: 2rem;
-  color: #c52b2b;
+  color: hsl(0, 100%, 36%);
   margin-bottom: 25px;
   font-weight: 700;
   font-family: 'poppins';
+  margin-top: 42px;
+  margin-bottom: 0px;
 }
 
 /* ------------------------------ */
@@ -139,8 +141,8 @@ h1 {
 
 .Linha {
     width: 100%;
-    height: 2px;
-    background-color: #c52b2b;
+    height: 4px;
+    background-color: hsl(0, 100%, 36%);
     margin-bottom: 15px;
     border-radius: 20px;
 }

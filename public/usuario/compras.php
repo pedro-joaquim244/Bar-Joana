@@ -43,8 +43,11 @@ $pedidos = ($result && $result->num_rows > 0) ? $result->fetch_all(MYSQLI_ASSOC)
   include "../../app/components/header.php";
   ?>
 
+<h1 id="titulo" clas ="titulo">Minhas Compras</h1>
+    <div class="linha"></div>
+
   <div class="container">
-    <h1>Minhas Compras</h1>
+    
 
     <?php if (empty($pedidos)): ?>
       <p>Você ainda não fez nenhuma compra.</p>

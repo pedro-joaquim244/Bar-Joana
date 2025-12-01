@@ -71,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <div class="conteudo-principal">
     <h1 class="titulo-principal">Adicionar Produto</h1>
+    <div class="linha"></div>
 
     <?php if ($erro): ?>
       <p><?= $erro ?></p>

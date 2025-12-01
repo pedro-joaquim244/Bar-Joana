@@ -11,7 +11,7 @@ body {
 main > h1 {
   text-align: center;
   font-size: 2.2rem;
-  margin: 40px 0 20px;
+  margin-bottom:0px ;
   font-weight: 700;
   color: #b30000;
 }
@@ -23,7 +23,8 @@ main > h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 25px;
-  padding: 0 20px;
+  padding:  20px;
+  margin-top: 42px;
 }
 
 /* ======= CARD DE VENDA ======= */
@@ -142,4 +143,13 @@ main > h1 {
   .venda {
     padding: 20px;
   }
+}
+
+
+.linha {
+    width: 65%;
+    height: 4px;
+    background-color:hsl(0, 100%, 36%);
+    margin: 0 auto;
+    border-radius: 20px;
 }

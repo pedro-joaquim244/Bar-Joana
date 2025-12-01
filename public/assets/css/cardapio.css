@@ -150,8 +150,8 @@ h1 {
 
 .Linha {
     width: 60%;
-    height: 2px;
-    background-color: #c52b2b;
+    height: 4px;
+    background-color: hsl(0, 100%, 36%);;
     margin-bottom: 15px;
     border-radius: 20px;
     margin: 0 auto;
