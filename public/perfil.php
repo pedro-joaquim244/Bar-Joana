@@ -90,7 +90,7 @@ $pedidos = ($result->num_rows > 0) ? $result->fetch_all(MYSQLI_ASSOC) : [];
           <?php
           $iniciais = strtoupper(
             substr($usuario['nome'], 0, 1) .
-            substr(strrchr($usuario['nome'], ' '), 1, 1)
+              substr(strrchr($usuario['nome'], ' '), 1, 1)
           );
           echo htmlspecialchars($iniciais);
           ?>
@@ -193,8 +193,9 @@ $pedidos = ($result->num_rows > 0) ? $result->fetch_all(MYSQLI_ASSOC) : [];
               <strong>Método de pagamento:</strong>
               <span><?= $metodo ?></span>
 
-              <a href="detalhes-pedido.php?id=<?= $idPedido; ?>" class="btn-detalhes">Ver Detalhes</a>
+              <a href="./usuario/detalhes-pedido.php?id=<?= $idPedido; ?>" class="btn-detalhes">Ver Detalhes</a>
             </div>
+
 
           <?php endforeach; ?>
 
@@ -208,4 +209,5 @@ $pedidos = ($result->num_rows > 0) ? $result->fetch_all(MYSQLI_ASSOC) : [];
   <?php include "../app/components/footer.php"; ?>
 
 </body>
+
 </html>

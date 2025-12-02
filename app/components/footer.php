@@ -4,7 +4,7 @@
   <div class="footer-overlay"></div>
 
   <!-- Logo à esquerda -->
-  <div class="logo">
+  <div class="logofooter">
     <a class="logoFoto" href="/index.php">
       <img src="/assets/imgs/LogoJoaninha.png" alt="Logo" />
       <div class="logotxt">

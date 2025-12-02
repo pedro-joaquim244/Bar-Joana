@@ -236,7 +236,7 @@
 
 /* CARD */
 .membro {
-    background: #3a3f47; /* cinza igual ao da imagem */
+    background: #000000; /* cinza igual ao da imagem */
     padding: 40px 25px;
     border-radius: 30px;
     text-align: center;
@@ -251,8 +251,8 @@
     height: 160px;
     object-fit: cover;
     border-radius: 50%;
-    background: #ff6a00; /* cor do círculo atrás da foto */
-    padding: 10px;
+    background: #ffffff; /* cor do círculo atrás da foto */
+    padding: 6px;
     transition: 0.3s ease;
 }
 
@@ -286,7 +286,7 @@
 
 .membro:hover {
     transform: translateY(-10px);
-    background: #b01763;          /* cor do card central da imagem */
+    background: hsl(0, 100%, 36%);       /* cor do card central da imagem */
     box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 
