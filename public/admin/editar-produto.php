@@ -37,11 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $uploadDir = __DIR__ . '/../assets/imgs/produtos/';
         $novoArquivo = null;
 
-        // Se veio nova imagem, salva com nome único
         if (!empty($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
             $ext = strtolower(pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION));
             $novoArquivo = uniqid('img_', true) . ($ext ? ".$ext" : '');
             $dest = $uploadDir . $novoArquivo;
+
             if (!move_uploaded_file($_FILES['imagem']['tmp_name'], $dest)) {
                 $erro = 'Não foi possível salvar a nova imagem.';
             }
@@ -55,20 +55,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bind_param("ssdssss", $nome, $descricao, $preco, $status, $categoria, $novoArquivo, $id);
 
             if ($stmt->execute()) {
-                // Se atualizou com nova imagem, apaga a antiga
                 if ($novoArquivo) {
                     $antigo = $uploadDir . basename($produto['imagem']);
-                    if (is_file($antigo))
+                    if (is_file($antigo)) {
                         @unlink($antigo);
+                    }
                 }
+
                 header("Location: index.php");
                 exit;
             } else {
-                // Se o UPDATE falhou mas já subiu arquivo novo, remove o novo
                 if ($novoArquivo) {
-                    $novoPath = $uploadDir . $novoArquivo;
-                    if (is_file($novoPath))
-                        @unlink($novoPath);
+                    @unlink($uploadDir . $novoArquivo);
                 }
                 $erro = 'Erro ao salvar.';
             }
@@ -118,16 +116,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <label>Categoria:</label>
             <select name="categoria" required>
-                <option value="Alimentos" <?= $produto['categoria'] === 'Alimentos' ? 'selected' : '' ?>>Alimentos</option>
-                <option value="Bebidas" <?= $produto['categoria'] === 'Bebidas' ? 'selected' : '' ?>>Bebidas</option>
-                <option value="Sobremesas" <?= $produto['categoria'] === 'Sobremesas' ? 'selected' : '' ?>>Sobremesas
-                </option>
+                <?php
+                $categorias = [
+                    "Petiscos",
+                    "Carne e Porções",
+                    "Comida e Raiz",
+                    "Sanduíches",
+                    "Lanches de boteco",
+                    "Opções diferentes/Gourmet",
+                    "Bebidas Clássicas",
+                    "Drinks Simples",
+                    "Drinks Modernos",
+                    "Destilados",
+                    "Bebidas Raiz",
+                    "Coquetéis Clássicos",
+                    "Bebidas sem Álcool",
+                    "Drinks sem Álcool"
+                ];
+
+                foreach ($categorias as $cat) {
+                    $selected = ($produto['categoria'] === $cat) ? 'selected' : '';
+                    echo "<option value=\"$cat\" $selected>$cat</option>";
+                }
+                ?>
             </select>
 
             <label>Imagem atual:</label>
             <div style="margin-bottom:8px;">
                 <img src="/assets/imgs/produtos/<?= htmlspecialchars($produto['imagem']) ?>"
-                    alt="<?= htmlspecialchars($produto['nome']) ?>" style="max-width:150px;">
+                     alt="<?= htmlspecialchars($produto['nome']) ?>" style="max-width:150px;">
             </div>
 
             <label>Nova imagem (opcional):</label>
@@ -141,3 +158,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </body>
 
 </html>
+                

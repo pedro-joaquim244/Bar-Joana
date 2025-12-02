@@ -1,4 +1,3 @@
-<!-- /public/admin/index.php -->
 <?php
 require_once __DIR__ . '/../../app/config/conexao.php';
 require_once __DIR__ . '/../../app/config/auth.php';
@@ -23,13 +22,25 @@ if (isset($_GET['remover_id']) && ($id = (int) $_GET['remover_id'])) {
 
     $img = $produto['imagem'];
 
-    // REMOVE os itens relacionados ao produto antes de excluir o produto
+    // -------------------------
+    // Remove itens do CARRINHO
+    // -------------------------
+    $delCarrinho = $conn->prepare("DELETE FROM carrinho WHERE produto_id = ?");
+    $delCarrinho->bind_param("i", $id);
+    $delCarrinho->execute();
+    $delCarrinho->close();
+
+    // -------------------------
+    // Remove itens do ITENS_PEDIDO
+    // -------------------------
     $delItens = $conn->prepare("DELETE FROM itens_pedido WHERE produto_id = ?");
     $delItens->bind_param("i", $id);
     $delItens->execute();
     $delItens->close();
 
-    // AGORA pode remover o produto
+    // -------------------------
+    // Agora remove o produto
+    // -------------------------
     $del = $conn->prepare("DELETE FROM produtos WHERE id=?");
     $del->bind_param("i", $id);
 
@@ -39,7 +50,7 @@ if (isset($_GET['remover_id']) && ($id = (int) $_GET['remover_id'])) {
         $base = realpath(__DIR__ . "/../assets/imgs/produtos");
         $file = $base ? $base . DIRECTORY_SEPARATOR . basename($img) : null;
 
-        // Remove imagem física
+        // Remove a imagem física
         if ($file && is_file($file)) {
             @unlink($file);
         }
@@ -52,17 +63,15 @@ if (isset($_GET['remover_id']) && ($id = (int) $_GET['remover_id'])) {
     $del->close();
 }
 
-
 // -------------------------
 // BUSCA PRODUTOS
 // -------------------------
 $sql = "SELECT * FROM produtos";
 $result = $conn->query($sql);
 
-// Monta array de produtos
 $produtos = [];
 if ($result && $result->num_rows > 0) {
-  $produtos = $result->fetch_all(MYSQLI_ASSOC);
+    $produtos = $result->fetch_all(MYSQLI_ASSOC);
 }
 ?>
 <!DOCTYPE html>
@@ -81,6 +90,7 @@ if ($result && $result->num_rows > 0) {
 </head>
 
 <body>
+
   <?php
   $paginaAtual = "Home";
   include '../../app/components/header.php';
@@ -115,6 +125,6 @@ if ($result && $result->num_rows > 0) {
   </div>
 
   <?php include '../../app/components/footer.php'; ?>
-</body>
 
+</body>
 </html>

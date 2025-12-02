@@ -2,38 +2,70 @@
 require_once __DIR__ . '/../../app/config/conexao.php';
 require_once __DIR__ . '/../../app/config/auth.php';
 
-/** Função mínima para adicionar ao carrinho (use sua action se preferir) */
+/* -------------------------------
+   ADICIONAR AO CARRINHO (GET)
+--------------------------------*/
 function addCarrinho(mysqli $conn, int $usuarioId, int $produtoId, int $qtd = 1): void
 {
-  // Ajuste conforme seu schema (ON DUPLICATE KEY é opcional)
   $stmt = $conn->prepare("
-    INSERT INTO carrinho (usuario_id, produto_id, quantidade)
-    VALUES (?, ?, ?)
-    ON DUPLICATE KEY UPDATE quantidade = quantidade + VALUES(quantidade)
+      INSERT INTO carrinho (usuario_id, produto_id, quantidade)
+      VALUES (?, ?, ?)
+      ON DUPLICATE KEY UPDATE quantidade = quantidade + VALUES(quantidade)
   ");
   $stmt->bind_param('iii', $usuarioId, $produtoId, $qtd);
   $stmt->execute();
 }
 
-/* 1) Se veio com intenção via GET (deep-link) e já está logado, efetiva e limpa a URL */
 if (estaLogado() && isset($_GET['add'])) {
-  $produtoId = (int)($_GET['add'] ?? 0);
-  $qtd       = max(1, (int)($_GET['qty'] ?? 1));
+  $produtoId = (int) $_GET['add'];
+  $qtd = max(1, (int) ($_GET['qty'] ?? 1));
   addCarrinho($conn, $_SESSION['usuario_id'], $produtoId, $qtd);
-  header('Location: ' . strtok($_SERVER['REQUEST_URI'], '?')); // limpa os parâmetros
+
+  header("Location: cardapio.php");
   exit;
 }
 
-/* 2) Se for POST “adicionar ao carrinho”, faz via action (como você já tinha) */
+/* -------------------------------
+   ADICIONAR AO CARRINHO (POST)
+--------------------------------*/
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['produto_id'], $_POST['quantidade'])) {
   require_once __DIR__ . '/../../app/actions/adicionar-ao-carrinho.php';
   exit;
 }
 
-/* 3) Carrega produtos */
+/* -------------------------------
+   FILTROS: CATEGORIA + ORDENAR
+--------------------------------*/
+$categoriaFiltro = $_GET['categoria'] ?? '';
+$ordenar = $_GET['ordenar'] ?? '';
+
 $sql = "SELECT * FROM produtos WHERE status = 'ativo'";
+
+if (!empty($categoriaFiltro)) {
+  $sql .= " AND categoria = '" . $conn->real_escape_string($categoriaFiltro) . "'";
+}
+
+/* ----------- ORDENAR ----------- */
+switch ($ordenar) {
+  case 'az':
+    $sql .= " ORDER BY nome ASC";
+    break;
+  case 'preco_menor':
+    $sql .= " ORDER BY preco ASC";
+    break;
+  case 'preco_maior':
+    $sql .= " ORDER BY preco DESC";
+    break;
+  default:
+    $sql .= " ORDER BY id DESC";
+}
+
 $result = $conn->query($sql);
-$produtos = $result && $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
+$produtos = $result ? $result->fetch_all(MYSQLI_ASSOC) : [];
+
+/* Buscar categorias */
+$cats = $conn->query("SELECT DISTINCT categoria FROM produtos WHERE categoria IS NOT NULL ORDER BY categoria ASC");
+$categorias = $cats ? $cats->fetch_all(MYSQLI_ASSOC) : [];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -41,42 +73,70 @@ $produtos = $result && $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="../assets/css/reset.css">
   <link rel="stylesheet" href="../assets/css/cardapio.css">
   <link rel="stylesheet" href="../assets/css/components/header.css">
   <link rel="stylesheet" href="../assets/css/components/footer.css">
   <link rel="icon" type="image/png" href="../assets/imgs/LogoJoaninha.png">
-  <title>Cardapio - Fast Food</title>
+  <title>Cardápio - Fast Food</title>
 </head>
 
 <body>
+
   <?php
   $paginaAtual = "cardapio";
   include '../../app/components/header.php';
   ?>
 
-  <h1>Cardápio</h1>
+  <h1 id="titu">Cardápio</h1>
   <div class="Linha"></div>
+
+  <!-- ===============================
+         FILTRO DE CATEGORIAS + ORDENAR
+       (UM SÓ FORMULÁRIO PARA FICAR LADO A LADO)
+       =============================== -->
+  <form method="GET" id="filtrosForm" class="organizador" style="align-items:center;">
+    <label for="categoriaSelect" style="display:none;">Categoria</label>
+    <select name="categoria" id="categoriaSelect" aria-label="Filtrar por categoria">
+      <option value="">Todas as categorias</option>
+
+      <?php foreach ($categorias as $c): ?>
+        <option value="<?= htmlspecialchars($c['categoria']); ?>"
+          <?= ($categoriaFiltro === $c['categoria']) ? 'selected' : '' ?>>
+          <?= ucfirst(htmlspecialchars($c['categoria'])); ?>
+        </option>
+      <?php endforeach; ?>
+    </select>
+
+    <label for="ordenarSelect" style="display:none;">Ordenar</label>
+    <select name="ordenar" id="ordenarSelect" aria-label="Ordenar produtos">
+      <option value="">Ordenar por...</option>
+      <option value="az" <?= $ordenar === 'az' ? 'selected' : '' ?>>A–Z</option>
+      <option value="preco_menor" <?= $ordenar === 'preco_menor' ? 'selected' : '' ?>>Menor preço</option>
+      <option value="preco_maior" <?= $ordenar === 'preco_maior' ? 'selected' : '' ?>>Maior preço</option>
+    </select>
+  </form>
+
+  <!-- LISTA DE PRODUTOS -->
   <div class="produtos">
     <?php if (empty($produtos)): ?>
-      <p>Não há produtos cadastrados.</p>
+      <p class="sem-produtos">Não há produtos cadastrados.</p>
     <?php else: ?>
       <?php foreach ($produtos as $p): ?>
         <div class="produto">
-          <img width="200" src="/assets/imgs/produtos/<?= $p['imagem']; ?>" alt="<?= $p['nome']; ?>">
-          <h3><?= $p['nome']; ?></h3>
-          <p><?= $p['descricao']; ?></p>
-          <h4>R$<?= $p['preco']; ?></h4>
+          <img src="/assets/imgs/produtos/<?= htmlspecialchars($p['imagem']); ?>" alt="<?= htmlspecialchars($p['nome']); ?>">
+
+          <h3><?= htmlspecialchars($p['nome']); ?></h3>
+          <p class="descricao"><?= htmlspecialchars($p['descricao']); ?></p>
+          <h4>R$ <?= number_format($p['preco'], 2, ',', '.') ?></h4>
 
           <?php if (estaLogado() && ($_SESSION['funcao'] ?? null) === 'cliente'): ?>
-            <!-- Logado: formulário normal -->
-            <form action="" method="POST">
+            <form method="POST" class="form-add">
               <input type="hidden" name="produto_id" value="<?= (int)$p['id']; ?>">
-              <label for="q<?= (int)$p['id']; ?>">Quantidade</label>
-              <input id="q<?= (int)$p['id']; ?>" type="number" name="quantidade" value="1" min="1" required>
+              <input type="number" name="quantidade" value="1" min="1" aria-label="Quantidade">
               <button type="submit">Adicionar</button>
             </form>
+
           <?php else: ?>
             <a class="botao-login-para-adicionar" href="/login.php">Adicionar</a>
           <?php endif; ?>
@@ -84,7 +144,27 @@ $produtos = $result && $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) 
       <?php endforeach; ?>
     <?php endif; ?>
   </div>
+
   <?php include '../../app/components/footer.php'; ?>
+
+  <!-- ===============================
+         JS: submeter o formulário quando qualquer select mudar
+       =============================== -->
+  <script>
+    (function () {
+      const form = document.getElementById('filtrosForm');
+      const categoria = document.getElementById('categoriaSelect');
+      const ordenar = document.getElementById('ordenarSelect');
+
+      // Submete o formulário ao mudar qualquer select
+      categoria.addEventListener('change', () => form.submit());
+      ordenar.addEventListener('change', () => form.submit());
+
+      // Small fix: keep query params when clicking same page links (optional)
+      // If you want to support deep linking, nothing else is needed — selects already populate from PHP.
+    })();
+  </script>
+
 </body>
 
 </html>

@@ -69,7 +69,7 @@ $pedidos = ($result->num_rows > 0) ? $result->fetch_all(MYSQLI_ASSOC) : [];
   <title>Perfil - Fast Food</title>
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="./assets/css/perfil.css">
-  <link rel="stylesheet" href="./assets/css/compras.css"> <!-- ADICIONADO -->
+  <link rel="stylesheet" href="./assets/css/compras.css">
   <link rel="stylesheet" href="./assets/css/components/header.css">
   <link rel="stylesheet" href="./assets/css/components/footer.css">
   <link rel="icon" type="image/png" href="../assets/imgs/LogoJoaninha.png">
@@ -111,12 +111,14 @@ $pedidos = ($result->num_rows > 0) ? $result->fetch_all(MYSQLI_ASSOC) : [];
 
             <div class="campo">
               <label for="nome">Nome</label>
-              <input id="nome" type="text" name="nome" value="<?= htmlspecialchars($usuario['nome']); ?>" required>
+              <input id="nome" type="text" name="nome"
+                value="<?= htmlspecialchars($usuario['nome']); ?>" required>
             </div>
 
             <div class="campo">
               <label for="email">Email</label>
-              <input id="email" type="email" name="email" value="<?= htmlspecialchars($usuario['email']); ?>" required>
+              <input id="email" type="email" name="email"
+                value="<?= htmlspecialchars($usuario['email']); ?>" required>
             </div>
 
           </div>
@@ -125,8 +127,8 @@ $pedidos = ($result->num_rows > 0) ? $result->fetch_all(MYSQLI_ASSOC) : [];
 
             <div class="campo">
               <label for="bairro">Bairro</label>
-              <input id="bairro" type="text" name="bairro" value="<?= htmlspecialchars($usuario['bairro']); ?>"
-                required>
+              <input id="bairro" type="text" name="bairro"
+                value="<?= htmlspecialchars($usuario['bairro']); ?>" required>
             </div>
 
             <div class="campo">
@@ -153,53 +155,57 @@ $pedidos = ($result->num_rows > 0) ? $result->fetch_all(MYSQLI_ASSOC) : [];
   </section>
 
   <!-- ===========================================
-        MINHAS COMPRAS — ABAIXO DO PERFIL
+        MINHAS COMPRAS (MOSTRAR APENAS SE NÃO FOR ADMIN)
   ============================================= -->
-  <h1 id="titulo" class="titulo">Minhas Compras</h1>
-  <div class="linha"></div>
+  <?php if ($usuario['funcao'] !== 'admin'): ?>
 
-  <div class="container">
+    <h1 id="titulo" class="titulo">Minhas Compras</h1>
+    <div class="linha"></div>
 
-    <?php if (empty($pedidos)): ?>
-      <p>Você ainda não fez nenhuma compra.</p>
+    <div class="container">
 
-    <?php else: ?>
-      <div class="lista-pedidos">
+      <?php if (empty($pedidos)): ?>
+        <p>Você ainda não fez nenhuma compra.</p>
 
-        <?php foreach ($pedidos as $pedido): ?>
-          <?php
-          $idPedido = (int) $pedido['id'];
-          $data = date('d/m/Y', strtotime($pedido['criado_em']));
-          $hora = date('H:i', strtotime($pedido['criado_em']));
-          $total = number_format((float) $pedido['total'], 2, ',', '.');
-          $status = $pedido['status'] ?? '—';
-          $metodo = $pedido['metodo_pagamento'] ?? '—';
-          ?>
+      <?php else: ?>
+        <div class="lista-pedidos">
 
-          <div class="pedido">
-            <h3>Pedido Nº <?= $idPedido; ?></h3>
-            <span><?= $data; ?> às <?= $hora; ?></span>
+          <?php foreach ($pedidos as $pedido): ?>
+            <?php
+            $idPedido = (int) $pedido['id'];
+            $data = date('d/m/Y', strtotime($pedido['criado_em']));
+            $hora = date('H:i', strtotime($pedido['criado_em']));
+            $total = number_format((float) $pedido['total'], 2, ',', '.');
+            $status = $pedido['status'] ?? '—';
+            $metodo = $pedido['metodo_pagamento'] ?? '—';
+            ?>
 
-            <strong>Total:</strong>
-            <span>R$ <?= $total; ?></span>
+            <div class="pedido">
+              <h3>Pedido Nº <?= $idPedido; ?></h3>
+              <span><?= $data; ?> às <?= $hora; ?></span>
 
-            <strong>Status:</strong>
-            <span><?= $status ?></span>
+              <strong>Total:</strong>
+              <span>R$ <?= $total; ?></span>
 
-            <strong>Método de pagamento:</strong>
-            <span><?= $metodo ?></span>
+              <strong>Status:</strong>
+              <span><?= $status ?></span>
 
-            <a href="detalhes-pedido.php?id=<?= $idPedido; ?>" class="btn-detalhes">Ver Detalhes</a>
-          </div>
+              <strong>Método de pagamento:</strong>
+              <span><?= $metodo ?></span>
 
-        <?php endforeach; ?>
+              <a href="detalhes-pedido.php?id=<?= $idPedido; ?>" class="btn-detalhes">Ver Detalhes</a>
+            </div>
 
-      </div>
-    <?php endif; ?>
+          <?php endforeach; ?>
 
-  </div>
+        </div>
+      <?php endif; ?>
+
+    </div>
+
+  <?php endif; ?>
 
   <?php include "../app/components/footer.php"; ?>
-</body>
 
+</body>
 </html>

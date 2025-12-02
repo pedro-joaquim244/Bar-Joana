@@ -22,12 +22,14 @@
 
 /* Card do pedido */
 .pedido {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px 25px;
-  border: 1px solid #ddd;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-  transition: 0.2s ease;
+  background: #ffffff;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
+    transition: transform 0.2s 
+ease, box-shadow 0.2s 
+ease;
+    border-left: 6px solid #b30000;
 }
 
 .pedido:hover {
