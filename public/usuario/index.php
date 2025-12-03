@@ -34,32 +34,32 @@ $paginaAtual = "Home";
 
   <div class="carrossel">
 
-  <div class="slide active" data-text="Aqui o churrasco estala e a resenha rola solta!">
-    <img src="../assets/imgs/churrasco.jpg" alt="">
-    <h1></h1>
-  </div>
+    <div class="slide active" data-text="Aqui o churrasco estala e a resenha rola solta!">
+      <img src="../assets/imgs/churrasco.jpg" alt="">
+      <h1></h1>
+    </div>
 
-  <div class="slide" data-text="Boteco é festa, história e mesa cheia">
-    <img src="../assets/imgs/frios.jpg" alt="">
-    <h1></h1>
-  </div>
+    <div class="slide" data-text="Boteco é festa, história e mesa cheia">
+      <img src="../assets/imgs/frios.jpg" alt="">
+      <h1></h1>
+    </div>
 
-  <div class="slide" data-text="O ponto certo pra comer bem e dar boas risadas">
-    <img src="../assets/imgs/batata.jpg" alt="">
-    <h1></h1>
-  </div>
+    <div class="slide" data-text="O ponto certo pra comer bem e dar boas risadas">
+      <img src="../assets/imgs/batata.jpg" alt="">
+      <h1></h1>
+    </div>
 
-  <div class="slide" data-text="Sabor que abraça, cerveja que aproxima">
-    <img src="../assets/imgs/peixe.jpg" alt="">
-    <h1></h1>
-  </div>
+    <div class="slide" data-text="Sabor que abraça, cerveja que aproxima">
+      <img src="../assets/imgs/peixe.jpg" alt="">
+      <h1></h1>
+    </div>
 
-  <div class="slide" data-text="Seu boteco favorito está aqui — chega mais!">
-    <img src="../assets/imgs/calabresa.jpg" alt="">
-    <h1></h1>
-  </div>
+    <div class="slide" data-text="Seu boteco favorito está aqui — chega mais!">
+      <img src="../assets/imgs/calabresa.jpg" alt="">
+      <h1></h1>
+    </div>
 
-</div>
+  </div>
 
 
 
@@ -70,11 +70,11 @@ $paginaAtual = "Home";
       <div class="content">
         <div class="kicker">Nossa História</div>
 
-        <h1 id="nossa-historia">Uma história de tradição e barulho —   Boteco Joana</h1>
+        <h1 id="nossa-historia">Uma história de tradição e barulho — Boteco Joana</h1>
 
         <p class="lead">
           O Boteco Joana nasceu da união de Pedro Joaquim (Joca) e Ana: um lugar pequeno, sincero e cheio de vida.
-          SSS A cozinha sempre foi de coração — temperos caseiros, porções generosas e uma cerveja que nunca decepciona.
+           A cozinha sempre foi de coração — temperos caseiros, porções generosas e uma cerveja que nunca decepciona.
           Aqui, a resenha é garantida e cada cliente acaba virando amigo.
         </p>
 
@@ -132,7 +132,7 @@ $paginaAtual = "Home";
       </div>
 
       <!-- Botões -->
-      
+
 
       <!-- Paginação -->
       <div class="swiper-pagination"></div>
@@ -172,17 +172,50 @@ $paginaAtual = "Home";
   </div>
 
 
-    </div>
+  </div>
 
-    <div class="dots"></div>
-</div>
+  <div class="dots"></div>
+  </div>
 
+  <div class="nossaLogo">
+    <img src="../assets/imgs/LogoJoaninha.png" alt="">
+    <div class="historiaLogo">
 
-<script src="../assets/javascript/comentarios.js"></script>
+      <h1>História da logo</h1>
+      <p>A logo foi criada pensando no nome dos programadores Joca e Ana, que juntos formam “Joana”. Dessa união nasceu a
+        ideia de representar o boteco com uma joaninha — um símbolo simples, simpático e cheio de personalidade. A
+        joaninha traduz a parceria dos dois, a leveza do projeto e a sorte que eles queriam transmitir ao público.
+        Pequena, marcante e divertida, ela virou o rosto perfeito do Boteco Joana, carregando no visual a história dos
+        criadores e o espírito acolhedor do lugar.</p>
+      </div>
+  </div>
+
+  
+  <div class="bebidas">
+    <img src="../assets/imgs/suco.jpg" alt="">
+    <img src="../assets/imgs/sucoDois.jpg" alt="">
+    <img src="../assets/imgs/sucoTres.jpg" alt="">
+    <img src="../assets/imgs/sucoQuatro.jpg" alt="">
+    <img src="../assets/imgs/antarctica.jpg" alt="">
+    <img src="../assets/imgs/budwiser.jpg" alt="">
+    <img src="../assets/imgs/corona.jpg" alt="">
+    <img src="../assets/imgs/stella.jpg" alt="">
+    <img src="../assets/imgs/heineken.jpg" alt="">
+    <img src="../assets/imgs/guinness.jpg" alt="">
+    <img src="../assets/imgs/itaipava.jpg" alt="">
+    <img src="../assets/imgs/coca.jpg" alt="">
+    <img src="../assets/imgs/guarana.jpg" alt="">
+    <img src="../assets/imgs/fanta.jpg" alt="">
+    <img src="../assets/imgs/pepsi.jpg" alt="">
+    <img src="../assets/imgs/sprite.jpg" alt="">
+  </div>  
+
 
 
   <!-- FOOTER -->
   <?php include '../../app/components/footer.php'; ?>
+
+
 
 
 

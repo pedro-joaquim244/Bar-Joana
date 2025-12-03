@@ -54,6 +54,37 @@ header {
     font-weight: 500;
 }
 
+.logoFoto img {
+    width: 55px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+/* ANIMAÇÃO NO HOVER — BALANÇAR INFINITO */
+.logoFoto:hover img {
+    animation: mexer 0.6s ease-in-out infinite;
+}
+
+/* KEYFRAMES DO MOVIMENTO */
+@keyframes mexer {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    25% {
+        transform: rotate(8deg) scale(1.05);
+    }
+    50% {
+        transform: rotate(0deg) scale(1);
+    }
+    75% {
+        transform: rotate(-8deg) scale(1.05);
+    }
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+
 
 /* NAV MENU */
 .menu {

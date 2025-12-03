@@ -4,7 +4,7 @@
   margin: 40px auto;
   padding: 0 20px;
   font-family: Arial, sans-serif;
-      min-height: 52vh;
+  min-height: 52vh;
 }
 
 .container h1 {
@@ -15,26 +15,24 @@
 
 /* Lista de pedidos */
 .lista-pedidos {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
 
 /* Card do pedido */
 .pedido {
   background: #ffffff;
-    padding: 25px;
-    border-radius: 18px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
-    transition: transform 0.2s 
-ease, box-shadow 0.2s 
-ease;
-    border-left: 6px solid #b30000;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-left: 6px solid #b30000;
 }
 
 .pedido:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
 .pedido h3 {
@@ -97,16 +95,17 @@ ease;
   }
 }
 
-.linha{
-width: 40%;
-    height: 4px;
-    background-color: hsl(0, 100%, 36%);
-    margin: 0 auto;
-    border-radius: 20px;
-    margin-bottom: 42px;}
-   
-    #titulo{
-      margin: 0;
-      color:hsl(0, 100%, 36%);
-     margin-top: 40px;
-    }
+.linha {
+  width: 40%;
+  height: 4px;
+  background-color: hsl(0, 100%, 36%);
+  margin: 0 auto;
+  border-radius: 20px;
+  margin-bottom: 42px;
+}
+
+#titulo {
+  margin: 0;
+  color: hsl(0, 100%, 36%);
+  margin-top: 40px;
+}
