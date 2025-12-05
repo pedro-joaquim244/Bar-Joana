@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../../app/config/conexao.php';
 require_once __DIR__ . '/../../app/config/auth.php';
 
+
 /* -------------------------------
    ADICIONAR AO CARRINHO (GET)
 --------------------------------*/
@@ -25,6 +26,7 @@ if (estaLogado() && isset($_GET['add'])) {
   exit;
 }
 
+
 /* -------------------------------
    ADICIONAR AO CARRINHO (POST)
 --------------------------------*/
@@ -32,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['produto_id'], $_POST[
   require_once __DIR__ . '/../../app/actions/adicionar-ao-carrinho.php';
   exit;
 }
+
 
 /* -------------------------------
    FILTROS: CATEGORIA + ORDENAR
@@ -45,7 +48,6 @@ if (!empty($categoriaFiltro)) {
   $sql .= " AND categoria = '" . $conn->real_escape_string($categoriaFiltro) . "'";
 }
 
-/* ----------- ORDENAR ----------- */
 switch ($ordenar) {
   case 'az':
     $sql .= " ORDER BY nome ASC";
@@ -62,6 +64,7 @@ switch ($ordenar) {
 
 $result = $conn->query($sql);
 $produtos = $result ? $result->fetch_all(MYSQLI_ASSOC) : [];
+
 
 /* Buscar categorias */
 $cats = $conn->query("SELECT DISTINCT categoria FROM produtos WHERE categoria IS NOT NULL ORDER BY categoria ASC");
@@ -93,23 +96,19 @@ $categorias = $cats ? $cats->fetch_all(MYSQLI_ASSOC) : [];
 
   <!-- ===============================
          FILTRO DE CATEGORIAS + ORDENAR
-       (UM SÓ FORMULÁRIO PARA FICAR LADO A LADO)
        =============================== -->
   <form method="GET" id="filtrosForm" class="organizador" style="align-items:center;">
-    <label for="categoriaSelect" style="display:none;">Categoria</label>
-    <select name="categoria" id="categoriaSelect" aria-label="Filtrar por categoria">
+    <select name="categoria" id="categoriaSelect">
       <option value="">Todas as categorias</option>
 
       <?php foreach ($categorias as $c): ?>
-        <option value="<?= htmlspecialchars($c['categoria']); ?>"
-          <?= ($categoriaFiltro === $c['categoria']) ? 'selected' : '' ?>>
+        <option value="<?= htmlspecialchars($c['categoria']); ?>" <?= ($categoriaFiltro === $c['categoria']) ? 'selected' : '' ?>>
           <?= ucfirst(htmlspecialchars($c['categoria'])); ?>
         </option>
       <?php endforeach; ?>
     </select>
 
-    <label for="ordenarSelect" style="display:none;">Ordenar</label>
-    <select name="ordenar" id="ordenarSelect" aria-label="Ordenar produtos">
+    <select name="ordenar" id="ordenarSelect">
       <option value="">Ordenar por...</option>
       <option value="az" <?= $ordenar === 'az' ? 'selected' : '' ?>>A–Z</option>
       <option value="preco_menor" <?= $ordenar === 'preco_menor' ? 'selected' : '' ?>>Menor preço</option>
@@ -117,52 +116,90 @@ $categorias = $cats ? $cats->fetch_all(MYSQLI_ASSOC) : [];
     </select>
   </form>
 
-  <!-- LISTA DE PRODUTOS -->
-  <div class="produtos">
-    <?php if (empty($produtos)): ?>
-      <p class="sem-produtos">Não há produtos cadastrados.</p>
-    <?php else: ?>
-      <?php foreach ($produtos as $p): ?>
-        <div class="produto">
-          <img src="/assets/imgs/produtos/<?= htmlspecialchars($p['imagem']); ?>" alt="<?= htmlspecialchars($p['nome']); ?>">
+  <h2>Pesquisar no Cardápio</h2>
+  <input type="text" id="searchInput" placeholder="Digite para pesquisar..." onkeyup="search()">
 
-          <h3><?= htmlspecialchars($p['nome']); ?></h3>
-          <p class="descricao"><?= htmlspecialchars($p['descricao']); ?></p>
-          <h4>R$ <?= number_format($p['preco'], 2, ',', '.') ?></h4>
 
-          <?php if (estaLogado() && ($_SESSION['funcao'] ?? null) === 'cliente'): ?>
-            <form method="POST" class="form-add">
-              <input type="hidden" name="produto_id" value="<?= (int)$p['id']; ?>">
-              <input type="number" name="quantidade" value="1" min="1" aria-label="Quantidade">
-              <button type="submit">Adicionar</button>
-            </form>
 
-          <?php else: ?>
-            <a class="botao-login-para-adicionar" href="/login.php">Adicionar</a>
-          <?php endif; ?>
-        </div>
-      <?php endforeach; ?>
-    <?php endif; ?>
+  <!-- ======================================
+          PRODUTOS AGRUPADOS POR CATEGORIA
+       ====================================== -->
+
+  <?php
+  // Reorganizando produtos por categoria
+  $agrupados = [];
+
+  foreach ($produtos as $p) {
+    $cat = $p['categoria'] ?: 'sem categoria';
+    if (!isset($agrupados[$cat])) {
+      $agrupados[$cat] = [];
+    }
+    $agrupados[$cat][] = $p;
+  }
+  ?>
+
+
+  <div class="produtos-container">
+
+    <?php foreach ($agrupados as $categoria => $lista): ?>
+      <h2 class="titulo-categoria"><?= ucfirst(htmlspecialchars($categoria)); ?></h2>
+      <div class="Linha"></div>
+
+      <div class="produtos">
+        <?php foreach ($lista as $p): ?>
+          <div class="produto">
+
+            <img src="/assets/imgs/produtos/<?= htmlspecialchars($p['imagem']); ?>"
+              alt="<?= htmlspecialchars($p['nome']); ?>">
+
+            <h3><?= htmlspecialchars($p['nome']); ?></h3>
+            <p class="descricao"><?= htmlspecialchars($p['descricao']); ?></p>
+            <h4>R$ <?= number_format($p['preco'], 2, ',', '.'); ?></h4>
+
+            <?php if (estaLogado() && ($_SESSION['funcao'] ?? null) === 'cliente'): ?>
+              <form method="POST" class="form-add">
+                <input type="hidden" name="produto_id" value="<?= (int) $p['id']; ?>">
+                <input type="number" name="quantidade" value="1" min="1">
+                <button type="submit">Adicionar</button>
+              </form>
+
+            <?php else: ?>
+              <a class="botao-login-para-adicionar" href="/login.php">Adicionar</a>
+            <?php endif; ?>
+
+          </div>
+        <?php endforeach; ?>
+      </div>
+
+    <?php endforeach; ?>
+
   </div>
+
 
   <?php include '../../app/components/footer.php'; ?>
 
-  <!-- ===============================
-         JS: submeter o formulário quando qualquer select mudar
-       =============================== -->
+
+  <!-- AUTO-SUBMIT FILTROS -->
   <script>
     (function () {
       const form = document.getElementById('filtrosForm');
-      const categoria = document.getElementById('categoriaSelect');
-      const ordenar = document.getElementById('ordenarSelect');
-
-      // Submete o formulário ao mudar qualquer select
-      categoria.addEventListener('change', () => form.submit());
-      ordenar.addEventListener('change', () => form.submit());
-
-      // Small fix: keep query params when clicking same page links (optional)
-      // If you want to support deep linking, nothing else is needed — selects already populate from PHP.
+      document.getElementById('categoriaSelect').addEventListener('change', () => form.submit());
+      document.getElementById('ordenarSelect').addEventListener('change', () => form.submit());
     })();
+  </script>
+
+  <!-- PESQUISA -->
+  <script>
+    function search() {
+      let input = document.getElementById("searchInput").value.toLowerCase();
+      let cards = document.querySelectorAll(".produto");
+
+      cards.forEach(card => {
+        let texto = card.textContent.toLowerCase();
+
+        card.style.display = texto.includes(input) ? "" : "none";
+      });
+    }
   </script>
 
 </body>

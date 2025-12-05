@@ -68,9 +68,27 @@ if ($result && $result->num_rows > 0) {
 <body>
   <?php include '../../app/components/header.php'; ?>
 
+  <div class="filtro-container">
+    <label for="filtroStatus">Filtrar por status:</label>
+    <select id="filtroStatus">
+      <option value="todos">Todos</option>
+      <option value="pendente">Pendente</option>
+      <option value="andamento">Em andamento</option>
+      <option value="concluido">Concluído</option>
+    </select>
+  </div>
+
+  <div class="lista-cards">
+    <div class="card" data-status="pendente">Pedido #01 - Pendente</div>
+    <div class="card" data-status="andamento">Pedido #02 - Em andamento</div>
+    <div class="card" data-status="concluido">Pedido #03 - Concluído</div>
+    <div class="card" data-status="pendente">Pedido #04 - Pendente</div>
+  </div>
+
+
   <main>
     <h1>Gerenciar Vendas</h1>
-     <div class="linha"></div>
+    <div class="linha"></div>
     <div class="vendas">
 
       <?php if (empty($pedidos)): ?>
@@ -117,6 +135,24 @@ if ($result && $result->num_rows > 0) {
 
     </div>
   </main>
+
+  <script>
+    document.getElementById("filtroStatus").addEventListener("change", function () {
+      const valorFiltro = this.value;
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+        const status = card.getAttribute("data-status");
+
+        if (valorFiltro === "todos" || status === valorFiltro) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  </script>
+
 
 
   <?php include '../../app/components/footer.php'; ?>

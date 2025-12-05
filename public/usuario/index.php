@@ -74,7 +74,7 @@ $paginaAtual = "Home";
 
         <p class="lead">
           O Boteco Joana nasceu da união de Pedro Joaquim (Joca) e Ana: um lugar pequeno, sincero e cheio de vida.
-           A cozinha sempre foi de coração — temperos caseiros, porções generosas e uma cerveja que nunca decepciona.
+          A cozinha sempre foi de coração — temperos caseiros, porções generosas e uma cerveja que nunca decepciona.
           Aqui, a resenha é garantida e cada cliente acaba virando amigo.
         </p>
 
@@ -155,7 +155,7 @@ $paginaAtual = "Home";
       <p>O azul que refresca e acende a diversão.</p>
     </div>
     <div class="drink">
-      <img src="../assets/imgs/caipirinha.jpg" alt="">
+      <img src="../assets/imgs/imagem1.jpg" alt="">
       <h1>Caipirinha de Morango</h1>
       <p>Vermelhinha, gelada e impossível de resistir</p>
     </div>
@@ -182,33 +182,55 @@ $paginaAtual = "Home";
     <div class="historiaLogo">
 
       <h1>História da logo</h1>
-      <p>A logo foi criada pensando no nome dos programadores Joca e Ana, que juntos formam “Joana”. Dessa união nasceu a
+      <p>A logo foi criada pensando no nome dos programadores Joca e Ana, que juntos formam “Joana”. Dessa união nasceu
+        a
         ideia de representar o boteco com uma joaninha — um símbolo simples, simpático e cheio de personalidade. A
         joaninha traduz a parceria dos dois, a leveza do projeto e a sorte que eles queriam transmitir ao público.
         Pequena, marcante e divertida, ela virou o rosto perfeito do Boteco Joana, carregando no visual a história dos
         criadores e o espírito acolhedor do lugar.</p>
-      </div>
+    </div>
   </div>
 
-  
+
   <div class="bebidas">
-    <img src="../assets/imgs/suco.jpg" alt="">
-    <img src="../assets/imgs/sucoDois.jpg" alt="">
-    <img src="../assets/imgs/sucoTres.jpg" alt="">
-    <img src="../assets/imgs/sucoQuatro.jpg" alt="">
-    <img src="../assets/imgs/antarctica.jpg" alt="">
-    <img src="../assets/imgs/budwiser.jpg" alt="">
-    <img src="../assets/imgs/corona.jpg" alt="">
-    <img src="../assets/imgs/stella.jpg" alt="">
-    <img src="../assets/imgs/heineken.jpg" alt="">
-    <img src="../assets/imgs/guinness.jpg" alt="">
-    <img src="../assets/imgs/itaipava.jpg" alt="">
-    <img src="../assets/imgs/coca.jpg" alt="">
-    <img src="../assets/imgs/guarana.jpg" alt="">
-    <img src="../assets/imgs/fanta.jpg" alt="">
-    <img src="../assets/imgs/pepsi.jpg" alt="">
-    <img src="../assets/imgs/sprite.jpg" alt="">
-  </div>  
+    <!-- Primeira linha de imagens -->
+    <img src="../assets/imgs/suco.jpg" alt="Suco">
+    <img src="../assets/imgs/sucoDois.jpg" alt="Suco Dois">
+    <img src="../assets/imgs/sucoTres.jpg" alt="Suco Três">
+    <img src="../assets/imgs/sucoQuatro.jpg" alt="Suco Quatro">
+    <img src="../assets/imgs/antarctica.jpg" alt="Antarctica">
+    <img src="../assets/imgs/budwiser.jpg" alt="Budwiser">
+    <img src="../assets/imgs/corona.jpg" alt="Corona">
+    <img src="../assets/imgs/stella.jpg" alt="Stella">
+    <img src="../assets/imgs/heineken.jpg" alt="Heineken">
+    <img src="../assets/imgs/guinness.jpg" alt="Guinness">
+    <img src="../assets/imgs/itaipava.jpg" alt="Itaipava">
+    <img src="../assets/imgs/coca.jpg" alt="Coca Cola">
+    <img src="../assets/imgs/guarana.jpg" alt="Guaraná">
+    <img src="../assets/imgs/fanta.jpg" alt="Fanta">
+    <img src="../assets/imgs/pepsi.jpg" alt="Pepsi">
+    <img src="../assets/imgs/sprite.jpg" alt="Sprite">
+
+    <!-- Segunda linha de imagens (duplicadas) -->
+    <img src="../assets/imgs/suco.jpg" alt="Suco">
+    <img src="../assets/imgs/sucoDois.jpg" alt="Suco Dois">
+    <img src="../assets/imgs/sucoTres.jpg" alt="Suco Três">
+    <img src="../assets/imgs/sucoQuatro.jpg" alt="Suco Quatro">
+    <img src="../assets/imgs/antarctica.jpg" alt="Antarctica">
+    <img src="../assets/imgs/budwiser.jpg" alt="Budwiser">
+    <img src="../assets/imgs/corona.jpg" alt="Corona">
+    <img src="../assets/imgs/stella.jpg" alt="Stella">
+    <img src="../assets/imgs/heineken.jpg" alt="Heineken">
+    <img src="../assets/imgs/guinness.jpg" alt="Guinness">
+    <img src="../assets/imgs/itaipava.jpg" alt="Itaipava">
+    <img src="../assets/imgs/coca.jpg" alt="Coca Cola">
+    <img src="../assets/imgs/guarana.jpg" alt="Guaraná">
+    <img src="../assets/imgs/fanta.jpg" alt="Fanta">
+    <img src="../assets/imgs/pepsi.jpg" alt="Pepsi">
+    <img src="../assets/imgs/sprite.jpg" alt="Sprite">
+  </div>
+
+
 
 
 

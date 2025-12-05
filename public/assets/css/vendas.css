@@ -153,3 +153,42 @@ main > h1 {
     margin: 0 auto;
     border-radius: 20px;
 }
+
+.filtro-container {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+#filtroStatus {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.lista-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card {
+    padding: 15px;
+    background: #f2f2f2;
+    border-radius: 10px;
+    font-size: 17px;
+}
+
+/* Cores automáticas por status (opcional) */
+.card[data-status="pendente"] {
+    border-left: 6px solid orange;
+}
+
+.card[data-status="andamento"] {
+    border-left: 6px solid blue;
+}
+
+.card[data-status="concluido"] {
+    border-left: 6px solid green;
+}

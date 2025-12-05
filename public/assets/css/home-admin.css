@@ -146,3 +146,79 @@ h1 {
     margin-bottom: 15px;
     border-radius: 20px;
 }
+
+
+.counter-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 40px 0;
+  background: #fafafa;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.counter-box h2 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #a4742e; /* dourado */
+  margin-bottom: 10px;
+}
+
+.counter-box p {
+  font-size: 18px;
+  color: #6d6d6d;
+}
+
+/* ================================
+   ESTILO DO FILTRO E PESQUISA
+=================================== */
+.organizador {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.organizador select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 12px;
+  margin: 20px 0;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #bbb;
+}
+
+/* ================================
+   ESTILO DO MENU
+=================================== */
+#menu {
+  margin-top: 20px;
+}
+
+#menu h3 {
+  margin-top: 25px;
+  font-size: 22px;
+  color: #ba0000;
+}
+
+#menu ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+#menu li {
+  margin: 6px 0;
+  font-size: 17px;
+}
+
+/* ESCONDER CATEGORIAS QUE NÃO TEM RESULTADO */
+.oculto {
+  display: none !important;
+}

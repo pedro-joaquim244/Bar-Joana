@@ -34,7 +34,7 @@
     }
 
     .panel {
-    
+
       border-radius: 12px;
       padding: 28px;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -93,7 +93,7 @@
     }
 
     p.lead {
-     color: black;
+      color: black;
       margin: 0 0 18px 0;
       line-height: 1.6;
       font-size: 15px;
@@ -141,7 +141,7 @@
 
     .chip {
       background: rgba(255, 255, 255, 0.03);
-     color: #cc0000;
+      color: #cc0000;
       padding: 8px 12px;
       border-radius: 999px;
       font-size: 13px;
@@ -224,86 +224,134 @@
 
 
 
-  /* GRID DA EQUIPE */
-.equipes {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    padding: 40px 20px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
+    /* GRID DA EQUIPE */
+    .equipes {
+      gap: 40px;
+      display: flex;
+      padding: 40px 20px;
+      margin: 0 auto;
+    }
 
-/* CARD */
-.membro {
-    background: #490606; /* cinza igual ao da imagem */
-    padding: 40px 25px;
-    border-radius: 30px;
-    text-align: center;
-    font-family: "Poppins", sans-serif;
-    transition: 0.3s ease-in-out;
-    position: relative;
-}
 
-/* FOTO REDONDA */
-.membro img {
-    width: 160px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 50%;
-    background: #ffffff; /* cor do círculo atrás da foto */
-    padding: 6px;
-    transition: 0.3s ease;
-}
+    /* =============================== */
+    /*        SLIDER DA EQUIPE         */
+    /* =============================== */
 
-/* CARGO */
-.membro .cargo {
-    font-size: 16px;
-    margin-top: 15px;
-    color: #fff;
-    opacity: 0.8;
-}
+    .equipes-slider {
+      width: 100%;
+      overflow-x: auto;
+      /* ESCONDE o overflow vertical */
+      overflow-y: hidden;
+      white-space: nowrap;
+      scroll-behavior: smooth;
+      padding: 40px 0;
+    }
 
-/* NOME */
-.membro h1 {
-    font-size: 22px;
-    font-weight: 800;
-    margin: 10px 0;
-    color: #fff;
-}
+    .equipes-slider::-webkit-scrollbar {
+      height: 10px;
+    }
 
-/* DESCRIÇÃO */
-.membro p {
-    font-size: 14px;
-    color: #dcdcdc;
-    margin-top: 10px;
-    line-height: 1.4;
-}
+    .equipes-slider::-webkit-scrollbar-track {
+      background: #eee;
+      border-radius: 20px;
+    }
 
-/* =============================== */
-/*         HOVER COLORIDO          */
-/* =============================== */
+    .equipes-slider::-webkit-scrollbar-thumb {
+      background: #b30000;
+      border-radius: 20px;
+    }
 
-.membro:hover {
-    transform: translateY(-10px);
-    background: hsl(0, 100%, 36%);       /* cor do card central da imagem */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-    cursor: pointer;
-}
+    .equipes-track {
+      display: flex;
+      gap: 40px;
+      padding-left: 20px;
+    }
 
-/* FOTO NO HOVER */
-.membro:hover img {
-    transform: scale(1.05);
-    filter: brightness(0.9);
-}
+    .equipes-track .membro {
+      flex: 0 0 260px;
+      /* largura fixa para o slider */
+    }
 
-/* texto fica branco total */
-.membro:hover h1,
-.membro:hover p,
-.membro:hover .cargo {
-    color: #fff;
-    opacity: 1;
-}
+
+    /* CARD */
+    .membro {
+      background: #490606;
+      /* cinza igual ao da imagem */
+      padding: 40px 25px;
+      border-radius: 30px;
+      text-align: center;
+      font-family: "Poppins", sans-serif;
+      transition: 0.3s ease-in-out;
+      position: relative;
+    }
+
+    /* FOTO REDONDA */
+    .membro img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      background: #ffffff;
+      /* cor do círculo atrás da foto */
+      padding: 6px;
+      transition: 0.3s ease;
+    }
+
+    /* CARGO */
+    .membro .cargo {
+      font-size: 16px;
+      margin-top: 15px;
+      color: #fff;
+      opacity: 0.8;
+    }
+
+    /* NOME */
+    .membro h1 {
+      font-size: 22px;
+      font-weight: 800;
+      margin: 10px 0;
+      color: #fff;
+    }
+
+    /* DESCRIÇÃO */
+    .membro p {
+      font-size: 14px;
+      color: #dcdcdc;
+      width: 360px;
+      margin-top: 10px;
+      line-height: 1.4;
+
+      white-space: normal !important;
+      word-wrap: break-word;
+      overflow-wrap: anywhere;
+
+    }
+
+    /* =============================== */
+    /*         HOVER COLORIDO          */
+    /* =============================== */
+
+    .membro:hover {
+      transform: translateY(-10px);
+      background: hsl(0, 100%, 36%);
+      /* cor do card central da imagem */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+    }
+
+    /* FOTO NO HOVER */
+    .membro:hover img {
+      transform: scale(1.05);
+      filter: brightness(0.9);
+    }
+
+    /* texto fica branco total */
+    .membro:hover h1,
+    .membro:hover p,
+    .membro:hover .cargo {
+      color: #fff;
+      opacity: 1;
+    }
 
 
     .team-container {
@@ -318,6 +366,7 @@
       justify-content: center;
       gap: 60px;
       padding-bottom: 20px;
+
       h2 {
         color: #490c0c;
         font-family: 'poppins';

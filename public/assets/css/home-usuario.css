@@ -5,8 +5,8 @@
   justify-content: center;
   padding-top: 42px;
 
-    cursor: grab;
-  
+  cursor: grab;
+
 }
 
 /* Swiper ajustado */
@@ -32,7 +32,8 @@
 .swiper-slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  /* Altera de 'cover' para 'contain' para não cortar a imagem */
   display: block;
 }
 
@@ -53,24 +54,27 @@
 .swiper-pagination-bullet-active {
   background: #ff0000;
   opacity: 1;
-  
+
 }
 
 /* Botões de navegação */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #ff0000 !important; /* vermelho */
-  text-shadow: 0 0 10px rgba(0,0,0,0.4);
+  color: #ff0000 !important;
+  /* vermelho */
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
 /* Pontinhos do swiper */
 .swiper-pagination-bullet {
-  background: #ff0000 !important; /* vermelho */
+  background: #ff0000 !important;
+  /* vermelho */
   opacity: 0.5;
 }
 
 .swiper-pagination-bullet-active {
-  background: #cc0000 !important;  /* vermelho mais forte */
+  background: #cc0000 !important;
+  /* vermelho mais forte */
   opacity: 1;
 }
 
@@ -80,8 +84,6 @@
   width: 100%;
   height: 772px;
   overflow: hidden;
-
-  ;
 }
 
 .slide {
@@ -94,34 +96,32 @@
 
 .slide.active {
   opacity: 1;
-  
+
   cursor: grabbing;
 
 }
 
-.slide img {
+.carrossel .slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   filter: brightness(0.7);
   transition: filter 0.4s;
 }
 
-.slide:hover img {
+.carrossel .slide:hover img {
   filter: brightness(0.45);
 }
 
-
 .slide h1 {
-    position: absolute;
-    bottom: 30px;
-    left: 40px;
-    font-size: 2.2rem;
-    color:#ff0000;
-    font-weight: 700;
-    text-shadow: 2px 2px 6px black;
-    /* opacity: 0; */
-    transition: opacity 0.4s;
+  position: absolute;
+  bottom: 30px;
+  left: 40px;
+  font-size: 2.2rem;
+  color: #ff0000;
+  font-weight: 700;
+  text-shadow: 2px 2px 6px black;
+  /* opacity: 0; */
+  transition: opacity 0.4s;
 }
 
 .slide:hover h1 {
@@ -193,7 +193,7 @@ h1 {
   margin: 0 0 14px;
   font-size: 24px;
   line-height: 1.12;
-  color:#ff0000;
+  color: #ff0000;
 }
 
 p.lead {
@@ -273,69 +273,90 @@ p.lead {
   }
 }
 
+/* Carrossel de drinks */
+/* Carrossel de drinks */
+/* Carrossel de drinks */
+/* Carrossel de drinks */
 .drinks {
   display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  padding: 40px 0;
-}
-
-.drink {
+  justify-content: flex-start;
+  height: 200px;
+  /* Alinha à esquerda */
+  width: 100%;
+  padding: 20px;
   position: relative;
-  width: 250px;
-  height: 350px;
   overflow: hidden;
-  border-radius: 15px;
-  cursor: pointer;
+  gap: 10px;
+  /* Espaço entre as imagens */
+  box-sizing: border-box;
 }
 
+/* Cada item ocupa 25% da largura do carrossel */
+.drink {
+  flex: 1 0 25%;
+  /* Inicialmente ocupa 25% da largura */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: flex 0.4s ease, opacity 0.3s ease;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+/* A imagem ocupa 100% da largura e mantém a altura fixa */
 .drink img {
   width: 100%;
   height: 100%;
+  /* Mantém a altura da imagem fixa */
   object-fit: cover;
-  transform: scale(1.2);
-  transition: all 0.5s ease;
-  filter: brightness(0.6);
+  /* Preenche a área sem distorcer */
+  transition: transform 0.3s ease;
+  border-radius: 12px;
 }
 
+/* Efeito de expansão lateral ao passar o mouse */
+.drink:hover {
+  flex: 1 0 40%;
+  /* Expande a imagem para 40% da largura */
+  z-index: 10;
+  /* Coloca a imagem em foco acima das outras */
+}
+
+/* Quando a imagem não estiver em hover, ela diminui para 20% */
+.drink:not(:hover) {
+  flex: 1 0 20%;
+  /* Reduz para 20% */
+  opacity: 0.6;
+  /* Torna as imagens não selecionadas mais opacas */
+}
+
+/* Ajustes para os textos */
 .drink h1,
 .drink p {
+  color: #fff;
+  margin: 10px 0;
   position: absolute;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  color: #fff;
   opacity: 0;
-  transition: all 0.5s ease;
-  text-align: center;
-  width: 90%;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-.drink h1 {
-  top: 35%;
-  font-size: 24px;
-}
-
-.drink p {
-  top: 55%;
-  font-size: 15px;
-}
-
-/* HOVER */
-.drink:hover img {
-  transform: scale(1);
-  filter: brightness(0.9);
-}
-
-.drink:hover h1 {
-  opacity: 1;
-  top: 30%;
-}
-
+/* Exibe o texto na imagem ao passar o mouse */
+.drink:hover h1,
 .drink:hover p {
   opacity: 1;
-  top: 52%;
 }
+
+
+
+
+
 
 /* TÍTULO — CORRIGIDO */
 .titulo {
@@ -366,30 +387,51 @@ p.lead {
   margin: 0 auto;
 }
 
-
-
- .bebidas {
-    display: flex;
-    align-items: center;
-    gap: 15px;           /* espaço entre as imagens */
-    overflow-x: auto;    /* rolagem horizontal */
-    padding: 10px;
-    white-space: nowrap;
+.bebidas {
+  display: flex;
+  padding: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  animation: carrossel-bebidas 20s linear infinite;
+  /* Animação para mover o carrossel */
 }
 
-/* IMAGENS PADRONIZADAS */
 .bebidas img {
-    width: 120px;       /* mesmo tamanho */
-    height: 120px;
-    object-fit: cover;  /* corta para caber no quadrado sem distorcer */
-    border-radius: 12px;
-    flex-shrink: 0;     /* impede de encolher */
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-right: 15px;
+  /* Espaçamento entre as imagens */
+  flex-shrink: 0;
+  /* Impede que as imagens encolham */
+}
+
+@keyframes carrossel-bebidas {
+  0% {
+    transform: translateX(0);
+    /* Inicia com as imagens visíveis */
+  }
+
+  100% {
+    transform: translateX(-100%);
+    /* Move as imagens para a esquerda */
+  }
+}
+
+@media (max-width: 750px) {
+  .bebidas img {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 
 /* CONTAINER PRINCIPAL */
 .nossaLogo {
- display: flex;
+  display: flex;
   align-items: center;
   gap: 40px;
   padding: 40px 45px;
@@ -407,7 +449,6 @@ p.lead {
   height: auto;
   border-radius: 20px;
   object-fit: cover;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
   animation: balanca 4.5s ease-in-out infinite;
 }
 
@@ -417,7 +458,7 @@ p.lead {
   font-size: 32px;
   color: #ffeaea;
   font-weight: 900;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.35);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
 }
 
 /* PARÁGRAFO */
@@ -431,21 +472,36 @@ p.lead {
 }
 
 /* AGRUPAMENTO DO TEXTO — UM DEBAIXO DO OUTRO */
-.nossaLogo > img + * {
+.nossaLogo>img+* {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;   /* mantém tudo alinhado à esquerda */
+  align-items: flex-start;
+  /* mantém tudo alinhado à esquerda */
   gap: 10px;
 }
 
 /* ANIMAÇÃO */
 @keyframes balanca {
-  0% { transform: rotate(0deg) translateY(0); }
-  25% { transform: rotate(3deg) translateY(-6px); }
-  50% { transform: rotate(0deg) translateY(0); }
-  75% { transform: rotate(-3deg) translateY(6px); }
-  100% { transform: rotate(0deg) translateY(0); }
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+
+  25% {
+    transform: rotate(3deg) translateY(-6px);
+  }
+
+  50% {
+    transform: rotate(0deg) translateY(0);
+  }
+
+  75% {
+    transform: rotate(-3deg) translateY(6px);
+  }
+
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
 }
 
 /* RESPONSIVO */
@@ -462,10 +518,8 @@ p.lead {
     border-radius: 50%;
   }
 
-  .nossaLogo > img + * {
+  .nossaLogo>img+* {
     align-items: center;
     text-align: center;
   }
 }
-
-

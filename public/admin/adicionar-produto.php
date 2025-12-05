@@ -98,10 +98,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label>Categoria</label>
             <select name="categoria" required>
               <option value="Petiscos">Petiscos</option>
+              <option value="Petiscos">Espetinhos</option>
               <option value="Carne e Porções">Carne e Porções</option>
               <option value="Comida e Raiz">Comida Raiz</option>
               <option value="Sanduíches">Sanduíches e Lanches de boteco</option>
-              <option value="Opções diferentes/Gourmet">Opções diferentes/Gourmet</option>
+              <option value="Opções diferentes/Gourmet">Sobremesas de Boteco</option>
               <option value="Bebidas Clássicas">Bebidas Clássicas</option>
               <option value="Drinks Simples">Drinks Simples</option>
               <option value="Drinks Modernos">Drinks Modernos</option>

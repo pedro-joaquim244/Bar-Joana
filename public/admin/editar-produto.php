@@ -119,11 +119,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php
                 $categorias = [
                     "Petiscos",
+                    "Espetinhos",
                     "Carne e Porções",
                     "Comida e Raiz",
-                    "Sanduíches",
-                    "Lanches de boteco",
-                    "Opções diferentes/Gourmet",
+                    "Lanches e sanduíches de boteco",
+                    "Sobremesas de boteco",
                     "Bebidas Clássicas",
                     "Drinks Simples",
                     "Drinks Modernos",
