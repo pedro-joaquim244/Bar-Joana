@@ -3,11 +3,11 @@
 /* ------------------------------ */
 
 
-    * {
-      box-sizing: border-box;
-      margin: 0px;
-      padding: 0px;
-    }
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
 
 
 body {
@@ -49,7 +49,7 @@ h1 {
   background: white;
   padding: 18px;
   border-radius: 14px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,7 +59,7 @@ h1 {
 
 .produto:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
 /* Imagem */
@@ -106,22 +106,23 @@ h1 {
 
 /* Botão Editar */
 .produto a:first-of-type {
-  background: #007bff;
+  background: black;
   color: white;
 }
 
 .produto a:first-of-type:hover {
-  background: #0062d6;
+  background: #000101b9;
 }
 
 /* Botão Remover */
 .produto a:last-of-type {
   background: #e60000;
   color: white;
+
 }
 
 .produto a:last-of-type:hover {
-  background: #bf0000;
+  background: #5c0606;
 }
 
 /* ------------------------------ */
@@ -137,14 +138,14 @@ h1 {
     text-align: center;
   }
 }
- 
+
 
 .Linha {
-    width: 100%;
-    height: 4px;
-    background-color: hsl(0, 100%, 36%);
-    margin-bottom: 15px;
-    border-radius: 20px;
+  width: 100%;
+  height: 4px;
+  background-color: hsl(0, 100%, 36%);
+  margin-bottom: 15px;
+  border-radius: 20px;
 }
 
 
@@ -161,7 +162,8 @@ h1 {
 .counter-box h2 {
   font-size: 48px;
   font-weight: 700;
-  color: #a4742e; /* dourado */
+  color: #a4742e;
+  /* dourado */
   margin-bottom: 10px;
 }
 
@@ -221,4 +223,90 @@ h1 {
 /* ESCONDER CATEGORIAS QUE NÃO TEM RESULTADO */
 .oculto {
   display: none !important;
+}
+
+
+/* ============================================== */
+/*  ESTILO GERAL DOS FILTROS                      */
+/* ============================================== */
+.organizador {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 25px 0;
+  padding: 15px;
+  background: #ffffff;
+
+  border-radius: 14px;
+
+}
+
+/* ============================================== */
+/*  SELECTS (CATEGORIA + ORDENAR)                 */
+/* ============================================== */
+.organizador select {
+  padding: 10px 14px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  border: 3px solid #df0000;
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.organizador select:hover {
+  border-color: #b71c1c;
+}
+
+.organizador select:focus {
+  outline: none;
+  border-color: #b71c1c;
+  box-shadow: 0 0 4px rgba(179, 25, 25, 0.5);
+}
+
+/* ============================================== */
+/* BARRA DE PESQUISA                              */
+/* ============================================== */
+#searchInput {
+  width: 100%;
+  padding: 12px 15px;
+  margin-top: 15px;
+  font-size: 16px;
+  border: 3px solid #df0000;
+  border-radius: 12px;
+  outline: none;
+  transition: 0.3s;
+  background: #ffffff;
+}
+
+#searchInput:focus {
+  border-color: #df0000;
+  box-shadow: 0 0 5px rgba(179, 25, 25, 0.5);
+}
+
+/* ============================================== */
+/* TÍTULO "Pesquisar no Cardápio"                 */
+/* ============================================== */
+h2 {
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #df0000;
+}
+
+/* ============================================== */
+/* RESPONSIVIDADE                                 */
+/* ============================================== */
+@media (max-width: 700px) {
+  .organizador {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .organizador select {
+    width: 100%;
+  }
 }
