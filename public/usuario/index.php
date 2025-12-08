@@ -1,4 +1,3 @@
-
 <?php
 require_once __DIR__ . '/../../app/config/conexao.php';
 require_once __DIR__ . '/../../app/config/auth.php';
@@ -151,24 +150,32 @@ $paginaAtual = "Home";
 
   <div class="drinks">
     <div class="drink">
-      <img src="../assets/imgs/blue.jpg" alt="">
+      <img src="../assets/imgs/azul.jpg" alt="">
+    <div class="text-drink">
       <h1>Blue Ice</h1>
       <p>O azul que refresca e acende a diversão.</p>
     </div>
+    </div>
     <div class="drink">
       <img src="../assets/imgs/imagem1.jpg" alt="">
+      <div class="text-drink">
       <h1>Caipirinha de Morango</h1>
       <p>Vermelhinha, gelada e impossível de resistir</p>
     </div>
+    </div>
     <div class="drink">
-      <img src="../assets/imgs/margarita.jpg" alt="">
-      <h1>Marguerita</h1>
+      <img src="../assets/imgs/teste-marguerita.webp" alt="">
+      <div class="text-drink">
+      <h1>Marguerita</h1>#
       <p>Doce na medida, cítrica no ponto</p>
+      </div>
     </div>
     <div class="drink">
       <img src="../assets/imgs/pinga.jpg" alt="">
-      <h1>Dose de Pinga</h1>
-      <p>É na dose que a conversa esquenta.</p>
+      <div class="text-drink">
+        <h1>Dose de Pinga</h1>
+        <p>É na dose que a conversa esquenta.</p>
+      </div>
     </div>
   </div>
 

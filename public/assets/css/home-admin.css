@@ -151,18 +151,20 @@ h1 {
 
 .counter-section {
   display: flex;
-  justify-content: space-around;
+  justify-content: center; /* deixa todos mais próximos ao centro */
   align-items: center;
-  padding: 40px 0;
+  gap: 180px; /* diminui o espaço entre os itens (pode reduzir mais se quiser) */
+  padding: 20px 0; /* antes 40px — diminui espaço vertical */
   background: #fafafa;
   text-align: center;
   font-family: "Poppins", sans-serif;
 }
 
+
 .counter-box h2 {
   font-size: 48px;
   font-weight: 700;
-  color: #a4742e;
+  color: #ed0505;
   /* dourado */
   margin-bottom: 10px;
 }
@@ -270,15 +272,18 @@ h1 {
 /* BARRA DE PESQUISA                              */
 /* ============================================== */
 #searchInput {
-  width: 100%;
-  padding: 12px 15px;
-  margin-top: 15px;
-  font-size: 16px;
-  border: 3px solid #df0000;
-  border-radius: 12px;
-  outline: none;
-  transition: 0.3s;
-  background: #ffffff;
+  width: 32%;
+    padding: 12px 15px;
+    margin: 15px auto;
+    font-size: 16px;
+    border: 3px solid #df0000;
+    border-radius: 12px;
+    outline: none;
+    transition: 0.3s;
+    background: #ffffff;
+    align-items: center;
+    align-content: center;
+    display: flex;
 }
 
 #searchInput:focus {
@@ -294,6 +299,7 @@ h2 {
   font-size: 22px;
   font-weight: bold;
   color: #df0000;
+  text-align: center;
 }
 
 /* ============================================== */
@@ -308,5 +314,11 @@ h2 {
 
   .organizador select {
     width: 100%;
+  }
+}
+
+.horario {
+  h2 {
+    color: #ffffff;
   }
 }

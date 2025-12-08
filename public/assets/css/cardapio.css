@@ -80,7 +80,7 @@
 }
 
 .produto button {
-    background: #1d3557;
+    background: #000000;
     color: #fff;
     border: none;
     padding: 10px 16px;
@@ -91,13 +91,13 @@
 }
 
 .produto button:hover {
-    background: #0f2139;
+    background: #000000;
 }
 
 /* Botão de login */
 .botao-login-para-adicionar {
     display: block;
-    background: #457b9d;
+    background: #cf0b0b;
     padding: 10px 16px;
     border-radius: 6px;
     color: white;
@@ -132,9 +132,13 @@
 /* Botão laranja igual ao modelo */
 .produto:hover button,
 .produto:hover .botao-login-para-adicionar {
-    background: hsl(0, 94%, 13%);
+    background: hsl(0, 0%, 0%);
     color: #fff;
     transform: scale(1.05);
+    
+}
+button :hover{
+    color: gray;
 }
 
 /* ==========================
@@ -200,7 +204,7 @@
     padding: 12px 22px;
     font-size: 16px;
     border-radius: 14px;
-    border: 2px solid #e4b3b3;
+    border: 2px solid #e20505;
     background: #ffffff;
     cursor: pointer;
     transition: 0.3s;
@@ -241,4 +245,27 @@ ul {
 
 li {
     padding: 4px 0;
+}
+
+
+.titulo-categoria{
+color: #e20505;
+margin: 0 auto;
+text-align: center;
+
+}
+
+h2{
+    color: #cf0b0b;
+    text-align: center;
+}
+
+.horario{
+h2{
+    color: #ffffff;
+    }       
+}
+
+#BOTAO:hover{
+    background-color: #131313;
 }

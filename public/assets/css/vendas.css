@@ -157,12 +157,21 @@ main > h1 {
 .filtro-container {
     margin-bottom: 20px;
     font-size: 18px;
+    display: flex;
+    justify-content: center ;
+    gap: 12\px;
+    align-items: center;
+    margin-top: 40px;
+    label{
+      color: #d70404;
+    }
+    
 }
 
 #filtroStatus {
     padding: 8px 12px;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #f80000;
     font-size: 16px;
     cursor: pointer;
 }

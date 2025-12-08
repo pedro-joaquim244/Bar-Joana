@@ -183,6 +183,27 @@ $inativos = $conn->query("SELECT COUNT(*) AS total FROM produtos WHERE status='i
     }
   </script>
 
+      <!-- ==========================================
+ <!-- ==========================================
+         CONTADORES REAIS
+    =========================================== -->
+    <section class="counter-section">
+      <div class="counter-box">
+        <h2 class="counter" data-target="<?= $total ?>">0</h2>
+        <p>Total de produtos</p>
+      </div>
+
+      <div class="counter-box">
+        <h2 class="counter" data-target="<?= $ativos ?>">0</h2>
+        <p>Ativos</p>
+      </div>
+
+      <div class="counter-box">
+        <h2 class="counter" data-target="<?= $inativos ?>">0</h2>
+        <p>Inativos</p>
+      </div>
+    </section>
+
   <div class="container">
     <h1>Produtos</h1>
     <div class="Linha"></div>
@@ -211,25 +232,7 @@ $inativos = $conn->query("SELECT COUNT(*) AS total FROM produtos WHERE status='i
       <?php endif; ?>
     </div>
 
-    <!-- ==========================================
-         CONTADORES REAIS
-    =========================================== -->
-    <section class="counter-section">
-      <div class="counter-box">
-        <h2 class="counter" data-target="<?= $total ?>">0</h2>
-        <p>Total de produtos</p>
-      </div>
-
-      <div class="counter-box">
-        <h2 class="counter" data-target="<?= $ativos ?>">0</h2>
-        <p>Ativos</p>
-      </div>
-
-      <div class="counter-box">
-        <h2 class="counter" data-target="<?= $inativos ?>">0</h2>
-        <p>Inativos</p>
-      </div>
-    </section>
+   
 
     <script>
       const counters = document.querySelectorAll('.counter');

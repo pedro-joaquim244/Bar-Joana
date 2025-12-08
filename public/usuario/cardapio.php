@@ -160,7 +160,7 @@ $categorias = $cats ? $cats->fetch_all(MYSQLI_ASSOC) : [];
               <form method="POST" class="form-add">
                 <input type="hidden" name="produto_id" value="<?= (int) $p['id']; ?>">
                 <input type="number" name="quantidade" value="1" min="1">
-                <button type="submit">Adicionar</button>
+                <button id="BOTAO" type="submit">Adicionar</button>
               </form>
 
             <?php else: ?>
