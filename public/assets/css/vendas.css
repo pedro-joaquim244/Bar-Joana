@@ -184,7 +184,7 @@ main > h1 {
 #filtroStatus {
     padding: 8px 12px;
     border-radius: 8px;
-    border: 1px solid #f80000;
+    border: 2px solid #f80000;
     font-size: 16px;
     cursor: pointer;
 }
