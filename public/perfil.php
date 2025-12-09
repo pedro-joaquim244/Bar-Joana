@@ -11,10 +11,10 @@ if (!estaLogado()) {
 
 $id = (int) ($_SESSION['usuario_id'] ?? 0);
 
-/* =======================
+/* ==========================
    BUSCA DADOS DO USUÁRIO
-=========================*/
-$stmt = $conn->prepare("SELECT * FROM usuarios WHERE id=?");
+========================== */
+$stmt = $conn->prepare("SELECT * FROM usuarios WHERE id = ?");
 $stmt->bind_param("i", $id);
 $stmt->execute();
 $usuario = $stmt->get_result()->fetch_assoc();
@@ -24,10 +24,11 @@ if (!$usuario) {
     exit;
 }
 
-/* =======================
-   ATUALIZAÇÃO DE PERFIL
-=========================*/
+/* ==========================
+   ATUALIZA PERFIL
+========================== */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     $nome        = trim($_POST['nome'] ?? '');
     $email       = trim($_POST['email'] ?? '');
     $bairro      = trim($_POST['bairro'] ?? '');
@@ -38,15 +39,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $stmt = $conn->prepare("
             UPDATE usuarios SET 
-                nome=?, 
-                email=?, 
-                bairro=?, 
-                logradouro=?, 
-                complemento=?
-            WHERE id=?
+                nome = ?, 
+                email = ?, 
+                bairro = ?, 
+                logradouro = ?, 
+                complemento = ?
+            WHERE id = ?
         ");
 
-        $stmt->bind_param("ssssssi", 
+        // CORRIGIDO: Você tinha "ssssssi" (7 tipos, 6 variáveis)
+        // O correto é "sssssi" (6 tipos, 6 variáveis)
+        $stmt->bind_param("sssssi",
             $nome, $email, $bairro, $logradouro, $complemento, $id
         );
 
@@ -63,9 +66,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-/* =======================
+/* ==========================
    BUSCA PEDIDOS DO USUÁRIO
-=========================*/
+========================== */
 $sql = "SELECT * FROM pedidos WHERE usuario_id = ? ORDER BY criado_em DESC";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id);
@@ -79,6 +82,7 @@ $pedidos = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Perfil - Fast Food</title>
+
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/perfil.css">
     <link rel="stylesheet" href="./assets/css/compras.css">
@@ -88,6 +92,7 @@ $pedidos = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 </head>
 
 <body>
+
 <?php include "../app/components/header.php"; ?>
 
 <h1 id="titulo" class="titulo">Perfil</h1>
@@ -100,9 +105,9 @@ $pedidos = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         <div class="perfil-sidebar">
             <div class="avatar">
                 <?php
-                $nome = $usuario['nome'] ?? '';
+                $nomeUser = $usuario['nome'] ?? '';
                 $iniciais = strtoupper(
-                    substr($nome, 0, 1) . (strrchr($nome, ' ') ? substr(strrchr($nome, ' '), 1, 1) : '')
+                    substr($nomeUser, 0, 1) . (strrchr($nomeUser, ' ') ? substr(strrchr($nomeUser, ' '), 1, 1) : '')
                 );
                 echo htmlspecialchars($iniciais);
                 ?>
@@ -110,7 +115,7 @@ $pedidos = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
             <h2>Bem-vindo, <?= htmlspecialchars($usuario['nome']); ?>!</h2>
         </div>
 
-        <!-- ========= INFORMAÇÕES PESSOAIS ========= -->
+        <!-- ========= INFO PESSOAIS ========= -->
         <div class="perfil-content">
             <h1>Informações Pessoais</h1>
 
@@ -118,7 +123,6 @@ $pedidos = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
                 <p style="color:red;"><?= $erro ?></p>
             <?php endif; ?>
 
-            <!-- Botão Editar -->
             <button type="button" id="btnEditar" class="btn-editar-perfil">Editar Perfil</button>
 
             <form method="POST" id="formPerfil">
@@ -152,7 +156,6 @@ $pedidos = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
                 </div>
 
                 <div class="grupo">
-
                     <div class="campo">
                         <label for="complemento">Complemento</label>
                         <input type="text" id="complemento" name="complemento"
@@ -160,7 +163,6 @@ $pedidos = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
                     </div>
                 </div>
 
-                <!-- BOTÕES DE SALVAR E CANCELAR -->
                 <div class="area-botoes oculto" id="areaBotoes">
                     <button type="submit" class="btn-salvar-perfil">Salvar</button>
                     <button type="button" class="btn-cancelar-perfil" id="btnCancelar">Cancelar</button>
@@ -168,6 +170,7 @@ $pedidos = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
             </form>
         </div>
+
     </div>
 
     <script>
@@ -191,10 +194,9 @@ $pedidos = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
 </section>
 
-
-<!-- ===========================================
-        MINHAS COMPRAS
-============================================ -->
+<!-- =======================================
+           MINHAS COMPRAS
+========================================== -->
 <?php if ($usuario['funcao'] !== 'admin'): ?>
 
 <h1 id="titulo" class="titulo">Minhas Compras</h1>
@@ -203,13 +205,16 @@ $pedidos = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 <div class="container">
 
 <?php if (empty($pedidos)): ?>
+
     <p>Você ainda não fez nenhuma compra.</p>
 
 <?php else: ?>
+
     <div class="lista-pedidos">
 
         <?php foreach ($pedidos as $p): ?>
             <div class="pedido">
+
                 <h3>Pedido Nº <?= $p['id'] ?></h3>
                 <span><?= date('d/m/Y H:i', strtotime($p['criado_em'])) ?></span>
 
@@ -223,10 +228,12 @@ $pedidos = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
                 <span><?= $p['metodo_pagamento'] ?></span>
 
                 <a href="./usuario/detalhes-pedido.php?id=<?= $p['id']; ?>" class="btn-detalhes">Ver Detalhes</a>
+
             </div>
         <?php endforeach; ?>
 
     </div>
+
 <?php endif; ?>
 
 </div>

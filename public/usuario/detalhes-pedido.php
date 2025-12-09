@@ -80,9 +80,10 @@ $metodoPagamento = $pedido['metodo_pagamento'] ?? '';
   $paginaAtual = 'compras';
   include "../../app/components/header.php";
   ?>
+  <div class="coitainer">
   <div class="card">
 
-    <h2>Pedido Nº <?= (int) $pedido['id'] ?></h2>
+    <h2 id="h2-detalhes">Pedido Nº <?= (int) $pedido['id'] ?></h2>
 
     <p class="endereco">
       Endereço:
@@ -126,11 +127,12 @@ $metodoPagamento = $pedido['metodo_pagamento'] ?? '';
     </div>
 
   </div>
-
+</div>
   <?php
   $paginaAtual = 'compras';
   include "../../app/components/footer.php";
   ?>
+  
 </body>
 
 </html>
