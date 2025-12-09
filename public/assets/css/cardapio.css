@@ -2,12 +2,19 @@
    CARD NORMAL
    ========================== */
 
+    h2,h1,h3{
+        cursor: default;
+    }
+   
+    
+   
 .produtos {
     display: flex;
     gap: 30px;
     padding: 20px 40px;
     overflow-x: auto; /* Adiciona rolagem horizontal se os itens excederem o tamanho da tela */
     white-space: nowrap; /* Evita que os itens quebrem para a linha seguinte */
+     cursor: default;
 }
 
 .produto {
@@ -233,6 +240,7 @@ button :hover{
     margin-bottom: 20px;
     display: flex;
     margin: 40px auto;
+    cursor: text ;
 }
 
 h3 {

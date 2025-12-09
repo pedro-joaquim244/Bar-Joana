@@ -3,6 +3,7 @@ body {
     font-family: "POPPINS";
     display: flex;
     flex-direction: column;
+    cursor: default;
 }
 
 /* Card principal */

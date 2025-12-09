@@ -366,6 +366,7 @@
       justify-content: center;
       gap: 60px;
       padding-bottom: 20px;
+       cursor: default;
 
       h2 {
         color: #490c0c;
