@@ -437,45 +437,71 @@ p.lead {
   margin: 0 auto;
 }
 
+/* wrapper: oculta qualquer overflow e remove scroll */
 .bebidas-wrapper {
   position: relative;
   width: 100%;
-  overflow: hidden;
-  padding: 10px 0;
+  overflow: hidden;    /* ESSENCIAL: esconde a barra de rolagem */
+  padding: 12px 0;
+  box-sizing: border-box;
+  background: transparent;
 }
 
+/* track: linha flexível que será deslocada para a esquerda */
 .bebidas {
-  display: flex;
-  white-space: nowrap;
-  animation: deslizar 18s linear infinite;
-  margin-bottom: 22px;
+display: flex;
+    gap: 16px;
+    margin-bottom: 22px;
+    align-items: center;
+    width: max-content;
+    animation: deslizar 18s linear infinite;
+    will-change: transform;
+    padding: 6px 20px;
+    box-sizing: content-box;
 }
 
+/* cada imagem não encolhe e mantém proporção */
 .bebidas img {
+  flex: 0 0 auto;      /* importantíssimo para evitar wrap/overflow estranho */
   width: 120px;
   height: 120px;
   object-fit: cover;
   border-radius: 12px;
-  margin-right: 15px;
-  flex-shrink: 0;
+  display: block;
 }
 
+/* esconde a scrollbar em navegadores webkit (apenas decorativo) */
+.bebidas-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* animação: move metade do bloco (por isso duplicamos as imagens) */
 @keyframes deslizar {
   0% {
     transform: translateX(0);
   }
-
   100% {
     transform: translateX(-50%);
   }
 }
 
+/* pausa a animação ao passar o mouse (melhor UX) */
+.bebidas-wrapper:hover .bebidas {
+  animation-play-state: paused;
+}
+
+/* torna os ícones um pouco menores em telas pequenas */
 @media (max-width: 750px) {
   .bebidas img {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
+  }
+  .bebidas {
+    gap: 12px;
+    animation-duration: 16s; /* ligeiro ajuste para telas menores */
   }
 }
+
 
 
 /* CONTAINER PRINCIPAL */
@@ -577,4 +603,9 @@ p.lead {
 .text-drink {
   display: flex;
   flex-direction: column;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden !important;
 }

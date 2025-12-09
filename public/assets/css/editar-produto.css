@@ -1,3 +1,10 @@
+
+
+h1,h2,h3,h4,p{
+  cursor: default;
+}
+
+
 :root {
   --bg: #fafafa;
   --primary: #d80e0e;

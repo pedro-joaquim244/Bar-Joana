@@ -1,3 +1,10 @@
+
+
+h2,h1,h3{
+        cursor: default;
+    }
+
+
 /* RESET */
 * {
     margin: 0;
@@ -172,8 +179,9 @@ body {
     margin-top: 32px;
 }
 
-button[type="submit"]:hover {
-    background-color: #871010;
+   
+#botaoSalvar:hover {
+    background-color: #3a0404;
     transform: translateY(-2px);
 }
 

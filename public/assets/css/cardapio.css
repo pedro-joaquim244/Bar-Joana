@@ -162,7 +162,15 @@ button :hover{
     padding: 12px 18px;
     font-size: 16px;
     border-radius: 12px;
-    border: 2px solid #d3d3d3;
+    width: 1046px;
+    padding: 12px;
+    font-size: 18px;
+    border: 2px solid hsl(0, 100%, 36%);
+    border-radius: 10px;
+    /* margin-bottom: 20px; */
+    display: flex;
+    cursor: text;
+    margin: 0 auto;
     background: #ffffff;
     cursor: pointer;
     transition: 0.3s;
@@ -232,15 +240,15 @@ button :hover{
 }
 
 #searchInput {
-  width: 1046px;
+ width: 1046px;
     padding: 12px;
     font-size: 18px;
-    border: 3px solid hsl(0, 100%, 36%);
+    border: 2px solid hsl(0, 100%, 36%);
     border-radius: 10px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     display: flex;
-    margin: 40px auto;
-    cursor: text ;
+    cursor: text;
+    margin: 0 auto;
 }
 
 h3 {
@@ -262,6 +270,7 @@ li {
 color: #e20505;
 margin: 0 auto;
 text-align: center;
+padding-top: 53px;
 
 }
 

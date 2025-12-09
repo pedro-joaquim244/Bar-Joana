@@ -1,3 +1,9 @@
+
+h1,h2,h3,P{
+cursor: default;
+}
+
+
 /* ======= ESTILO GERAL ======= */
 body {
   background: #f5f5f5;
@@ -113,7 +119,7 @@ main > h1 {
 }
 
 .venda input[type="submit"]:hover {
-  background: #ff1a1a;
+  background: #360303;
 }
 
 /* ======= LINK DETALHES ======= */
@@ -190,6 +196,7 @@ main > h1 {
     width: 340px;
     justify-content: center;
     margin: 32px auto;
+    cursor: default;
 }
 .card {
     padding: 15px;

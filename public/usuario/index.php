@@ -220,7 +220,7 @@ $paginaAtual = "Home";
     <img src="../assets/imgs/sprite.jpg" alt="Sprite">
 
     <!-- Segunda linha de imagens (duplicadas) -->
-    <img src="../assets/imgs/suco.jpg" alt="Suco">
+   <img src="../assets/imgs/suco.jpg" alt="Suco">
     <img src="../assets/imgs/sucoDois.jpg" alt="Suco Dois">
     <img src="../assets/imgs/sucoTres.jpg" alt="Suco Três">
     <img src="../assets/imgs/sucoQuatro.jpg" alt="Suco Quatro">
